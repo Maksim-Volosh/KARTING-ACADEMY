@@ -4,9 +4,13 @@ Welcome to the KARTING-ACADEMY project. This project is designed to help manage 
 
 ## Table of Contents
 
+- [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
-- [License](#license)
+
+## Description
+
+Welcome to the KARTING-ACADEMY project. This project is designed to create a platform for managing and organizing karting activities. Whether you're a karting enthusiast, an instructor, or a track owner, KARTING-ACADEMY aims to streamline the management of karting events, memberships, and more.
 
 ## Installation
 
@@ -56,10 +60,6 @@ Follow these steps to set up the project on your local machine:
 ## Usage
 
 Once the server is running, open your web browser and navigate to `http://127.0.0.1:8000` to view the application.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ---
 
