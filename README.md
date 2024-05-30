@@ -7,6 +7,7 @@ Welcome to the KARTING-ACADEMY project. This project is designed to help manage 
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
+- [For Front-end Developers](#for-front-end-developers)
 
 ## Description
 
@@ -60,6 +61,17 @@ Follow these steps to set up the project on your local machine:
 ## Usage
 
 Once the server is running, open your web browser and navigate to `http://127.0.0.1:8000` to view the application.
+
+## For Front-End Developers
+
+If you are working on the front-end part of the project, here's where you'll find the relevant files:
+
+- **HTML Templates:** Front-end HTML files are located in the `templates` directory.
+- **JavaScript Files:** Front-end JavaScript files can be found in the `static/js` directory.
+- **CSS Stylesheets:** Front-end CSS files are located in the `static/css` directory.
+- **Images and Assets:** Images and other static assets are stored in the `static/img` directory.
+
+Make sure to coordinate with the back-end developers regarding any dynamic content or data integration needed in your HTML templates.
 
 ---
 
