@@ -53,7 +53,16 @@ Follow these steps to set up the project on your local machine:
    python manage.py migrate
    ```
 
-7. **Run the server:**
+7. **Create config file - `config.py` in main directory**
+   
+   And in this file add:
+   ```python
+   SECRET_KEY = "ANY SECRET KEY"
+   ```
+   
+   * Your secret key can be any characters, for example - 'slgsldfkwhiutyfwbx3-=^%#*c3487'
+
+9. **Run the server:**
    ```sh
    python manage.py runserver
    ```
