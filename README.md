@@ -46,14 +46,8 @@ Follow these steps to set up the project on your local machine:
    ```sh
    pip install -r requirements.txt
    ```
-
-6. **Make migrations and migrate the database:**
-   ```sh
-   python manage.py makemigrations
-   python manage.py migrate
-   ```
-
-7. **Create config file - `config.py` in main directory**
+   
+6. **Create config file - `config.py` in main directory**
    
    And in this file add:
    ```python
@@ -62,7 +56,14 @@ Follow these steps to set up the project on your local machine:
    
    * Your secret key can be any characters, for example - 'slgsldfkwhiutyfwbx3-=^%#*c3487'
 
-9. **Run the server:**
+     
+7. **Make migrations and migrate the database:**
+   ```sh
+   python manage.py makemigrations
+   python manage.py migrate
+   ```
+
+8. **Run the server:**
    ```sh
    python manage.py runserver
    ```
