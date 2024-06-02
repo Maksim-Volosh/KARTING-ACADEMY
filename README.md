@@ -72,6 +72,22 @@ Follow these steps to set up the project on your local machine:
 
 Once the server is running, open your web browser and navigate to `http://127.0.0.1:8000` to view the application.
 
+How to add events or players?? 
+1. **Create an superuser 'Admin user'**
+   ```sh
+   python manage.py createsuperuser
+   ```
+
+2. **Run the server:**
+   ```sh
+   python manage.py runserver
+   ```
+
+3. **Go to `http://127.0.0.1:8000/admin`**
+   * And login using a previously registered user
+     
+   Congratulations!! You have successfully getting permission to access the admin panel
+
 ## For Front-End Developers
 
 If you are working on the front-end part of the project, here's where you'll find the relevant files:
