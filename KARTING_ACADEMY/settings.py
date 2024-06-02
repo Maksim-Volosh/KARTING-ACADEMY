@@ -1,13 +1,20 @@
 import os
 from pathlib import Path
-BASE_DIR = Path(__file__).resolve().parent.parent
 from config import SECRET_KEY
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = SECRET_KEY
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]
 
 
 
@@ -21,6 +28,9 @@ INSTALLED_APPS = [
     
     # Our apps
     'main.apps.MainConfig',
+    
+    # Utils
+    "debug_toolbar",
 ]
 
 MIDDLEWARE = [
@@ -30,7 +40,8 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',   
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'KARTING_ACADEMY.urls'

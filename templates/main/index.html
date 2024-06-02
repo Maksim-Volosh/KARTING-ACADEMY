@@ -1,109 +1,118 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Karting</title>
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <!-- Tailwind CSS -->
-  <link href="{% static "css/main/output.css" %}" rel="stylesheet">
-  <link href="{% static "css/main/main.css" %}" rel="stylesheet">
-  <link href="{% static "css/main/styles.css" %}" rel="stylesheet">
-  <link href="{% static 'img/main/simple logo.jpg' %}" rel="icon" type="image/x-icon">
-</head>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karting</title>
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous">
+    <!-- Tailwind CSS -->
+    <link href="{% static "css/main/output.css" %}" rel="stylesheet">
+    <link href="{% static "css/main/main.css" %}" rel="stylesheet">
+    <link href="{% static "css/main/styles.css" %}" rel="stylesheet">
+    <link href="{% static 'img/main/simple logo.jpg' %}" rel="icon"
+      type="image/x-icon">
+  </head>
 
-<body>
-  <main class="main-page m-auto custom-gradient">
-    <div class="wrapper m-auto">
-      <div class="start">
-      </div>
-      <div class="p-[5.6rem] custom-gradient">
-        <div class="rating-table d-flex justify-content-evenly align-items-center">
-          <div class="w-[45%] d-flex flex-column align-items-center">
-            <table class="bg-inherit table-auto w-full">
-              <thead class="thead-light h-[4.2rem]">
-              <tr>
-                <th scope="col m-auto" class="w-[15%]"></th>
-                <th scope="col">NAME</th>
-                <th scope="col">COUNTRY</th>
-                <th scope="col">TEAM</th>
-                <th scope="col">SCORE</th>
-              </tr>
-              </thead>
-              <tbody>
+  <body>
+    <main class="main-page m-auto custom-gradient">
+      <div class="wrapper m-auto">
+        <div class="start">
+        </div>
+        <div class="p-[5.6rem] custom-gradient">
+          <div
+            class="rating-table d-flex justify-content-evenly align-items-center">
+            <div class="w-[45%] d-flex flex-column align-items-center">
+              <table class="bg-inherit table-auto w-full">
+                <thead class="thead-light h-[4.2rem]">
+                  <tr>
+                    <th scope="col m-auto" class="w-[15%]"></th>
+                    <th scope="col">NAME</th>
+                    <th scope="col">NATIONALY</th>
+                    <th scope="col">LAP TIME</th>
+                    <th scope="col">SCORE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- If we don't have an event -->
+                  {% if not event or not statistic %}
+                    <tr class="h-[9rem]">
+                      <th scope="row" class="w-[126px]">1</th>
+                      <td class="w-[180px]"> </td>
+                      <td class="w-[180px]"> </td>
+                      <td class="w-[180px]"> </td>
+                      <td class="w-[180px]"> </td>
+                    </tr>
+                    <tr class="h-[9rem]">
+                      <th scope="row" class="w-[126px]">2</th>
+                      <td class="w-[180px]"> </td>
+                      <td class="w-[180px]"> </td>
+                      <td class="w-[180px]"> </td>
+                      <td class="w-[180px]"> </td>
+                    </tr>
+                    <tr class="h-[9rem]">
+                      <th scope="row" class="w-[126px]">3</th>
+                      <td class="w-[180px]"> </td>
+                      <td class="w-[180px]"> </td>
+                      <td class="w-[180px]"> </td>
+                      <td class="w-[180px]"> </td>
+                    </tr>
+                  {% else %}
+                  <!-- If we have an event - we init an statistic -->
+                  {% for stat in statistic %}
+                  <tr class="h-[9rem]">
+                    <th scope="row" class="w-[126px]">{{ forloop.counter }}</th>
+                    <td class="w-[180px]"> {{ stat.player__name }} </td>
+                    <td class="w-[180px]"> {{ stat.player__nationality }} </td>
+                    <td class="w-[180px]"> {{ stat.lap_time }}s </td>
+                    <td class="w-[180px]"> {{ stat.points }} </td>
+                  </tr>
+                  {% endfor %}
+                  <p> Current event - "{{ event.title }}" </p>
+                  <br>
+                  {% endif %}
+                </tbody>
+              </table>
+              <button class="w-[302px] btn btn-primary shadow"
+                onClick={explore}>Explore</button>
+            </div>
+            <div class="w-0.5 h-[43rem] bg-[#FCD700]"> </div>
 
-              <tr class="h-[9rem]">
-                <th scope="row" class="w-[126px]"></th>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-              </tr>
-              <tr class="h-[9rem]">
-                <th scope="row" class="w-[126px]"></th>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-              </tr>
-              <tr class="h-[9rem]">
-                <th scope="row" class="w-[126px]"></th>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-              </tr>
-              <tr class="h-[9rem]">
-                <th scope="row" class="w-[126px]"></th>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-              </tr>
-              <tr class="h-[9rem]">
-                <th scope="row" class="w-[126px]"></th>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-              </tr>
+            <div class="contact-us">
+              <div class="container">
+                <div class=" text-white">
+                  Contact Us
+                </div>
 
-              </tbody>
-            </table>
-            <button class="w-[302px] btn btn-primary shadow" onClick={explore}>Explore</button>
-          </div>
-          <div class="w-0.5 h-[43rem] bg-[#FCD700]"> </div>
-
-
-          <div class="contact-us">
-            <div class="container">
-              <div class=" text-white">
-                Contact Us
-              </div>
-
-              <div class="card">
-                <div class="card-body">
-                  <form>
-                    <div class="form-group">
-                      <label for="email">Your email</label>
-                      <input type="email" class="form-control" id="email" placeholder="Enter your email"/>
-                    </div>
-                    <div class="form-group">
-                      <label for="message">Your text</label>
-                      <textarea class="form-control" id="message" rows="3" placeholder="Enter your message"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" onClick={sendMessage}>Send message</button>
-                  </form>
+                <div class="card">
+                  <div class="card-body">
+                    <form>
+                      <div class="form-group">
+                        <label for="email">Your email</label>
+                        <input type="email" class="form-control" id="email"
+                          placeholder="Enter your email" />
+                      </div>
+                      <div class="form-group">
+                        <label for="message">Your text</label>
+                        <textarea class="form-control" id="message" rows="3"
+                          placeholder="Enter your message"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary"
+                        onClick={sendMessage}>Send message</button>
+                    </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <h2> Partners </h2>
         </div>
-        <h2> Partners </h2>
       </div>
-    </div>
-  </main>
-</body>
+    </main>
+  </body>
 </html>
