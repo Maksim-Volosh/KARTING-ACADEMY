@@ -14,110 +14,115 @@
   <link href="{% static 'img/main/simple logo.jpg' %}" rel="icon" type="image/x-icon">
 </head>
 <body class="black">
-<main class="main-page m-auto background-black">
-  <div class="wrapper m-auto">
-    <div class="start">
-    </div>
-    <div class="info custom-gradient pl-20 pr-24 pt-16">
-      <div class="rating">
-        <h2 class="head head_left-line text-6xl mb-[2rem]">Rating</h2>
+<main class="main-page m-auto">
+  <div class="info custom-gradient">
+    <div class="m-auto">
+      <div class="start">
+      </div>
+      <div class="info custom-gradient pl-20 pr-24 pt-16">
+        <div class="rating">
+          <div class="wrapper">
+            <h2 class="head head_left-line text-6xl mb-[2rem]">Rating</h2>
 
-        <div class="rating__content flex justify-between">
+            <div class="rating__content flex justify-between">
 
-          <div class="w-[45%] font-formula1 grid flex-col items-center">
-            <table class="bg-inherit table-auto w-full">
-              <thead class="thead-light h-[4.2rem]">
-              <tr>
-                <th scope="col m-auto" class="w-[15%]"></th>
-                <th scope="col" class="text-center">NAME</th>
-                <th scope="col" class="text-center">COUNTRY</th>
-                <th scope="col" class="text-center">TEAM</th>
-                <th scope="col" class="text-center">SCORE</th>
-              </tr>
-              </thead>
-              <tbody>
-              <!-- If we don't have an event -->
-              {% if not event or not statistic %}
-              <tr class="h-[9rem]">
-                <th scope="row" class="w-[126px]"></th>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-              </tr>
-              <tr class="h-[9rem]">
-                <th scope="row" class="w-[126px]"></th>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-              </tr>
-              <tr class="h-[9rem]">
-                <th scope="row" class="w-[126px]"></th>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-                <td class="w-[180px]"></td>
-              </tr>
-              {% else %}
-              <!-- If we have an event - we init an statistic -->
-              {% for stat in statistic %}
-              <tr class="h-[9rem]">
-                <th scope="row" class="w-[126px]">{{ forloop.counter }}</th>
-                <td class="w-[180px]"> {{ stat.player__name }} </td>
-                <td class="w-[180px]"> {{ stat.player__nationality }} </td>
-                <td class="w-[180px]"> {{ stat.lap_time }}s </td>
-                <td class="w-[180px]"> {{ stat.points }} </td>
-              </tr>
-              {% endfor %}
-              {% endif %}
-              </tbody>
-            </table>
-            <button class="uppercase button explore-btn justify-self-center" onClick={explore}>Explore</button>
-          </div>
-
-          <div class="lane w-1 h-[693px] bg-[#FCD700] mt-[4.2rem]"></div>
-
-          <div class="contact-us">
-            <div class="contact-us__content">
-              <h2 class="head head2 head_left-line text-3xl mb-6">
-                Contact Us
-              </h2>
-
-              <!-- Notification about successful sent email -->
-              {% if messages %}
-              <div class="alert alert-success">
-                {% for message in messages %}
-                <p>{{ message }}</p>
-                {% endfor %}
+              <div class="w-[45%] font-formula1 grid flex-col items-center">
+                <table class="bg-inherit table-auto w-full">
+                  <thead class="thead-light h-[4.2rem]">
+                  <tr>
+                    <th scope="col m-auto" class="w-[15%]"></th>
+                    <th scope="col" class="text-center">NAME</th>
+                    <th scope="col" class="text-center">COUNTRY</th>
+                    <th scope="col" class="text-center">TEAM</th>
+                    <th scope="col" class="text-center">SCORE</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <!-- If we don't have an event -->
+                  {% if not event or not statistic %}
+                  <tr class="h-[9rem]">
+                    <th scope="row" class="w-[126px]"></th>
+                    <td class="w-[180px]"></td>
+                    <td class="w-[180px]"></td>
+                    <td class="w-[180px]"></td>
+                    <td class="w-[180px]"></td>
+                  </tr>
+                  <tr class="h-[9rem]">
+                    <th scope="row" class="w-[126px]"></th>
+                    <td class="w-[180px]"></td>
+                    <td class="w-[180px]"></td>
+                    <td class="w-[180px]"></td>
+                    <td class="w-[180px]"></td>
+                  </tr>
+                  <tr class="h-[9rem]">
+                    <th scope="row" class="w-[126px]"></th>
+                    <td class="w-[180px]"></td>
+                    <td class="w-[180px]"></td>
+                    <td class="w-[180px]"></td>
+                    <td class="w-[180px]"></td>
+                  </tr>
+                  {% else %}
+                  <!-- If we have an event - we init an statistic -->
+                  {% for stat in statistic %}
+                  <tr class="h-[9rem]">
+                    <th scope="row" class="w-[126px]">{{ forloop.counter }}</th>
+                    <td class="w-[180px]"> {{ stat.player__name }}</td>
+                    <td class="w-[180px]"> {{ stat.player__nationality }}</td>
+                    <td class="w-[180px]"> {{ stat.lap_time }}s</td>
+                    <td class="w-[180px]"> {{ stat.points }}</td>
+                  </tr>
+                  {% endfor %}
+                  {% endif %}
+                  </tbody>
+                </table>
+                <button class="uppercase button explore-btn justify-self-center" onClick={explore}>Explore</button>
               </div>
-              {% endif %}
 
-              <div class="card-body font-formula1 bg-[#0D3242] p-4 rounded-3xl">
-                <div>
-                  <form class="flex flex-col gap-2" method="post" action="{% url 'send_email' %}">
-                    {% csrf_token %}
-                    <div class="form-group">
-                      <label for="email">Your email</label>
-                      <input type="email" class="form__control bg-inherit" id="email" name="email" placeholder="Enter your email" required/>
+              <div class="lane w-1 h-[693px] bg-[#FCD700] mt-[4.2rem]"></div>
+
+              <div class="contact-us">
+                <div class="contact-us__content">
+                  <h2 class="head head2 head_left-line text-3xl mb-6">
+                    Contact Us
+                  </h2>
+
+                  <!-- Notification about successful sent email -->
+                  {% if messages %}
+                  <div class="alert alert-success">
+                    {% for message in messages %}
+                    <p>{{ message }}</p>
+                    {% endfor %}
+                  </div>
+                  {% endif %}
+
+                  <div class="card-body font-formula1 bg-[#0D3242] p-4 rounded-3xl max-w-sm">
+                    <div>
+                      <form class="flex flex-col gap-2" method="post" action="{% url 'send_email' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                          <label for="email">Your email</label>
+                          <input type="email" class="form__control bg-inherit" id="email" name="email"
+                                 placeholder="Enter your email" required/>
+                        </div>
+                        <div class="form-group">
+                          <label for="message">Your text</label>
+                          <textarea class="form__control h-[200px] bg-inherit text-white" id="message" name="message"
+                                    rows="3" placeholder="Enter your message" required></textarea>
+                        </div>
+                        <button type="submit" class="button rounded-lg mt-[12px] text-xl" onClick={sendMessage}>Send
+                          message
+                        </button>
+                      </form>
                     </div>
-                    <div class="form-group">
-                      <label for="message">Your text</label>
-                      <textarea class="form__control h-[200px] bg-inherit text-white" id="message" name="message" rows="3" placeholder="Enter your message" required></textarea>
-                    </div>
-                    <button type="submit" class="button rounded-lg mt-[12px] text-xl" onClick={sendMessage}>Send
-                      message
-                    </button>
-                  </form>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
+          <h2 class="text-center my-16 head head_bottom-line text-4xl"> Partners </h2>
         </div>
       </div>
-      <h2 class="text-center my-16 head head_bottom-line text-4xl"> Partners </h2>
     </div>
-  </div>
 </main>
 
 </body>
