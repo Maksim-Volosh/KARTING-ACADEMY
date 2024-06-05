@@ -99,11 +99,11 @@
                     {% csrf_token %}
                     <div class="form-group">
                       <label for="email">Your email</label>
-                      <input type="email" class="form__control bg-inherit" id="email" placeholder="Enter your email"/>
+                      <input type="email" class="form__control bg-inherit" id="email" name="email" placeholder="Enter your email" required/>
                     </div>
                     <div class="form-group">
                       <label for="message">Your text</label>
-                      <textarea class="form__control bg-inherit text-white" id="message" rows="3" placeholder="Enter your message"></textarea>
+                      <textarea class="form__control bg-inherit text-white" id="message" name="message" rows="3" placeholder="Enter your message" required></textarea>
                     </div>
                     <button type="submit" class="button rounded-lg mt-[12px] text-xl" onClick={sendMessage}>Send
                       message
