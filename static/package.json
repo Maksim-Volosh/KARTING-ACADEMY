@@ -1,0 +1,19 @@
+{
+  "name": "karting",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx tailwindcss -i ./css/main/styles.css -o ./css/main/output.css --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "bootstrap": "^5.3.3",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3"
+  }
+}
