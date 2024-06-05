@@ -75,3 +75,11 @@ class Statistics(models.Model):
 
     def __str__(self):
         return f"{self.player} in {self.event}"
+
+
+class Partner(models.Model):
+    name = models.CharField(max_length=55, verbose_name="Name")
+    logo = models.ImageField(upload_to="images/", verbose_name="Logo")
+
+    def __str__(self):
+        return self.name

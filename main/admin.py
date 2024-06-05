@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Player, Statistics
+from .models import Event, Partner, Player, Statistics
 
 class StatisticsInline(admin.TabularInline):
     model = Statistics
@@ -24,3 +24,4 @@ class PlayerAdmin(admin.ModelAdmin):
 admin.site.register(Event, EventAdmin)
 admin.site.register(Player, PlayerAdmin)
 admin.site.register(Statistics)
+admin.site.register(Partner)
