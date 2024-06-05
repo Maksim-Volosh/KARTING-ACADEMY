@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from config import SECRET_KEY
+from config import PASS, SECRET_KEY
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -16,6 +16,13 @@ INTERNAL_IPS = [
     # ...
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'maksgoza9@gmail.com'
+EMAIL_HOST_PASSWORD = PASS
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 INSTALLED_APPS = [
@@ -30,12 +37,13 @@ INSTALLED_APPS = [
     'main.apps.MainConfig',
     
     # Utils
-    "debug_toolbar",
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
