@@ -64,10 +64,10 @@
               {% for stat in statistic %}
               <tr class="h-[9rem]">
                 <th scope="row" class="w-[126px]">{{ forloop.counter }}</th>
-                <td class="w-[180px]"> {{ stat.player__name }} </td>
-                <td class="w-[180px]"> {{ stat.player__nationality }} </td>
-                <td class="w-[180px]"> {{ stat.lap_time }}s </td>
-                <td class="w-[180px]"> {{ stat.points }} </td>
+                <td class="w-[180px] text-center"> {{ stat.player__name }} </td>
+                <td class="w-[180px] text-center"> {{ stat.player__nationality }} </td>
+                <td class="w-[180px] text-center"> {{ stat.lap_time }}s </td>
+                <td class="w-[180px] text-center"> {{ stat.points }} </td>
               </tr>
               {% endfor %}
               {% endif %}
