@@ -77,6 +77,10 @@ h1 {
   color: var(--green);
 }
 
+.yellow {
+  color: var(--yellow:);
+}
+
 .button {
   font-family: 'Pro Racing Slant', sans-serif;
   z-index: 3;

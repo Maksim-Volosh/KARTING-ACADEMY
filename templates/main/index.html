@@ -20,17 +20,19 @@
     </div>
     <div class="info custom-gradient pl-20 pr-24 pt-16">
       <div class="rating">
-        <h2 class="head head_left-line text-6xl mb-[1rem]">Rating</h2>
-        <div class="rating__content flex justify-between h-[605px]">
-          <div class="w-[45%] flex flex-col items-center">
+        <h2 class="head head_left-line text-6xl mb-[2rem]">Rating</h2>
+
+        <div class="rating__content flex justify-between">
+
+          <div class="w-[45%] font-formula1 grid flex-col items-center">
             <table class="bg-inherit table-auto w-full">
               <thead class="thead-light h-[4.2rem]">
               <tr>
                 <th scope="col m-auto" class="w-[15%]"></th>
-                <th scope="col">NAME</th>
-                <th scope="col">COUNTRY</th>
-                <th scope="col">TEAM</th>
-                <th scope="col">SCORE</th>
+                <th scope="col" class="text-center">NAME</th>
+                <th scope="col" class="text-center">COUNTRY</th>
+                <th scope="col" class="text-center">TEAM</th>
+                <th scope="col" class="text-center">SCORE</th>
               </tr>
               </thead>
               <tbody>
@@ -73,10 +75,10 @@
               {% endif %}
               </tbody>
             </table>
-            <button class="mt-[37px] uppercase button explore-btn" onClick={explore}>Explore</button>
+            <button class="uppercase button explore-btn justify-self-center" onClick={explore}>Explore</button>
           </div>
 
-          <div class="lane w-1 h-[75%] bg-[#FCD700] mt-[4.2rem]"></div>
+          <div class="lane w-1 h-[693px] bg-[#FCD700] mt-[4.2rem]"></div>
 
           <div class="contact-us">
             <div class="contact-us__content">
@@ -103,7 +105,7 @@
                     </div>
                     <div class="form-group">
                       <label for="message">Your text</label>
-                      <textarea class="form__control bg-inherit text-white" id="message" name="message" rows="3" placeholder="Enter your message" required></textarea>
+                      <textarea class="form__control h-[200px] bg-inherit text-white" id="message" name="message" rows="3" placeholder="Enter your message" required></textarea>
                     </div>
                     <button type="submit" class="button rounded-lg mt-[12px] text-xl" onClick={sendMessage}>Send
                       message

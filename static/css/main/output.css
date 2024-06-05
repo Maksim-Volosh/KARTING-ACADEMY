@@ -613,8 +613,8 @@ video {
   margin-bottom: 1.5rem;
 }
 
-.mb-\[1rem\] {
-  margin-bottom: 1rem;
+.mb-\[2rem\] {
+  margin-bottom: 2rem;
 }
 
 .mt-\[12px\] {
@@ -629,12 +629,24 @@ video {
   margin-top: 4.2rem;
 }
 
+.mb-0 {
+  margin-bottom: 0px;
+}
+
 .flex {
   display: flex;
 }
 
 .table {
   display: table;
+}
+
+.grid {
+  display: grid;
+}
+
+.h-\[3000px\] {
+  height: 3000px;
 }
 
 .h-\[4\.2rem\] {
@@ -645,12 +657,28 @@ video {
   height: 605px;
 }
 
-.h-\[75\%\] {
-  height: 75%;
+.h-\[693px\] {
+  height: 693px;
 }
 
 .h-\[9rem\] {
   height: 9rem;
+}
+
+.h-\[886px\] {
+  height: 886px;
+}
+
+.h-\[885px\] {
+  height: 885px;
+}
+
+.h-\[\] {
+  height: ;
+}
+
+.h-\[200px\] {
+  height: 200px;
 }
 
 .w-1 {
@@ -695,6 +723,34 @@ video {
 
 .gap-2 {
   gap: 0.5rem;
+}
+
+.gap-5 {
+  gap: 1.25rem;
+}
+
+.gap-10 {
+  gap: 2.5rem;
+}
+
+.gap-20 {
+  gap: 5rem;
+}
+
+.gap-28 {
+  gap: 7rem;
+}
+
+.self-end {
+  align-self: flex-end;
+}
+
+.justify-self-end {
+  justify-self: end;
+}
+
+.justify-self-center {
+  justify-self: center;
 }
 
 .rounded-3xl {
@@ -797,6 +853,10 @@ h1 {
 
 .light-green {
   color: var(--green);
+}
+
+.yellow {
+  color: var(--yellow:);
 }
 
 .button {
