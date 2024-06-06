@@ -1,9 +1,10 @@
-from datetime import date
+from datetime import date, datetime
 from django.db import models
+from django.utils import timezone
 
 
 class Player(models.Model):
-    name = models.CharField(max_length=55, verbose_name="Name")
+    name = models.CharField(max_length=55, verbose_name="Name", db_index=True)
     surname = models.CharField(max_length=55, verbose_name="Surname")
     nationality = models.CharField(max_length=55, verbose_name="Nationality")
 
@@ -21,18 +22,26 @@ class Player(models.Model):
 
 
 class Event(models.Model):
-    title = models.CharField(max_length=155, verbose_name="Title of Event")
+    title = models.CharField(
+        max_length=155, verbose_name="Title of Event", db_index=True
+    )
     country = models.CharField(max_length=55, verbose_name="Country of Event")
     description = models.CharField(
         max_length=255, blank=True, null=True, verbose_name="Description"
     )
     image_of_track = models.ImageField(
-        upload_to="images/", blank=True, null=True, verbose_name="Image of track"
+        upload_to="images/Event", blank=True, null=True, verbose_name="Image of track"
+    )
+    logo = models.ImageField(
+        upload_to="images/Event/logo",
+        blank=True,
+        null=True,
+        verbose_name="Logo of event",
     )
     documents = models.FileField(
         upload_to="files/", blank=True, null=True, verbose_name="Any documents"
     )
-    date_of_start = models.DateField(verbose_name="Date of start")
+    date_of_start = models.DateTimeField(verbose_name="Date of start")
     date_from = models.DateField(verbose_name="Date from")
     date_to = models.DateField(verbose_name="Date to")
     players = models.ManyToManyField(
@@ -50,8 +59,12 @@ class Event(models.Model):
         return self.players.count()
 
     def last_event(self):
-        return Event.objects.filter(date_of_start__lte=date.today()).order_by("-date_of_start").first()
-
+        return (
+            Event.objects.filter(date_of_start__lte=timezone.now())
+            .order_by("-date_of_start")
+            .first()
+        )
+        
     player_count.short_description = "Number of Players"
 
 
@@ -79,7 +92,18 @@ class Statistics(models.Model):
 
 class Partner(models.Model):
     name = models.CharField(max_length=55, verbose_name="Name")
-    logo = models.ImageField(upload_to="images/", verbose_name="Logo")
+    logo = models.ImageField(upload_to="images/partners", verbose_name="Logo")
 
     def __str__(self):
         return self.name
+
+
+class Gallery(models.Model):
+    title = models.CharField(max_length=55, verbose_name="Title", db_index=True)
+    description = models.CharField(
+        max_length=355, verbose_name="Description", blank=True, null=True
+    )
+    image = models.ImageField(upload_to="images/gallery", verbose_name="Logo")
+
+    def __str__(self):
+        return self.title
