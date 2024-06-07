@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+</head>
+<body>
+    <h1> {{ event.title }} </h1>
+
+    <h1><button><a href="?cat=mini">Mini</a></button> | <button><a href="?cat=junior">Junior</a></button> | <button><a href="?">All</a></button></h1>
+
+    {% for player, stats in player_stats.items %}
+    <h2>{{ player }}</h2>
+    <ul>
+        {% for stat in stats %}
+            <li>Points: {{ stat.points }}, Lap Time: {{ stat.lap_time }}</li>
+        {% endfor %}
+    </ul>
+{% endfor %}
+</body>
+</html>

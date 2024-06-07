@@ -1,11 +1,11 @@
 from django.core.mail import send_mail
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
 from django.urls import reverse
 
 from KARTING_ACADEMY import settings
-from .models import Event, Statistics
+from main.models import Event, Statistics
 
 def index(request):
     event = Event.last_event(Event)
@@ -34,3 +34,31 @@ def send_email(request):
         messages.success(request, "Message sent successfully!")
         return redirect('index')
     return redirect('index')
+
+
+# def event_detail(request, pk):
+#     event = get_object_or_404(Event, pk=pk)
+    
+#     cat_name = request.GET.get('cat')
+    
+#     if cat_name:
+#         category = get_object_or_404(Category, name__iexact=cat_name)
+#         statistics = Statistics.objects.filter(event=event, category=category).select_related('player') 
+#     else:
+#         statistics = Statistics.objects.filter(event=event).select_related('player') 
+    
+#     player_stats = {}
+#     for stat in statistics:
+#         player = stat.player
+#         if player not in player_stats:
+#             player_stats[player] = []
+#         player_stats[player].append(stat)
+
+#     context = {
+#         'event': event,
+#         'player_stats': player_stats,
+#     }
+    
+#     return render(request, 'main/event_detail.html', context=context)
+
+    
