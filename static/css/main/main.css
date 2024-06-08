@@ -109,16 +109,17 @@ table tbody tr:nth-child(even) {
 }
 
 .partners__frame {
-  height: 50px;
+  height: 40px;
   max-width: 240px;
   display: flex;
   justify-content: center;
   align-items: center;
+  filter: brightness(1.2);
 }
 
 .partners__frame img {
   max-width: 100%;
-  height: auto;
+  height: 100%;
 }
 
 
