@@ -1,17 +1,20 @@
 from django.core.mail import send_mail
-from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import get_object_or_404, redirect, render
+from django.shortcuts import redirect, render
 from django.contrib import messages
-from django.urls import reverse
 
 from KARTING_ACADEMY import settings
-from main.models import Event, Statistics
+from main.models import Category, Event, Statistics
 
 def index(request):
     event = Event.last_event(Event)
-    statistic = Statistics.objects.filter(event=event).select_related('player').values(
-        'player__name', 'player__nationality', 'lap_time', 'points'
-    )
+    if Category.objects.count() > 0:
+        statistic = Statistics.objects.filter(event=event, category=1).select_related('player').values(
+            'player__name', 'player__nationality', 'lap_time', 'points'
+        )
+    else:
+        statistic = Statistics.objects.filter(event=event).select_related('player').values(
+            'player__name', 'player__nationality', 'lap_time', 'points'
+        )
     context = {
         'event': event,
         'statistic': statistic
