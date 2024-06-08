@@ -9,24 +9,26 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <!-- Tailwind CSS -->
-  <link href="{% static "css/main/main.css" %}" rel="stylesheet">
-  <link href="{% static "css/main/output.css" %}" rel="stylesheet">
+  <link href="{% static " css
+  /main/main.css" %}" rel="stylesheet">
+  <link href="{% static " css
+  /main/output.css" %}" rel="stylesheet">
   <link href="{% static 'img/main/simple logo.jpg' %}" rel="icon" type="image/x-icon">
 </head>
 <body class="black">
 <main class="main-page m-auto">
   <div class="info custom-gradient">
     <div class="m-auto">
-      <div class="start">
+      <div class="start pic">
       </div>
-      <div class="info custom-gradient pl-20 pr-24 pt-16">
-        <div class="rating">
+      <div class="info custom-gradient">
+        <div class="rating  pl-20 pr-24 pt-16">
           <div class="wrapper">
             <h2 class="head head_left-line text-6xl mb-[2rem]">Rating</h2>
 
             <div class="rating__content flex justify-between">
 
-              <div class="w-[45%] font-formula1 grid flex-col items-center">
+              <div class="rating__table w-[45%] font-formula1 grid flex-col items-center">
                 <table class="bg-inherit table-auto w-full">
                   <thead class="thead-light h-[4.2rem]">
                   <tr>
@@ -80,23 +82,23 @@
 
               <div class="lane bg-[#FCD700]"></div>
 
-              <div class="contact-us">
-                <div class="contact-us__content">
-                  <h2 class="head head2 head_left-line text-3xl mb-6">
-                    Contact Us
-                  </h2>
+              <div class="flex flex-col gap-9">
+                <div class="contact-us">
+                  <div class="contact-us__content">
+                    <h2 class="head head2 head_left-line text-3xl mb-6">
+                      Contact Us
+                    </h2>
 
-                  <!-- Notification about successful sent email -->
-                  {% if messages %}
-                  <div class="alert alert-success">
-                    {% for message in messages %}
-                    <p>{{ message }}</p>
-                    {% endfor %}
-                  </div>
-                  {% endif %}
+                    <!-- Notification about successful sent email -->
+                    {% if messages %}
+                    <div class="alert alert-success">
+                      {% for message in messages %}
+                      <p>{{ message }}</p>
+                      {% endfor %}
+                    </div>
+                    {% endif %}
 
-                  <div class="card-body font-formula1 bg-[#0D3242] p-4 rounded-3xl max-w-xs">
-                    <div>
+                    <div class="card-body font-formula1 bg-[#0D3242] p-4 rounded-3xl max-w-xs">
                       <form class="flex flex-col gap-2" method="post" action="{% url 'send_email' %}">
                         {% csrf_token %}
                         <div class="form-group">
@@ -115,15 +117,43 @@
                       </form>
                     </div>
                   </div>
+
+                </div>
+                <div class="video-frame">
+                  <video class="" width="320" height="220" controls>
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </div>
             </div>
           </div>
-          <h2 class="text-center my-16 head head_bottom-line text-4xl"> Partners </h2>
-          <div class="partners h-[50px]"></div>
         </div>
+
+
+        <div class="partners px-9">
+          <div class="wrapper">
+            <h2 class="text-center my-16 head head_bottom-line text-4xl"> Partners </h2>
+            <div class="partners__content flex justify-between flex-wrap ">
+              <div class="partners__frame">
+                <img src="/static/img/main/partner1.png" alt="Image 1">
+              </div>
+              <div class="partners__frame">
+                <img src="/static/img/main/partner1.png" alt="Image 3">
+              </div>
+              <div class="partners__frame">
+                <img src="/static/img/main/partner2.png" alt="Image 4">
+              </div>
+              <div class="partners__frame">
+                <img src="/static/img/main/partner1.png" alt="Image 5">
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
     </div>
+  </div>
 </main>
 
 </body>

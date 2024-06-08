@@ -1,8 +1,5 @@
 .start {
   background-image: url('/static/img/main/depositphotos.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
   height: 752px;
   margin: auto;
 }
@@ -104,6 +101,26 @@ table tbody tr:nth-child(even) {
   width: 0.25rem;
   height: 693px;
 }
+
+.pic {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.partners__frame {
+  height: 50px;
+  max-width: 240px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.partners__frame img {
+  max-width: 100%;
+  height: auto;
+}
+
 
 @media (max-width: 900px) {
 
