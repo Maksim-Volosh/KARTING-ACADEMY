@@ -78,7 +78,7 @@
                 <button class="uppercase button explore-btn justify-self-center" onClick={explore}>Explore</button>
               </div>
 
-              <div class="lane w-1 h-[693px] bg-[#FCD700] mt-[4.2rem]"></div>
+              <div class="lane bg-[#FCD700]"></div>
 
               <div class="contact-us">
                 <div class="contact-us__content">
@@ -95,7 +95,7 @@
                   </div>
                   {% endif %}
 
-                  <div class="card-body font-formula1 bg-[#0D3242] p-4 rounded-3xl max-w-sm">
+                  <div class="card-body font-formula1 bg-[#0D3242] p-4 rounded-3xl max-w-xs">
                     <div>
                       <form class="flex flex-col gap-2" method="post" action="{% url 'send_email' %}">
                         {% csrf_token %}
@@ -120,6 +120,7 @@
             </div>
           </div>
           <h2 class="text-center my-16 head head_bottom-line text-4xl"> Partners </h2>
+          <div class="partners h-[50px]"></div>
         </div>
       </div>
     </div>

@@ -99,14 +99,22 @@ table tbody tr:nth-child(even) {
   transform: translate(0, 0);
 }
 
+.lane {
+  margin-top: 4.2rem;
+  width: 0.25rem;
+  height: 693px;
+}
+
 @media (max-width: 900px) {
+
   .rating__content {
-    height: 1000px;
     flex-direction: column;
-    gap: 10px;
+    gap: 50px;
   }
 
   .lane {
-    transform: rotate(90deg);
+    margin: 0;
+    width: 90%;
+    height: 0.25rem;
   }
 }
