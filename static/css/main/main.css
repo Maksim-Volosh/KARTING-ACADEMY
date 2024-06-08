@@ -122,6 +122,15 @@ table tbody tr:nth-child(even) {
   height: 100%;
 }
 
+.news__stripes {
+  background: repeating-linear-gradient(
+      -55deg,
+      #000000,
+      #000000 10px,
+      transparent 10px,
+      transparent 100px
+  );
+}
 
 @media (max-width: 900px) {
 
