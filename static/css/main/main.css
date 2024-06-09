@@ -140,6 +140,11 @@ table tbody tr:nth-child(even) {
   height: 97%;
   background-color: white;
   z-index: -1;
+  transition: transform .3s ease-out;
+}
+
+.news__item:hover:after {
+  transform: translate(0, 0);
 }
 
 .news__stripes {
