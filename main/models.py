@@ -1,13 +1,20 @@
 from datetime import date, datetime
+from unicodedata import category
 from django.db import models
 from django.utils import timezone
 
+class Category(models.Model):
+    name = models.CharField(max_length=10, unique=True, verbose_name="Category")
 
+    def __str__(self):
+        return self.name
+    
+    
 class Player(models.Model):
     name = models.CharField(max_length=55, verbose_name="Name", db_index=True)
     surname = models.CharField(max_length=55, verbose_name="Surname")
     nationality = models.CharField(max_length=55, verbose_name="Nationality")
-
+    
     def __str__(self):
         return f"{self.name} {self.surname}"
 
@@ -71,6 +78,7 @@ class Event(models.Model):
 class Statistics(models.Model):
     player = models.ForeignKey(Player, on_delete=models.CASCADE)
     event = models.ForeignKey(Event, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="players", verbose_name="Category", null=True)
     points = models.IntegerField(
         verbose_name="Points", default=0, blank=True, null=True
     )
@@ -88,22 +96,3 @@ class Statistics(models.Model):
 
     def __str__(self):
         return f"{self.player} in {self.event}"
-
-
-class Partner(models.Model):
-    name = models.CharField(max_length=55, verbose_name="Name")
-    logo = models.ImageField(upload_to="images/partners", verbose_name="Logo")
-
-    def __str__(self):
-        return self.name
-
-
-class Gallery(models.Model):
-    title = models.CharField(max_length=55, verbose_name="Title", db_index=True)
-    description = models.CharField(
-        max_length=355, verbose_name="Description", blank=True, null=True
-    )
-    image = models.ImageField(upload_to="images/gallery", verbose_name="Logo")
-
-    def __str__(self):
-        return self.title

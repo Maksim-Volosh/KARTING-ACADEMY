@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Gallery, Partner, Player, Statistics
+from .models import Category, Event, Player, Statistics
 
 class StatisticsInline(admin.TabularInline):
     model = Statistics
@@ -17,12 +17,11 @@ class EventAdmin(admin.ModelAdmin):
         return readonly_fields
 
 class PlayerAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'event_list')
-    readonly_fields = ('event_list', 'full_name')
+    list_display = ('event_list',)
+    readonly_fields = ('event_list',)
     inlines = [StatisticsInline]
 
 admin.site.register(Event, EventAdmin)
 admin.site.register(Player, PlayerAdmin)
 admin.site.register(Statistics)
-admin.site.register(Partner)
-admin.site.register(Gallery)
+admin.site.register(Category)
