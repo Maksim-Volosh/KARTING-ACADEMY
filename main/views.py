@@ -4,20 +4,25 @@ from django.contrib import messages
 
 from KARTING_ACADEMY import settings
 from main.models import Category, Event, Statistics
+from app_partners.models import Partner
 
 def index(request):
     event = Event.last_event(Event)
     if Category.objects.count() > 0:
-        statistic = Statistics.objects.filter(event=event, category=1).select_related('player').values(
+        statistic = Statistics.objects.filter(event=event, category=2).select_related('player').values(
             'player__name', 'player__nationality', 'lap_time', 'points'
         )
     else:
         statistic = Statistics.objects.filter(event=event).select_related('player').values(
             'player__name', 'player__nationality', 'lap_time', 'points'
         )
+    
+    partners = Partner.objects.all()    
+    
     context = {
         'event': event,
-        'statistic': statistic
+        'statistic': statistic,
+        'partners': partners,
     }
     return render(request, 'main/index.html', context=context)
 

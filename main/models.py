@@ -48,9 +48,8 @@ class Event(models.Model):
     documents = models.FileField(
         upload_to="files/", blank=True, null=True, verbose_name="Any documents"
     )
-    date_of_start = models.DateTimeField(verbose_name="Date of start")
-    date_from = models.DateField(verbose_name="Date from")
-    date_to = models.DateField(verbose_name="Date to")
+    date_of_start = models.DateTimeField(verbose_name="Date of start", null=True)
+    date_of_end = models.DateField(verbose_name="Date of end", null=True)
     players = models.ManyToManyField(
         Player,
         through="Statistics",

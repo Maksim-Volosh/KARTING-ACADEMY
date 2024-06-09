@@ -130,20 +130,26 @@
 
         <div class="partners px-9 pt-16">
           <div class="wrapper">
-            <h2 class="partners__head text-center mb-12 head head_bottom-line text-4xl"> Partners </h2>
+            <h2 class="partners__head text-center mb-12 head head_bottom-line text-4xl" id="partners"> Partners </h2>
             <div class="partners__content flex justify-between flex-wrap">
-              <div class="partners__frame">
-                <img src="/static/img/main/partner1.png" alt="Image 1">
-              </div>
-              <div class="partners__frame">
-                <img src="/static/img/main/partner1.png" alt="Image 3">
-              </div>
-              <div class="partners__frame">
-                <img src="/static/img/main/partner2.png" alt="Image 4">
-              </div>
-              <div class="partners__frame">
-                <img src="/static/img/main/partner1.png" alt="Image 5">
-              </div>
+              {% if partners %} <!-- If partners > 0: show partners. else: show the partner stub -->
+                {% for partner in partners %}
+                  <div class="partners__frame">
+                    <!-- If partner site url == True: show url and open url on the blank page. else: show partner block on the current page -->
+                    <a 
+                    {% if partner.url %} 
+                      target="_blank" rel="noopener noreferrer" href="{{ partner.url }}"
+                    {% else %}
+                      href="#partners"
+                    {% endif %}>
+                    <img src="{{ partner.logo.url }}" alt="{{ partner.name }}"></a>
+                  </div>
+                {% endfor %}
+              {% else %}
+                <div class="partners__frame">
+                  <img src="/static/img/main/partner1.png" alt="Image">
+                </div>
+              {% endif %}
             </div>
           </div>
         </div>
