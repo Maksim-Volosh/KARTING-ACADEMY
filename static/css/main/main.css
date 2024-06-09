@@ -122,13 +122,31 @@ table tbody tr:nth-child(even) {
   height: 100%;
 }
 
+.news__item {
+  position: relative;
+  width: 240px;
+}
+
+.news__item::after {
+  content: "";
+  display: block;
+  left: 0;
+  width: 100%;
+  position: absolute;
+  opacity: 0.5;
+  filter: blur(1px);
+  transform: translate(3px, 3px);
+  height: 97%;
+  background-color: white;
+}
+
 .news__stripes {
   background: repeating-linear-gradient(
       -55deg,
       #000000,
-      #000000 10px,
-      transparent 10px,
-      transparent 100px
+      #000000 15px,
+      transparent 15px,
+      transparent 150px
   );
 }
 
