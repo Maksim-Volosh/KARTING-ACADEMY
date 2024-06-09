@@ -124,7 +124,8 @@ table tbody tr:nth-child(even) {
 
 .news__item {
   position: relative;
-  width: 240px;
+  width: 400px;
+  z-index: 3;
 }
 
 .news__item::after {
@@ -138,15 +139,16 @@ table tbody tr:nth-child(even) {
   transform: translate(3px, 3px);
   height: 97%;
   background-color: white;
+  z-index: -1;
 }
 
 .news__stripes {
   background: repeating-linear-gradient(
       -55deg,
-      #000000,
-      #000000 15px,
+      transparent,
       transparent 15px,
-      transparent 150px
+      #EADF20 15px,
+      #EADF20 150px
   );
 }
 
