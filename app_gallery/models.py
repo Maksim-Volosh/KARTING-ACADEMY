@@ -7,5 +7,10 @@ class Gallery(models.Model):
     )
     image = models.ImageField(upload_to="images/gallery", verbose_name="Logo")
 
+    class Meta:
+        verbose_name = "Gallery"
+        verbose_name_plural = "Galleries"
+
     def __str__(self):
         return self.title
+

@@ -1,8 +1,10 @@
+from tkinter import NE
 from django.core.mail import send_mail
 from django.shortcuts import redirect, render
 from django.contrib import messages
 
 from KARTING_ACADEMY import settings
+from app_news.models import News
 from main.models import Category, Event, Statistics
 from app_partners.models import Partner
 
@@ -19,10 +21,13 @@ def index(request):
     
     partners = Partner.objects.all()    
     
+    news = News.get_last_three_news(News)
+    
     context = {
         'event': event,
         'statistic': statistic,
         'partners': partners,
+        'news': news,
     }
     return render(request, 'main/index.html', context=context)
 
