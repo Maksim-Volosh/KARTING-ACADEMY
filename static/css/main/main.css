@@ -4,8 +4,29 @@
   margin: auto;
 }
 
+.header {
+  position: relative;
+}
+
+.for-blur {
+  z-index: -1;
+  position: absolute;
+  width: 97%;
+  height: 90%;
+  background: rgba(134, 127, 127, 0.4);
+  filter: blur(10px);
+  top: -10px;
+  -webkit-filter: blur(10px);
+}
+
+.karting-head {
+  background-image: url('/static/img/main/simple-logo.svg');
+  height: 70px;
+  width: 75px;
+}
+
 .custom-gradient {
-  background: linear-gradient(to bottom,  rgba(0,15,52,1) 0%, rgb(8, 66, 126) 100%);
+  background: linear-gradient(to bottom, rgba(0, 15, 52, 1) 0%, rgb(8, 66, 126) 100%);
 }
 
 table {
