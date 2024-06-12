@@ -51,16 +51,16 @@
 }
 
 .blackout_blue {
-  background: linear-gradient(to bottom, rgba(61, 87, 117, 0.55) 0%, rgba(0, 15, 52, 0.92) 100%);
+  background: linear-gradient(to bottom, rgba(61, 87, 117, 0.55) 10%, rgba(0, 15, 52, 0.94) 50%);
   filter: blur(30px);
 }
 
 .start__bottom {
   position: absolute;
-  background-color: #000F34FF;
-  bottom: -15px;
+  background: linear-gradient(to bottom, rgba(0, 15, 52, 0.73) 0%, #000F34FF 100%);
+  bottom: -10px;
   width: 100%;
-  height: 15%;
+  height: 20%;
 }
 
 .event__info:before {
@@ -68,7 +68,7 @@
 }
 
 .event__countdown:before {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.04) 20%, rgba(255, 255, 255, 0.27) 50%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.04) 20%, rgba(255, 255, 255, 0.42) 50%);
 }
 
 .countdown__item {
