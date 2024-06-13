@@ -71,6 +71,14 @@
   background: linear-gradient(to right, rgba(255, 255, 255, 0.04) 20%, rgba(255, 255, 255, 0.42) 50%);
 }
 
+.event__line {
+  width: 100%;
+  height: 3px;
+  margin-bottom: 8px;
+  box-shadow: 0 3px 9px rgba(252, 215, 0, 1);
+  background-color: var(--yellow);
+}
+
 .countdown__item {
   display: flex;
   flex-direction: column;
