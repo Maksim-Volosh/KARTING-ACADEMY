@@ -692,10 +692,6 @@ video {
   height: 100%;
 }
 
-.h-\[2px\] {
-  height: 2px;
-}
-
 .w-\[126px\] {
   width: 126px;
 }
@@ -796,6 +792,15 @@ video {
   gap: 2.25rem;
 }
 
+.gap-x-10 {
+  -moz-column-gap: 2.5rem;
+       column-gap: 2.5rem;
+}
+
+.gap-y-1 {
+  row-gap: 0.25rem;
+}
+
 .self-end {
   align-self: flex-end;
 }
@@ -834,11 +839,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-yellow-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(250 204 21 / var(--tw-bg-opacity));
 }
 
 .p-4 {
