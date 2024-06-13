@@ -19,7 +19,8 @@
 
       <div class="start relative z-2">
         <div class="wrapper relative z-10 flex flex-col">
-          <header class="header flex justify-between py-8 px-4">
+          <header class="header relative z-2 flex justify-between py-8 px-4">
+            <div class="for-blur"></div>
             <div class="header__logo flex justify-center items-center gap-4">
               <div class="karting-head pic"></div>
               <h2 class="news__head head head2 text-2xl uppercase">
@@ -51,14 +52,14 @@
 
           <div class="start__event event flex flex-col max-w-2xl w-full mt-44">
             <div class="event__info flex w-full pr-6 py-1">
-              <div class="flex flex-col ml-auto max-w-60 w-full">
-              <p class="font-formula1 uppercase text-xs">next event</p>
-              <p class="link underline text-xl">2024 Chinese Grand Prix</p>
+              <div class="flex flex-col ml-auto ">
+                <p class="link underline text-xl">2024 Chinese</p>
+                <p class="link underline text-xl">Grand Prix</p>
               </div>
             </div>
-            <div class="event__countdown mr-5 countdown w-[97%] py-3" id="countdown">
-              <div class="flex justify-center gap-2 font-formula1">
-                <img class="mr-5" src="/static/img/main/tag-heuer.svg" alt="Image 7">
+            <div class="event__countdown countdown w-[97%] py-3" id="countdown">
+              <div class="flex justify-center items-center gap-2 font-formula1">
+                <div class="event__frame pic mr-4" style="background-image: url('/static/img/main/tag-heuer.svg')"></div>
                 <div class="countdown__item">
                   <span id="countdown__days">1</span>
                   <small>DAYS</small>
@@ -83,13 +84,13 @@
         <div class="blackout_blue h-2/5 absolute bottom-0 w-full"></div>
 
         <div class="start__bottom event__bar flex font-formula1 text-sm">
-          <div class="event__bar_content flex font-formula1 text-sm m-auto mt-4 pl-36 gap-8">
-            <div class="event__item max-w-44 w-full">
-              <div class="event__line"></div>
+          <div class="event__bar_content flex font-formula1 text-sm ml-auto mt-4 pr-36 gap-8">
+            <div class="event__item event__item_actual max-w-44 w-full">
+              <div class="event__line line_highlight"></div>
               <p>Team Tales: 2009 China Grand Prix</p>
             </div>
-            <div class="event__item max-w-44 w-full">
-              <div class="event__line"></div>
+            <div class="event__item event__item_no-actual opacity-20 max-w-44 w-full">
+              <div class="event__line line_no-highlight"></div>
               <p>Team Tales: 2009 China Grand Prix</p>
             </div>
           </div>
@@ -233,7 +234,7 @@
             <div class="news__wrapper h-60 flex ">
               <div class="news__content bg-[#EADF20] pl-24 py-1.5 pr-2 flex h-full gap-5 ">
               <div class="news__item flex flex-col text-center" >
-                <div class="news__frame bg-white h-[82%] w-full pic" style=" background-image: url('/static/img/main/depositphotos.jpg')"></div>
+                <div class="news__frame bg-white h-[82%] w-full pic" style="background-image: url('/static/img/main/depositphotos.jpg')"></div>
                 <button class="news__explore-btn uppercase button">Explore</button>
               </div>
 

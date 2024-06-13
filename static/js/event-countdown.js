@@ -7,8 +7,7 @@ function  eventCountdown() {
   let now = new Date();
   let difference = eventDate - now;
 
-  // Проверяем, осталось ли время до события
-  if (difference > 0) {
+
     let days = Math.floor(difference / (1000 * 60 * 60 * 24));
     let hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     let minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
@@ -18,11 +17,7 @@ function  eventCountdown() {
     document.getElementById("countdown__hours").innerText = `${hours}`;
     document.getElementById("countdown__mins").innerText = `${minutes}`;
     document.getElementById("countdown__secs").innerText = `${seconds}`;
-  } else {
-    document.getElementById("countdown").innerText = "The event has already happened!";
-    clearInterval(timer);
-  }
-}
+
 
 // Обновляем счетчик каждую секунду
 let timer = setInterval(eventCountdown, 1000);
