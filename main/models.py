@@ -6,6 +6,10 @@ from django.utils import timezone
 class Category(models.Model):
     name = models.CharField(max_length=10, unique=True, verbose_name="Category")
 
+    class Meta:
+        verbose_name = "Category"
+        verbose_name_plural = "Categories"
+        
     def __str__(self):
         return self.name
     
@@ -46,11 +50,10 @@ class Event(models.Model):
         verbose_name="Logo of event",
     )
     documents = models.FileField(
-        upload_to="files/", blank=True, null=True, verbose_name="Any documents"
+        upload_to="files/events/", blank=True, null=True, verbose_name="Any documents"
     )
-    date_of_start = models.DateTimeField(verbose_name="Date of start")
-    date_from = models.DateField(verbose_name="Date from")
-    date_to = models.DateField(verbose_name="Date to")
+    date_of_start = models.DateTimeField(verbose_name="Date of start", null=True)
+    date_of_end = models.DateField(verbose_name="Date of end", null=True)
     players = models.ManyToManyField(
         Player,
         through="Statistics",
@@ -93,6 +96,8 @@ class Statistics(models.Model):
 
     class Meta:
         unique_together = ("player", "event")
+        verbose_name = "Statistics"
+        verbose_name_plural = "Statistics"
 
     def __str__(self):
         return f"{self.player} in {self.event}"

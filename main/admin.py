@@ -17,7 +17,7 @@ class EventAdmin(admin.ModelAdmin):
         return readonly_fields
 
 class PlayerAdmin(admin.ModelAdmin):
-    list_display = ('event_list',)
+    list_display = ('full_name', 'event_list',)
     readonly_fields = ('event_list',)
     inlines = [StatisticsInline]
 
