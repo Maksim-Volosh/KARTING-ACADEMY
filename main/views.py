@@ -2,6 +2,7 @@ from tkinter import NE
 from django.core.mail import send_mail
 from django.shortcuts import redirect, render
 from django.contrib import messages
+from django.utils import timezone
 
 from KARTING_ACADEMY import settings
 from app_news.models import News
@@ -23,11 +24,22 @@ def index(request):
     
     news = News.get_last_three_news(News)
     
+    next_event = Event.next_event(Event)
+    
+    if next_event:
+        next_event_time = timezone.localtime(next_event.date_of_start).strftime("%Y-%m-%d %H:%M:%S")
+    else: next_event_time = 0       
+    
+    next_three_events = Event.next_three_events(Event).values("title",)
+    
     context = {
         'event': event,
         'statistic': statistic,
         'partners': partners,
         'news': news,
+        'next_event': next_event,
+        'next_event_time': next_event_time,
+        'next_three_events': next_three_events,
     }
     return render(request, 'main/index.html', context=context)
 

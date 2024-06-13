@@ -45,8 +45,6 @@ class Event(models.Model):
     )
     logo = models.ImageField(
         upload_to="images/Event/logo",
-        blank=True,
-        null=True,
         verbose_name="Logo of event",
     )
     documents = models.FileField(
@@ -74,6 +72,16 @@ class Event(models.Model):
             .order_by("-date_of_start")
             .first()
         )
+        
+    def next_event(self):
+        return (
+            Event.objects.filter(date_of_start__gt=timezone.now())
+            .order_by("date_of_start")
+            .first()
+        )
+    
+    def next_three_events(self):
+        return Event.objects.filter(date_of_start__gt=timezone.now()).order_by("date_of_start")[:3]
         
     player_count.short_description = "Number of Players"
 

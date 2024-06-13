@@ -111,6 +111,7 @@
   background-image: url('/static/img/main/simple-logo.jpg');
   height: 70px;
   width: 75px;
+  border-radius: 40px;
 }
 
 .message-icon {
