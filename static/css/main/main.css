@@ -1,20 +1,33 @@
-.start {
-  height: 752px;
-  margin: auto;
-}
-
-.start:before {
-  content: '';
+.video-bg {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
-  background: url('/static/img/main/depositphotos.jpg') no-repeat center center;
-  background-size: cover;
-  filter: blur(2px);
-  -webkit-filter: blur(2px);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   z-index: -1;
+}
+
+.start {
+  position: relative;
+  height: 800px;
+  z-index: 2;
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: 91.5%;
+  background: rgba(0, 0, 0, 0.5); /* 50% черное затемнение */
+  z-index: 0;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  color: white;
+  text-align: center;
+  padding-top: 20%;
 }
 
 .navbar, .event__info, .event__countdown {
@@ -36,10 +49,10 @@
 
 .for-blur {
   position: absolute;
-  background: rgba(134, 127, 127, 0.4);
+  background: rgba(134, 127, 127, 0.09);
   filter: blur(10px);
   -webkit-filter: blur(10px);
-  top: 0;
+  top: -20px;
   left: 0;
   bottom: 0;
   right: 0;
@@ -62,11 +75,6 @@
   filter: blur(30px);
 }
 
-.blackout_blue {
-  background: linear-gradient(to bottom, rgba(61, 87, 117, 0.55) 10%, rgba(0, 15, 52, 0.94) 50%);
-  filter: blur(30px);
-}
-
 .start__bottom {
   position: absolute;
   background: linear-gradient(to bottom, rgba(0, 15, 52, 0.73) 0%, #000F34FF 100%);
@@ -82,10 +90,12 @@
 
 .event__info:before {
   background: linear-gradient(to right, rgba(0, 26, 48, 0.04) 20%, rgba(0, 26, 48, 0.82) 50%);
+  filter: blur(0.8px);
 }
 
 .event__countdown:before {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.04) 20%, rgba(255, 255, 255, 0.42) 50%);
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.04) 20%, rgba(255, 255, 255, 0.42) 170%);
+  filter: blur(0.8px);
 }
 
 .event__line {
@@ -140,8 +150,8 @@
 }
 
 .message-icon {
-  height: 30px;
-  width: 30px;
+  height: 20px;
+  width: 20px;  
 }
 
 .youtube-icon {

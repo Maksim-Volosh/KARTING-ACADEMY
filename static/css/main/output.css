@@ -645,7 +645,7 @@ video {
 }
 
 .mt-44 {
-  margin-top: 11rem;
+  margin-top: 26.86rem;
 }
 
 .mt-\[12px\] {
@@ -899,6 +899,10 @@ video {
 
 .pr-6 {
   padding-right: 1.5rem;
+}
+
+.pr-10 {
+  padding-right: 2.5rem;
 }
 
 .pt-16 {
