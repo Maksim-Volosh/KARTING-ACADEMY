@@ -1,4 +1,5 @@
-let next_event_time = "{{next_event_time}}";
+let next_event_time = document.getElementById("next_event_time").value;
+console.log(next_event_time);
 
 let parts = next_event_time.split(/[- :]/);
 let eventDate = new Date(parts[0], parts[1] - 1, parts[2], parts[3], parts[4], parts[5]);

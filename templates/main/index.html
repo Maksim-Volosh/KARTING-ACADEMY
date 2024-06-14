@@ -54,27 +54,27 @@
             <div class="event__info flex w-full pr-6 py-1">
               <div class="flex flex-col ml-auto ">
                 <p class="font-formula1 uppercase text-xs">next event</p>
-                <p class="link underline text-xl">2024 Chinese</p>
-                <p class="link underline text-xl">Grand Prix</p>
+                <p class="link underline text-xl">{{ next_event.title }}</p>
               </div>
             </div>
+            <input type="hidden" id="next_event_time" value="{{ next_event_time }}">
             <div class="event__countdown countdown w-[97%] py-3" id="countdown">
               <div class="flex justify-center items-center gap-2 font-formula1">
-                <div class="event__frame pic mr-4" style="background-image: url('/static/img/main/tag-heuer.svg')"></div>
+                <div class="event__frame pic mr-4" style="background-image: url('{{ next_event.logo.url }}')"></div>
                 <div class="countdown__item">
-                  <span id="countdown__days">1</span>
+                  <span id="countdown__days">0</span>
                   <small>DAYS</small>
                 </div>
                 <div class="countdown__item">
-                  <span id="countdown__hours">12</span>
+                  <span id="countdown__hours">0</span>
                   <small>HOURS</small>
                 </div>
                 <div class="countdown__item">
-                  <span id="countdown__mins">31</span>
+                  <span id="countdown__mins">0</span>
                   <small>MINS</small>
                 </div>
                 <div class="countdown__item">
-                  <span id="countdown__secs">31</span>
+                  <span id="countdown__secs">0</span>
                   <small>SECS</small>
                 </div>
               </div>
@@ -86,14 +86,14 @@
 
         <div class="start__bottom event__bar flex font-formula1 text-sm">
           <div class="event__bar_content flex font-formula1 text-sm ml-auto mt-4 pr-52 gap-8">
-            <div class="event__item event__item_actual max-w-44 w-full">
-              <div class="event__line line_highlight"></div>
-              <p>Team Tales: 2009 China Grand Prix</p>
-            </div>
-            <div class="event__item event__item_no-actual opacity-20 max-w-44 w-full">
-              <div class="event__line line_no-highlight"></div>
-              <p>Team Tales: 2009 China Grand Prix</p>
-            </div>
+            {% if next_three_events %}
+              {% for event in next_three_events %}
+                <div class="event__item event__item_actual max-w-44 w-full">
+                  <div class="event__line line_highlight"></div>
+                  <p>{{ event.title }}</p>
+                </div>
+              {% endfor %}
+            {% endif %}
           </div>
         </div>
 
@@ -102,7 +102,7 @@
       <div class="info custom-gradient">
         <div class="rating pl-20 pr-24 pt-16">
           <div class="wrapper">
-            <h2 class="head head_left-line text-6xl mb-[2rem]">Rating</h2>
+            <h2 class="head head_left-line text-6xl mb-[2rem]" id="message">Rating</h2>
 
             <div class="rating__content flex justify-between">
 
@@ -177,7 +177,7 @@
                     {% endif %}
 
                     <div class="card-body font-formula1 bg-[#0D3242] p-4 rounded-3xl max-w-xs">
-                      <form class="flex flex-col gap-2" method="post" action="{% url 'send_email' %}">
+                      <form class="flex flex-col gap-2" method="post" action="{% url 'send_email' %}#message">
                         {% csrf_token %}
                         <div class="form-group">
                           <label for="email">Your email</label>
@@ -267,6 +267,6 @@
       </div>
     </div>
 </main>
-
+<script src="{% static 'js/main/event-countdown.js' %}"></script>
 </body>
 </html>
