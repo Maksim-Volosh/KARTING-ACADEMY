@@ -19,7 +19,7 @@ function  eventCountdown() {
     document.getElementById("countdown__mins").innerText = `${minutes}`;
     document.getElementById("countdown__secs").innerText = `${seconds}`;
 
-
+}
 // Обновляем счетчик каждую секунду
 let timer = setInterval(eventCountdown, 1000);
 
