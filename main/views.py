@@ -30,8 +30,6 @@ def index(request):
         next_event_time = timezone.localtime(next_event.date_of_start).strftime("%Y-%m-%d %H:%M:%S")
     else: next_event_time = 0       
     
-    next_three_events = Event.next_three_events(Event).values("title",)
-    
     context = {
         'event': event,
         'statistic': statistic,
@@ -39,7 +37,6 @@ def index(request):
         'news': news,
         'next_event': next_event,
         'next_event_time': next_event_time,
-        'next_three_events': next_three_events,
     }
     return render(request, 'main/index.html', context=context)
 

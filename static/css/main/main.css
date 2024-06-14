@@ -142,11 +142,8 @@
 }
 
 .karting-head {
-  background-image: url('/static/img/main/simple-logo.jpg');
-  border-radius: 100%;
-  height: 70px;
-  width: 70px;
-  overflow: hidden;
+  height: 50px;
+  width: 0px;
 }
 
 .message-icon {
