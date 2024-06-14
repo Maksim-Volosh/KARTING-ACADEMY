@@ -79,9 +79,6 @@ class Event(models.Model):
             .order_by("date_of_start")
             .first()
         )
-    
-    def next_three_events(self):
-        return Event.objects.filter(date_of_start__gt=timezone.now()).order_by("date_of_start")[:3]
         
     player_count.short_description = "Number of Players"
 
