@@ -167,6 +167,10 @@
   background: linear-gradient(to bottom, rgba(0, 15, 52, 1) 0%, rgb(8, 66, 126) 100%);
 }
 
+.mt-60 {
+  margin-top: 29.3rem;
+} 
+
 table {
   width: 100%;
   border: none;
