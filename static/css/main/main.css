@@ -58,6 +58,20 @@
   z-index: -1;
 }
 
+.photo {
+  height: 750px;
+  background-size: cover;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+.circle {
+  background-color: var(--yellow);
+  border-radius: 100%;
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
 .navbar:before {
   border-radius: 9999px;
   border: 4px solid rgba(154, 168, 218, 0.21);
