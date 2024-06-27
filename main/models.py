@@ -65,20 +65,6 @@ class Event(models.Model):
 
     def player_count(self):
         return self.players.count()
-
-    def last_event(self):
-        return (
-            Event.objects.filter(date_of_start__lte=timezone.now())
-            .order_by("-date_of_start")
-            .first()
-        )
-        
-    def next_event(self):
-        return (
-            Event.objects.filter(date_of_start__gt=timezone.now())
-            .order_by("date_of_start")
-            .first()
-        )
         
     player_count.short_description = "Number of Players"
 

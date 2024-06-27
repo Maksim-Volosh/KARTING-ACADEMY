@@ -39,15 +39,15 @@
           <div class="start__info flex gap-9 self-end pr-10">
             <div class="flex flex-col items-center gap-3">
               <img class="message-icon" src="/static/img/main/youtube_icon.svg" alt="youtube_icon">
-              <p class="start__language font-formula1 text-lg">Tur</p>
+              <p class="start__language font-formula1 text-xs">Tur</p>
             </div>
             <div class="flex flex-col items-center gap-3">
-              <img class="message-icon" src="/static/img/main/facebook_icon.svg" alt="facebook_icon">
-              <p class="start__language font-formula1 text-lg">Ru</p>
+              <img class="message-icon" src="/static/img/main/facebook_icon.svg" alt="youtube_icon">
+              <p class="start__language font-formula1 text-xs">Ru</p>
             </div>
             <div class="flex flex-col items-center gap-3">
-              <img class="message-icon" src="/static/img/main/inst_icon.svg" alt="inst_icon">
-              <p class="start__language font-formula1 text-lg">Eng</p>
+              <img class="message-icon" src="/static/img/main/inst_icon.svg" alt="youtube_icon">
+              <p class="start__language font-formula1 text-xs">Eng</p>
             </div>
           </div>
 
@@ -55,10 +55,11 @@
             <div class="event__info flex w-full pr-6 py-1">
               <div class="flex flex-col ml-auto ">
                 <p class="font-formula1 uppercase text-xs">next event</p>
-                <p class="link underline text-xl"><a href="#">{{ next_event.title }}</a></p>
-
-
-<!--                <p class="font-formula1 text-lg">No new events :(</p>-->
+                {% if next_event %}
+                  <p class="link underline text-xl"><a href="#">{{ next_event.title }}</a></p>
+                {% else %}
+                  <p class="font-formula1 text-lg">There are no new events :(</p>
+                {% endif %}
               </div>
             </div>
             <input type="hidden" id="next_event_time" value="{{ next_event_time }}">

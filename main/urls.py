@@ -1,6 +1,9 @@
 from django.urls import path
 from django.conf.urls.static import static
 
+from KARTING_ACADEMY import settings
+from main.send_email import send_email
+
 from .views import *
 
 urlpatterns = [
