@@ -16,5 +16,3 @@ class News(models.Model):
     def __str__(self):
         return self.title
     
-    def get_last_three_news(self):
-        return self.objects.all().order_by('-created_at')[:3]

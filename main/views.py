@@ -1,30 +1,25 @@
-from tkinter import NE
-from django.core.mail import send_mail
-from django.shortcuts import redirect, render
-from django.contrib import messages
+from django.shortcuts import render
 from django.utils import timezone
 
-from KARTING_ACADEMY import settings
 from app_news.models import News
-from main.models import Category, Event, Statistics
+from app_news.services import get_last_three_news
 from app_partners.models import Partner
+from main.models import Category, Event, Statistics
+from main.services import *
+from services.services import *
+
 
 def index(request):
-    event = Event.last_event(Event)
-    if Category.objects.count() > 0:
-        statistic = Statistics.objects.filter(event=event, category=2).select_related('player').values(
-            'player__name', 'player__nationality', 'lap_time', 'points'
-        )
+    event = get_last_event(Event)
+    
+    if obj_count(Category) > 0:
+        statistic = junior_stats(Statistics, event)
     else:
-        statistic = Statistics.objects.filter(event=event).select_related('player').values(
-            'player__name', 'player__nationality', 'lap_time', 'points'
-        )
+        statistic = all_stats(Statistics, event)
     
-    partners = Partner.objects.all()    
-    
-    news = News.get_last_three_news(News)
-    
-    next_event = Event.next_event(Event)
+    partners = obj_all(Partner)   
+    news = get_last_three_news(News)
+    next_event = get_next_event(Event)
     
     if next_event:
         next_event_time = timezone.localtime(next_event.date_of_start).strftime("%Y-%m-%d %H:%M:%S")
@@ -39,23 +34,6 @@ def index(request):
         'next_event_time': next_event_time,
     }
     return render(request, 'main/index.html', context=context)
-
-def send_email(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        message = request.POST.get('message')
-        
-        
-        send_mail(
-            'CARTING ACADEMY',  # Тема письма
-            f"Вам пришло сообщение - {message} \n\nВот его контактная информация - {email}",  # Тело письма
-            email,
-            [settings.DEFAULT_FROM_EMAIL], 
-            fail_silently=False,
-        )
-        messages.success(request, "Message sent successfully!")
-        return redirect('index')
-    return redirect('index')
 
 
 # def event_detail(request, pk):
