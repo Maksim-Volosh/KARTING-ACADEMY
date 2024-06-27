@@ -3,6 +3,10 @@
   z-index: 2;
 }
 
+.start-event {
+  margin-top: 27.6rem;
+}
+
 .video-bg {
   position: absolute;
   width: 100%;
