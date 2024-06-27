@@ -13,12 +13,12 @@
 <body class="black">
 <main class="main-page m-auto">
   <div>
-      <video autoplay muted loop class="video-bg">
+      <div class="start relative z-2">
+        <div class="overlay"></div>
+        <video autoplay muted loop class="video-bg">
           <source src="{% static 'video/main/video.mp4' %}" type="video/mp4">
           Ваш браузер не поддерживает тег видео.
-      </video>
-      <div class="overlay"></div>
-      <div class="start relative z-2">
+        </video>
         <div class="wrapper relative z-10 flex flex-col">
           <header class="header relative z-2 flex justify-between py-8 px-4">
             <div class="for-blur"></div>
@@ -42,22 +42,22 @@
               <p class="start__language font-formula1 text-lg">Tur</p>
             </div>
             <div class="flex flex-col items-center gap-3">
-              <img class="message-icon" src="/static/img/main/facebook_icon.svg" alt="youtube_icon">
+              <img class="message-icon" src="/static/img/main/facebook_icon.svg" alt="facebook_icon">
               <p class="start__language font-formula1 text-lg">Ru</p>
             </div>
             <div class="flex flex-col items-center gap-3">
-              <img class="message-icon" src="/static/img/main/inst_icon.svg" alt="youtube_icon">
+              <img class="message-icon" src="/static/img/main/inst_icon.svg" alt="inst_icon">
               <p class="start__language font-formula1 text-lg">Eng</p>
             </div>
           </div>
 
-          <div class="start__event event flex flex-col max-w-2xl w-full mt-60">
+          <div class="start__event event flex flex-col max-w-2xl w-full mt-72">
             <div class="event__info flex w-full pr-6 py-1">
               <div class="flex flex-col ml-auto ">
                 <p class="font-formula1 uppercase text-xs">next event</p>
                 <p class="link underline text-xl"><a href="#">{{ next_event.title }}</a></p>
 
-                
+
 <!--                <p class="font-formula1 text-lg">No new events :(</p>-->
               </div>
             </div>
@@ -255,23 +255,33 @@
       </section>
 
       <footer class="footer">
-        <div class="wrapper z-10 flex flex-col font-formula1">
+        <div class="wrapper">
           <div class="top-line"></div>
-          <div class="content">
-            <div class="social-media">
-              <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-              <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-              <a href="https://youtube.com" target="_blank"><i class="fab fa-youtube"></i></a>
-            </div>
-            <div class="contact-info">
-              <a href="tel:+905338876280"><i class="fas fa-phone-alt"></i> +905338876280</a>
-              <a href="mailto:kartingspeedacademy@gmail.com"><i class="fas fa-envelope"></i>
-                kartingspeedacademy@gmail.com</a>
-            </div>
+        <div class="footer__content pt-12 pb-8 px-24">
+          <div class="flex justify-between items-center">
+          <div class="flex gap-12">
+            <a href="https://instagram.com" target="_blank"> <img class="message-icon"
+                                                                  src="/static/img/main/inst_icon.svg"
+                                                                  alt="inst_icon"></a>
+            <a href="https://facebook.com" target="_blank"><img class="message-icon"
+                                                                src="/static/img/main/facebook_icon.svg"
+                                                                alt=facebook"></a>
+            <a href="https://youtube.com" target="_blank"><img class="message-icon"
+                                                               src="/static/img/main/youtube_icon_1.svg"
+                                                               alt="youtube_icon"></a>
           </div>
-          <div class="copyright">
-            &copy; 2024 KARTING SPEED
+            <div class="flex flex-col font-formula1 text-xl gap-4">
+              <div class="flex gap-1"> <img class="message-icon" src="/static/img/main/phone.svg" alt="phone">
+                <p class="text-right"> </a> <a href="tel:+905338876280" class="text-white">+905338876280</a></p>
+              </div>
+              <div class="flex gap-2"> <img class="message-icon" src="/static/img/main/envelope.png" alt="envelope">
+                <p class="text-right"><a href="mailto:kartingspeedacademy@gmail.com" class="text-white">kartingspeedacademy@gmail.com</a></p>
+              </div>
+            </div>
+
           </div>
+        <p class="text-white text-2xl text-center mt-10">&copy; 2024 KARTING SPEED</p>
+        </div>
         </div>
       </footer>
 
