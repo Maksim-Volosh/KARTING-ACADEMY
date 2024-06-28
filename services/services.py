@@ -49,3 +49,17 @@ def obj_all(model):
 
 def obj_count(model):
     return model.objects.count()
+
+"""
+##How to use obj_all in your code, Here's an example of how to use the `obj_all` function:
+
+def NameOfYourFunction(MODEL):
+    return obj_all(
+                model=MODEL,
+                filter={'anyFIELD': anyVALUE},
+                order_by=('anyFIELD',),
+                select_related=('anyVALUE', 'anyVALUE',),
+                values=('anyVALUE', 'anyVALUE', 'anyVALUE', 'anyVALUE', 'anyVALUE'),
+                first=True or False,
+            )
+"""

@@ -251,13 +251,16 @@
             gallery
           </h2>
           <div class="gallery__photos flex flex-col">
-            <div class="photo" style=" background: url('/static/img/main/depositphotos.jpg') no-repeat center center"></div>
+            <!-- Photos -->
+            {% for pic in gallery %}
+            <div class="photo" style="background: url('{{ pic.image.url }}') no-repeat center center"></div>
+            {% endfor %}
+          
             <div class="flex gap-3 mx-auto mt-24">
+              <!-- Circles -->
+              {% for pic in gallery %}
               <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
+              {% endfor %}
             </div>
           </div>
         </div>
