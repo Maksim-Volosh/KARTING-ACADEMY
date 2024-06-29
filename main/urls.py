@@ -8,7 +8,8 @@ from .views import *
 
 urlpatterns = [
     path('', index, name='index'),
-    # path('event/<int:pk>/', event_detail, name='event_detail'),
+    path('event/<int:pk>/', event_detail, name='event_detail'),
+    path('player/<int:pk>/', player_detail, name='player_detail'),
     path('send-email/', send_email, name='send_email'),
 ]
 
