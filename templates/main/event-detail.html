@@ -51,16 +51,6 @@
       <!-- URL - /event/id/?cat=junior or /event/id/ -->
 
       <section class="main-section">
-        <div>
-          <button><a href="{% url 'event_detail' event.id %}?cat=mini">MINI</a></button> |
-          <button><a href="{% url 'event_detail' event.id %}?cat=junior">JUNIOR</a></button> |
-          <button><a href="{% url 'event_detail' event.id %}?cat=senior">SENIOR</a></button> |
-          <button><a href="{% url 'event_detail' event.id %}?cat=master">MASTER</a></button> |
-          <button><a href="?all">ALL</a></button> |
-        </div>
-        <br><br>
-
-
         <h2>Event Details</h2>
         <p>Event: {{ event.title }}</p>
         <p>Country of Event: {{ event.country }}</p>
@@ -78,6 +68,15 @@
         <br>
         <br>
         <h3>Players and their Statistics</h3>
+        <div>
+          <button><a href="{% url 'event_detail' event.id %}?cat=mini">MINI</a></button> |
+          <button><a href="{% url 'event_detail' event.id %}?cat=junior">JUNIOR</a></button> |
+          <button><a href="{% url 'event_detail' event.id %}?cat=senior">SENIOR</a></button> |
+          <button><a href="{% url 'event_detail' event.id %}?cat=master">MASTER</a></button> |
+          <button><a href="?all">ALL</a></button> |
+        </div>
+        <br><br>
+        
         <table>
           <thead>
             <tr>
