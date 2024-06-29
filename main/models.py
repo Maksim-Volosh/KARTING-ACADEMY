@@ -46,6 +46,7 @@ class Event(models.Model):
     logo = models.ImageField(
         upload_to="images/Event/logo",
         verbose_name="Logo of event",
+        null=True
     )
     documents = models.FileField(
         upload_to="files/events/", blank=True, null=True, verbose_name="Any documents"
@@ -92,3 +93,10 @@ class Statistics(models.Model):
 
     def __str__(self):
         return f"{self.player} in {self.event}"
+    
+class Track(models.Model):
+    track = models.CharField(max_length=55, verbose_name="Track")
+    image = models.ImageField(upload_to="images/tracks", verbose_name="Image")
+
+    def __str__(self):
+        return self.track

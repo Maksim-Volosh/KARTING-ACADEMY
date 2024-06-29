@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 
 from app_news.models import News
 from app_news.services import get_last_three_news
 from app_partners.models import Partner
-from main.models import Category, Event, Statistics
+from main.models import Category, Event, Player, Statistics
 from main.services import *
 from services.services import *
 
@@ -36,29 +36,35 @@ def index(request):
     return render(request, 'main/index.html', context=context)
 
 
-# def event_detail(request, pk):
-#     event = get_object_or_404(Event, pk=pk)
+def event_detail(request, pk):
+    event = get_object_or_404(Event, pk=pk)
     
-#     cat_name = request.GET.get('cat')
+    cat_name = request.GET.get('cat')
     
-#     if cat_name:
-#         category = get_object_or_404(Category, name__iexact=cat_name)
-#         statistics = Statistics.objects.filter(event=event, category=category).select_related('player') 
-#     else:
-#         statistics = Statistics.objects.filter(event=event).select_related('player') 
+    if cat_name:
+        statistics = category_event_detail_stats(Statistics, event, cat_name)
+    else:
+        statistics = event_detail_stats(Statistics, event)
     
-#     player_stats = {}
-#     for stat in statistics:
-#         player = stat.player
-#         if player not in player_stats:
-#             player_stats[player] = []
-#         player_stats[player].append(stat)
+    player_stats = {}
+    for stat in statistics:
+        player = stat.player
+        if player not in player_stats:
+            player_stats[player] = []
+        player_stats[player].append(stat)
 
-#     context = {
-#         'event': event,
-#         'player_stats': player_stats,
-#     }
+    context = {
+        'event': event,
+        'player_stats': player_stats,
+    }
     
-#     return render(request, 'main/event_detail.html', context=context)
+    return render(request, 'main/event-detail.html', context=context)
 
-    
+def player_detail(request, pk):
+    player = get_object_or_404(Player, pk=pk)
+    events = player_events_all(player)
+    context = {
+        'player': player,
+        'events': events
+    }
+    return render(request, 'main/player-detail.html', context=context)
