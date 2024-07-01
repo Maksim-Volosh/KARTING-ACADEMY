@@ -58,7 +58,7 @@
 
                 <p class="font-formula1 uppercase text-xs">next event</p>
                 {% if next_event %}
-                  <p class="link underline text-xl"><a href="#">{{ next_event.title }}</a></p>
+                  <p class="link underline text-xl"><a href="{% url "event_detail" next_event.id %}">{{ next_event.title }}</a></p>
                 {% else %}
                   <p class="font-formula1 text-lg">There are no new events :(</p>
                 {% endif %}
@@ -107,13 +107,13 @@
                   <th scope="col m-auto" class="w-[15%]"></th>
                   <th scope="col" class="text-center">NAME</th>
                   <th scope="col" class="text-center">COUNTRY</th>
-                  <th scope="col" class="text-center">TEAM</th>
+                  <th scope="col" class="text-center">LAP TIME</th>
                   <th scope="col" class="text-center">SCORE</th>
                 </tr>
                 </thead>
                 <tbody>
                 <!-- If we don't have an event -->
-                {% if not event or not statistic %}
+                {% if not statistic %}
                 <tr class="h-[9rem]">
                   <th scope="row" class="w-[126px]">1</th>
                   <td class="w-[180px]"></td>
@@ -137,6 +137,7 @@
                 </tr>
                 {% else %}
                 <!-- If we have an event - we init an statistic -->
+                 <p> Next event: <span class="underline"><a href="{% url 'event_detail' event.id %}">{{ event.title }}</a></span></p>
                 {% for stat in statistic %}
                 <tr class="h-[9rem]">
                   <th scope="row" class="w-[126px]">{{ forloop.counter }}</th>
@@ -192,7 +193,8 @@
 
               </div>
               <div class="video-frame">
-                <video class="" width="320" height="220" controls>
+                <video class="" width="320" height="220" controls autoplay muted loop>
+                  <source src='{% static "video/main/video.mp4" %}' type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
               </div>

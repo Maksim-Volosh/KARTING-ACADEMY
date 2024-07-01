@@ -6,6 +6,7 @@ from app_gallery.services import get_last_ten_photos
 from app_news.models import News
 from app_news.services import get_last_three_news
 from app_partners.models import Partner
+from app_partners.services import get_partners
 from main.models import Category, Event, Player, Statistics
 from main.services import *
 from services.services import *
@@ -19,7 +20,7 @@ def index(request):
     else:
         statistic = all_stats(Statistics, event)
     
-    partners = obj_all(Partner)   
+    partners = get_partners(Partner)   
     news = get_last_three_news(News)
     next_event = get_next_event(Event)
     

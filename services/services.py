@@ -30,6 +30,14 @@ def values_decorator(func: callable):
         return result
     return values_wrapper
 
+def only_decorator(func: callable):
+    def only_wrapper(model, only=(), *args, **kwargs):
+        result = func(model, *args, **kwargs)
+        if only:
+            return result.only(*only)
+        return result
+    return only_wrapper
+
 
 def first_object_decorator(func: callable):
     def first_object_wrapper(model, first=False, *args, **kwargs):
@@ -40,6 +48,7 @@ def first_object_decorator(func: callable):
     return first_object_wrapper
 
 @first_object_decorator
+@only_decorator
 @values_decorator
 @select_related_decorator
 @order_by_decorator
