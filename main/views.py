@@ -74,3 +74,10 @@ def player_detail(request, pk):
         'events': events
     }
     return render(request, 'main/player-detail.html', context=context)
+
+def event_list(request):
+    events = obj_all(Event)
+    context = {
+        'events': events
+    }
+    return render(request, 'main/event-list.html', context=context)
