@@ -11,307 +11,313 @@
   <link href="{% static 'css/main/main.css' %}" rel="stylesheet">
   <link href="{% static 'css/main/output.css' %}" rel="stylesheet">
 </head>
-<body class="black">
-<main class="main-page m-auto">
-  <header class="header absolute z-10">
-    <div class="wrapper flex flex-col">
-      <div class="header__content flex justify-between py-8 px-4">
-        <div class="for-blur"></div>
-        <div class="header__logo flex justify-center items-center gap-4">
-          <div class="karting-head pic"></div>
-          <h2 class="news__head head head2 text-2xl uppercase">
-            Karting speed
-          </h2>
-        </div>
-        <div class="navbar flex font-formula1 px-16 py-1.2 items-center gap-x-10 text-xl">
-          <p class="navbar__link">corporate</p>
-          <p class="navbar__link">services</p>
-          <p class="navbar__link">our team</p>
-          <p class="navbar__link">about us</p>
-        </div>
+<body class="black  custom-gradient">
+
+<header class="header absolute z-10">
+  <div class="wrapper flex flex-col">
+    <div class="header__content flex justify-between py-8 px-4">
+      <div class="for-blur"></div>
+      <div class="header__logo flex justify-center items-center gap-4">
+        <div class="karting-head pic"></div>
+        <h2 class="news__head head head2 text-2xl uppercase">
+          Karting speed
+        </h2>
       </div>
-      <div class="start__info flex gap-9 self-end pr-10">
-        <div class="flex flex-col items-center gap-3">
-          <img class="message-icon" src="/static/img/main/youtube_icon.svg" alt="youtube_icon">
-          <p class="start__language font-formula1 text-xs">Tur</p>
-        </div>
-        <div class="flex flex-col items-center gap-3">
-          <img class="message-icon" src="/static/img/main/facebook_icon.svg" alt="youtube_icon">
-          <p class="start__language font-formula1 text-xs">Ru</p>
-        </div>
-        <div class="flex flex-col items-center gap-3">
-          <img class="message-icon" src="/static/img/main/inst_icon.svg" alt="youtube_icon">
-          <p class="start__language font-formula1 text-xs">Eng</p>
-        </div>
+      <div class="navbar flex font-formula1 px-16 py-1.2 items-center gap-x-10 text-xl">
+        <p class="navbar__link">corporate</p>
+        <p class="navbar__link">services</p>
+        <p class="navbar__link">our team</p>
+        <p class="navbar__link">about us</p>
       </div>
     </div>
-  </header>
+    <div class="start__info flex gap-9 self-end pr-10">
+      <div class="flex flex-col items-center gap-3">
+        <img class="message-icon" src="/static/img/main/youtube_icon.svg" alt="youtube_icon">
+        <p class="start__language font-formula1 text-xs">Tur</p>
+      </div>
+      <div class="flex flex-col items-center gap-3">
+        <img class="message-icon" src="/static/img/main/facebook_icon.svg" alt="youtube_icon">
+        <p class="start__language font-formula1 text-xs">Ru</p>
+      </div>
+      <div class="flex flex-col items-center gap-3">
+        <img class="message-icon" src="/static/img/main/inst_icon.svg" alt="youtube_icon">
+        <p class="start__language font-formula1 text-xs">Eng</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="main-page m-auto">
+
 
   <div class="start">
-        <div class="overlay"></div>
-        <video autoplay muted loop class="video-bg">
-          <source src="{% static 'video/main/video.mp4' %}" type="video/mp4">
-          Your browser does not support the video tag.
-        </video>
-        <div class="wrapper flex flex-col">
-          <div class="start__event event flex flex-col max-w-2xl w-full">
-            <div class="event__info flex w-full pr-6 py-1">
-              <div class="flex flex-col ml-auto ">
+    <div class="overlay"></div>
+    <video autoplay muted loop class="video-bg">
+      <source src="{% static 'video/main/video.mp4' %}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="wrapper flex flex-col">
+      <div class="start__event event flex flex-col max-w-2xl w-full">
+        <div class="event__info flex w-full pr-6 py-1">
+          <div class="flex flex-col ml-auto ">
 
-                <p class="font-formula1 uppercase text-xs">next event</p>
-                {% if next_event %}
-                  <p class="link underline text-xl"><a href="{% url "event_detail" next_event.id %}">{{ next_event.title }}</a></p>
-                {% else %}
-                  <p class="font-formula1 text-lg">There are no new events :(</p>
-                {% endif %}
-              </div>
-            </div>
-            <input type="hidden" id="next_event_time" value="{{ next_event_time }}">
-            <div class="event__countdown countdown w-[97%] py-3" id="countdown">
-              <div class="flex justify-center items-center gap-2 font-formula1">
-                <div class="event__frame pic mr-4" style="background-image: url('{{ next_event.logo.url }}')">        <a href="event-page.html" ></a></div>
-                <div class="countdown__item">
-                  <span id="countdown__days">0</span>
-                  <small>DAYS</small>
-                </div>
-                <div class="countdown__item">
-                  <span id="countdown__hours">0</span>
-                  <small>HOURS</small>
-                </div>
-                <div class="countdown__item">
-                  <span id="countdown__mins">0</span>
-                  <small>MINS</small>
-                </div>
-                <div class="countdown__item">
-                  <span id="countdown__secs">0</span>
-                  <small>SECS</small>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-
-      </div>
-
-    <div class="info custom-gradient">
-      <div class="rating pl-20 pr-24 pt-16">
-        <div class="wrapper">
-          <h2 class="head head_left-line text-6xl mb-[2rem]" id="message">Rating</h2>
-
-          <div class="rating__content flex justify-between">
-
-            <div class="rating__table w-[45%] font-formula1 grid flex-col items-center">
-              <table class="bg-inherit table-auto w-full">
-                <thead class="thead-light h-[4.2rem]">
-                <tr>
-                  <th scope="col m-auto" class="w-[15%]"></th>
-                  <th scope="col" class="text-center">NAME</th>
-                  <th scope="col" class="text-center">COUNTRY</th>
-                  <th scope="col" class="text-center">LAP TIME</th>
-                  <th scope="col" class="text-center">SCORE</th>
-                </tr>
-                </thead>
-                <tbody>
-                <!-- If we don't have an event -->
-                {% if not statistic %}
-                <tr class="h-[9rem]">
-                  <th scope="row" class="w-[126px]">1</th>
-                  <td class="w-[180px]"></td>
-                  <td class="w-[180px]"></td>
-                  <td class="w-[180px]"></td>
-                  <td class="w-[180px]"></td>
-                </tr>
-                <tr class="h-[9rem]">
-                  <th scope="row" class="w-[126px]">2</th>
-                  <td class="w-[180px]"></td>
-                  <td class="w-[180px]"></td>
-                  <td class="w-[180px]"></td>
-                  <td class="w-[180px]"></td>
-                </tr>
-                <tr class="h-[9rem]">
-                  <th scope="row" class="w-[126px]">3</th>
-                  <td class="w-[180px]"></td>
-                  <td class="w-[180px]"></td>
-                  <td class="w-[180px]"></td>
-                  <td class="w-[180px]"></td>
-                </tr>
-                {% else %}
-                <!-- If we have an event - we init an statistic -->
-                 <p> Next event: <span class="underline"><a href="{% url 'event_detail' event.id %}">{{ event.title }}</a></span></p>
-                {% for stat in statistic %}
-                <tr class="h-[9rem]">
-                  <th scope="row" class="w-[126px]">{{ forloop.counter }}</th>
-                  <td class="w-[180px] text-center"> {{ stat.player__name }}</td>
-                  <td class="w-[180px] text-center"> {{ stat.player__nationality }}</td>
-                  <td class="w-[180px] text-center"> {{ stat.lap_time }}s</td>
-                  <td class="w-[180px] text-center"> {{ stat.points }}</td>
-                </tr>
-                {% endfor %}
-                {% endif %}
-                </tbody>
-              </table>
-              <button class="uppercase button explore-btn justify-self-center" onClick={explore}>Explore</button>
-            </div>
-
-            <div class="lane bg-[#FCD700]"></div>
-
-            <div class="flex flex-col gap-9">
-              <div class="contact-us">
-                <div class="contact-us__content">
-                  <h2 class="head head2 head_left-line text-3xl mb-6">
-                    Contact Us
-                  </h2>
-
-                  <!-- Notification about successful sent email -->
-                  {% if messages %}
-                  <div class="alert alert-success">
-                    {% for message in messages %}
-                    <p>{{ message }}</p>
-                    {% endfor %}
-                  </div>
-                  {% endif %}
-
-                  <div class="card-body font-formula1 bg-[#0D3242] p-4 rounded-3xl max-w-xs">
-                    <form class="flex flex-col gap-2" method="post" action="{% url 'send_email' %}#message">
-                      {% csrf_token %}
-                      <div class="form-group">
-                        <label for="email">Your email</label>
-                        <input type="email" class="form__control bg-inherit" id="email" name="email"
-                               placeholder="Enter your email" required/>
-                      </div>
-                      <div class="form-group">
-                        <label for="message">Your text</label>
-                        <textarea class="form__control h-[200px] bg-inherit text-white" id="message" name="message"
-                                  rows="3" placeholder="Enter your message" required></textarea>
-                      </div>
-                      <button type="submit" class="button rounded-lg mt-[12px] text-xl" onClick={sendMessage}>Send
-                        message
-                      </button>
-                    </form>
-                  </div>
-                </div>
-
-              </div>
-              <div class="video-frame">
-                <video class="" width="320" height="220" controls autoplay muted loop>
-                  <source src='{% static "video/main/video.mp4" %}' type="video/mp4">
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <section class="partners px-9 pt-16">
-        <div class="wrapper">
-          <h2 class="partners__head text-center mb-12 head head_bottom-line text-4xl" id="partners"> Partners </h2>
-          <div class="partners__content flex justify-evenly flex-wrap">
-            {% if partners %} <!-- If partners > 0: show partners. else: show the partner stub -->
-            {% for partner in partners %}
-            <div class="partners__frame">
-              <!-- If partner site url == True: show url and open url on the blank page. else: show partner block on the current page -->
-              <a
-                  {% if partner.url %}
-                  target="_blank" rel="noopener noreferrer" href="{{ partner.url }}"
-                  {% else %}
-                  href="#partners"
-                  {% endif %}>
-                <img src="{{ partner.logo.url }}" alt="{{ partner.name }}"></a>
-            </div>
-            {% endfor %}
+            <p class="font-formula1 uppercase text-xs">next event</p>
+            {% if next_event %}
+            <p class="link underline text-xl"><a href="{% url " event_detail" next_event.id %}">{{ next_event.title
+              }}</a></p>
             {% else %}
-            <div class="partners__frame">
-              <img src="/static/img/main/partner1.png" alt="Image">
-            </div>
+            <p class="font-formula1 text-lg">There are no new events :(</p>
             {% endif %}
           </div>
         </div>
-      </section>
+        <input type="hidden" id="next_event_time" value="{{ next_event_time }}">
+        <div class="event__countdown countdown w-[97%] py-3" id="countdown">
+          <div class="flex justify-center items-center gap-2 font-formula1">
+            <div class="event__frame pic mr-4" style="background-image: url('{{ next_event.logo.url }}')"><a
+                href="event-page.html"></a></div>
+            <div class="countdown__item">
+              <span id="countdown__days">0</span>
+              <small>DAYS</small>
+            </div>
+            <div class="countdown__item">
+              <span id="countdown__hours">0</span>
+              <small>HOURS</small>
+            </div>
+            <div class="countdown__item">
+              <span id="countdown__mins">0</span>
+              <small>MINS</small>
+            </div>
+            <div class="countdown__item">
+              <span id="countdown__secs">0</span>
+              <small>SECS</small>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <section class="news py-20">
-        <div class="wrapper">
-          <h2 class="news__head head head2 head_left-line text-3xl mb-12 pl-24">
-            Last News
-          </h2>
-          <div class="news__wrapper h-60 flex ">
-            <div class="news__content bg-[#EADF20] pl-24 py-1.5 pr-2 flex h-full gap-5 ">
-              {% for news in news %}
-              <div class="news__item flex flex-col text-center" >
-                <div class="news__frame bg-white h-[82%] w-full pic" style=" background-image: url('{{ news.image.url }}')"></div>
-                <button class="news__explore-btn uppercase button">Explore</button>
-              </div>
+    </div>
+
+
+  </div>
+
+  <div class="info">
+    <div class="rating pl-20 pr-24 pt-16">
+      <div class="wrapper">
+        <h2 class="head head_left-line text-6xl mb-[2rem]" id="message">Rating</h2>
+
+        <div class="rating__content flex justify-between">
+
+          <div class="rating__table w-[45%] font-formula1 grid flex-col items-center">
+            <table class="bg-inherit table-auto w-full">
+              <thead class="thead-light h-[4.2rem]">
+              <tr>
+                <th scope="col m-auto" class="w-[15%]"></th>
+                <th scope="col" class="text-center">NAME</th>
+                <th scope="col" class="text-center">COUNTRY</th>
+                <th scope="col" class="text-center">LAP TIME</th>
+                <th scope="col" class="text-center">SCORE</th>
+              </tr>
+              </thead>
+              <tbody>
+              <!-- If we don't have an event -->
+              {% if not statistic %}
+              <tr class="h-[9rem]">
+                <th scope="row" class="w-[126px]">1</th>
+                <td class="w-[180px]"></td>
+                <td class="w-[180px]"></td>
+                <td class="w-[180px]"></td>
+                <td class="w-[180px]"></td>
+              </tr>
+              <tr class="h-[9rem]">
+                <th scope="row" class="w-[126px]">2</th>
+                <td class="w-[180px]"></td>
+                <td class="w-[180px]"></td>
+                <td class="w-[180px]"></td>
+                <td class="w-[180px]"></td>
+              </tr>
+              <tr class="h-[9rem]">
+                <th scope="row" class="w-[126px]">3</th>
+                <td class="w-[180px]"></td>
+                <td class="w-[180px]"></td>
+                <td class="w-[180px]"></td>
+                <td class="w-[180px]"></td>
+              </tr>
+              {% else %}
+              <!-- If we have an event - we init an statistic -->
+              <p> Next event: <span class="underline"><a href="{% url 'event_detail' event.id %}">{{ event.title }}</a></span>
+              </p>
+              {% for stat in statistic %}
+              <tr class="h-[9rem]">
+                <th scope="row" class="w-[126px]">{{ forloop.counter }}</th>
+                <td class="w-[180px] text-center"> {{ stat.player__name }}</td>
+                <td class="w-[180px] text-center"> {{ stat.player__nationality }}</td>
+                <td class="w-[180px] text-center"> {{ stat.lap_time }}s</td>
+                <td class="w-[180px] text-center"> {{ stat.points }}</td>
+              </tr>
               {% endfor %}
+              {% endif %}
+              </tbody>
+            </table>
+            <button class="uppercase button explore-btn justify-self-center" onClick={explore}>Explore</button>
+          </div>
+
+          <div class="lane bg-[#FCD700]"></div>
+
+          <div class="flex flex-col gap-9">
+            <div class="contact-us">
+              <div class="contact-us__content">
+                <h2 class="head head2 head_left-line text-3xl mb-6">
+                  Contact Us
+                </h2>
+
+                <!-- Notification about successful sent email -->
+                {% if messages %}
+                <div class="alert alert-success">
+                  {% for message in messages %}
+                  <p>{{ message }}</p>
+                  {% endfor %}
+                </div>
+                {% endif %}
+
+                <div class="card-body font-formula1 bg-[#0D3242] p-4 rounded-3xl max-w-xs">
+                  <form class="flex flex-col gap-2" method="post" action="{% url 'send_email' %}#message">
+                    {% csrf_token %}
+                    <div class="form-group">
+                      <label for="email">Your email</label>
+                      <input type="email" class="form__control bg-inherit" id="email" name="email"
+                             placeholder="Enter your email" required/>
+                    </div>
+                    <div class="form-group">
+                      <label for="message">Your text</label>
+                      <textarea class="form__control h-[200px] bg-inherit text-white" id="message" name="message"
+                                rows="3" placeholder="Enter your message" required></textarea>
+                    </div>
+                    <button type="submit" class="button rounded-lg mt-[12px] text-xl" onClick={sendMessage}>Send
+                      message
+                    </button>
+                  </form>
+                </div>
+              </div>
+
             </div>
-            <div class="news__stripes h-full flex-1"></div>
+            <div class="video-frame">
+              <video class="" width="320" height="220" controls autoplay muted loop>
+                <source src='{% static "video/main/video.mp4" %}' type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
         </div>
-      </section>
-
-      <section class="gallery py-20">
-        <div class="wrapper">
-          <h2 class="news__head head head2 head_left-line text-3xl mb-12 pl-24">
-            gallery
-          </h2>
-          <div class="gallery__photos flex flex-col js-flickity"   data-flickity-options='{ "freeScroll": true, "wrapAround": true }'>
-            <!-- Photos -->
-            {% for pic in gallery %}
-            <div class="gallery-cell" > <img class="gallery-cell" src="{{ pic.image.url}}" alt="photo"> </div>
+      </div>
+    </div>
 
 
-<!--            <div class="gallery-cell" style="background: url('{{ pic.image.url }}') no-repeat center center"></div>-->
+    <section class="partners px-9 pt-16">
+      <div class="wrapper">
+        <h2 class="partners__head text-center mb-12 head head_bottom-line text-4xl" id="partners"> Partners </h2>
+        <div class="partners__content flex justify-evenly flex-wrap">
+          {% if partners %} <!-- If partners > 0: show partners. else: show the partner stub -->
+          {% for partner in partners %}
+          <div class="partners__frame">
+            <!-- If partner site url == True: show url and open url on the blank page. else: show partner block on the current page -->
+            <a
+                {% if partner.url %}
+                target="_blank" rel="noopener noreferrer" href="{{ partner.url }}"
+                {% else %}
+                href="#partners"
+                {% endif %}>
+              <img src="{{ partner.logo.url }}" alt="{{ partner.name }}"></a>
+          </div>
+          {% endfor %}
+          {% else %}
+          <div class="partners__frame">
+            <img src="/static/img/main/partner1.png" alt="Image">
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </section>
+
+    <section class="news py-20">
+      <div class="wrapper">
+        <h2 class="news__head head head2 head_left-line text-3xl mb-12 pl-24">
+          Last News
+        </h2>
+        <div class="news__wrapper h-60 flex ">
+          <div class="news__content bg-[#EADF20] pl-24 py-1.5 pr-2 flex h-full gap-5 ">
+            {% for news in news %}
+            <div class="news__item flex flex-col text-center">
+              <div class="news__frame bg-white h-[82%] w-full pic"
+                   style=" background-image: url('{{ news.image.url }}')"></div>
+              <button class="news__explore-btn uppercase button">Explore</button>
+            </div>
             {% endfor %}
-
-<!--            <div class="flex gap-3 mx-auto mt-24">-->
-<!--              &lt;!&ndash; Circles &ndash;&gt;-->
-<!--              &lt;!&ndash; Circles &ndash;&gt;-->
-<!--              {% for pic in gallery %}-->
-<!--              <div class="circle"></div>-->
-<!--              {% endfor %}-->
-<!--            </div>-->
           </div>
+          <div class="news__stripes h-full flex-1"></div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <footer class="footer">
-        <div class="wrapper">
-          <div class="top-line"></div>
-        <div class="footer__content pt-12 pb-8 px-24">
-          <div class="flex justify-between items-center">
-          <div class="flex gap-12">
-            <a href="https://instagram.com" target="_blank"> <img class="message-icon"
-                                                                  src="/static/img/main/inst_icon.svg"
-                                                                  alt="inst_icon"></a>
-            <a href="https://facebook.com" target="_blank"><img class="message-icon"
-                                                                src="/static/img/main/facebook_icon.svg"
-                                                                alt=facebook"></a>
-            <a href="https://youtube.com" target="_blank"><img class="message-icon"
-                                                               src="/static/img/main/youtube_icon_1.svg"
-                                                               alt="youtube_icon"></a>
-          </div>
-            <div class="flex flex-col font-formula1 text-xl gap-4">
-              <div class="flex gap-1"> <img class="message-icon" src="/static/img/main/phone.svg" alt="phone">
-                <p class="text-right"> </a> <a href="tel:+905338876280" class="text-white">+905338876280</a></p>
-              </div>
-              <div class="flex gap-2"> <img class="message-icon" src="/static/img/main/envelope.png" alt="envelope">
-                <p class="text-right"><a href="mailto:kartingspeedacademy@gmail.com" class="text-white">kartingspeedacademy@gmail.com</a></p>
-              </div>
-            </div>
+    <section class="gallery py-20">
+      <div class="wrapper">
+        <h2 class="news__head head head2 head_left-line text-3xl mb-12 pl-24">
+          gallery
+        </h2>
+        <div class="gallery__photos flex flex-col js-flickity"
+             data-flickity-options='{ "freeScroll": true, "wrapAround": true }'>
+          <!-- Photos -->
+          {% for pic in gallery %}
+          <div class="gallery-cell"><img class="gallery-cell" src="{{ pic.image.url}}" alt="photo"></div>
 
-          </div>
-        <p class="text-white text-2xl text-center mt-10">&copy; 2024 KARTING SPEED</p>
+
+          <!--            <div class="gallery-cell" style="background: url('{{ pic.image.url }}') no-repeat center center"></div>-->
+          {% endfor %}
+
+          <!--            <div class="flex gap-3 mx-auto mt-24">-->
+          <!--              &lt;!&ndash; Circles &ndash;&gt;-->
+          <!--              &lt;!&ndash; Circles &ndash;&gt;-->
+          <!--              {% for pic in gallery %}-->
+          <!--              <div class="circle"></div>-->
+          <!--              {% endfor %}-->
+          <!--            </div>-->
         </div>
-        </div>
-      </footer>
-
-    </div>
-
-
-    </div>
+      </div>
+    </section>
+  </div>
+  </div>
 </main>
+
+<footer class="footer">
+  <div class="wrapper">
+    <div class="top-line"></div>
+    <div class="footer__content pt-12 pb-8 px-24">
+      <div class="flex justify-between items-center">
+        <div class="flex gap-12">
+          <a href="https://instagram.com" target="_blank"> <img class="message-icon"
+                                                                src="/static/img/main/inst_icon.svg"
+                                                                alt="inst_icon"></a>
+          <a href="https://facebook.com" target="_blank"><img class="message-icon"
+                                                              src="/static/img/main/facebook_icon.svg"
+                                                              alt=facebook"></a>
+          <a href="https://youtube.com" target="_blank"><img class="message-icon"
+                                                             src="/static/img/main/youtube_icon_1.svg"
+                                                             alt="youtube_icon"></a>
+        </div>
+        <div class="flex flex-col font-formula1 text-xl gap-4">
+          <div class="flex gap-1"><img class="message-icon" src="/static/img/main/phone.svg" alt="phone">
+            <p class="text-right"> </a> <a href="tel:+905338876280" class="text-white">+905338876280</a></p>
+          </div>
+          <div class="flex gap-2"><img class="message-icon" src="/static/img/main/envelope.png" alt="envelope">
+            <p class="text-right"><a href="mailto:kartingspeedacademy@gmail.com" class="text-white">kartingspeedacademy@gmail.com</a>
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <p class="text-white text-2xl text-center mt-10">&copy; 2024 KARTING SPEED</p>
+    </div>
+  </div>
+</footer>
 
 <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script src="{% static 'js/main/event-countdown.js' %}"></script>
