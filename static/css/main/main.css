@@ -1,10 +1,11 @@
 .start {
   height: 750px;
-  z-index: 2;
+  position: relative;
 }
 
-.start-event {
-  margin-top: 27.6rem;
+.start__event {
+  position: absolute;
+  bottom: 0;
 }
 
 .video-bg {

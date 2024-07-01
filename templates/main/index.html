@@ -13,46 +13,48 @@
 </head>
 <body class="black">
 <main class="main-page m-auto">
-  <div>
-      <div class="start relative z-2">
+  <header class="header absolute z-10">
+    <div class="wrapper flex flex-col">
+      <div class="header__content flex justify-between py-8 px-4">
+        <div class="for-blur"></div>
+        <div class="header__logo flex justify-center items-center gap-4">
+          <div class="karting-head pic"></div>
+          <h2 class="news__head head head2 text-2xl uppercase">
+            Karting speed
+          </h2>
+        </div>
+        <div class="navbar flex font-formula1 px-16 py-1.2 items-center gap-x-10 text-xl">
+          <p class="navbar__link">corporate</p>
+          <p class="navbar__link">services</p>
+          <p class="navbar__link">our team</p>
+          <p class="navbar__link">about us</p>
+        </div>
+      </div>
+      <div class="start__info flex gap-9 self-end pr-10">
+        <div class="flex flex-col items-center gap-3">
+          <img class="message-icon" src="/static/img/main/youtube_icon.svg" alt="youtube_icon">
+          <p class="start__language font-formula1 text-xs">Tur</p>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+          <img class="message-icon" src="/static/img/main/facebook_icon.svg" alt="youtube_icon">
+          <p class="start__language font-formula1 text-xs">Ru</p>
+        </div>
+        <div class="flex flex-col items-center gap-3">
+          <img class="message-icon" src="/static/img/main/inst_icon.svg" alt="youtube_icon">
+          <p class="start__language font-formula1 text-xs">Eng</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="start">
         <div class="overlay"></div>
         <video autoplay muted loop class="video-bg">
           <source src="{% static 'video/main/video.mp4' %}" type="video/mp4">
           Your browser does not support the video tag.
         </video>
-        <div class="wrapper relative z-10 flex flex-col">
-          <header class="header relative z-2 flex justify-between py-8 px-4">
-            <div class="for-blur"></div>
-            <div class="header__logo flex justify-center items-center gap-4">
-              <div class="karting-head pic"></div>
-              <h2 class="news__head head head2 text-2xl uppercase">
-                Karting speed
-              </h2>
-            </div>
-            <div class="navbar flex font-formula1 px-16 py-1.2 items-center gap-x-10 text-xl">
-              <p class="navbar__link">corporate</p>
-              <p class="navbar__link">services</p>
-              <p class="navbar__link">our team</p>
-              <p class="navbar__link">about us</p>
-            </div>
-          </header>
-
-          <div class="start__info flex gap-9 self-end pr-10">
-            <div class="flex flex-col items-center gap-3">
-              <img class="message-icon" src="/static/img/main/youtube_icon.svg" alt="youtube_icon">
-              <p class="start__language font-formula1 text-xs">Tur</p>
-            </div>
-            <div class="flex flex-col items-center gap-3">
-              <img class="message-icon" src="/static/img/main/facebook_icon.svg" alt="youtube_icon">
-              <p class="start__language font-formula1 text-xs">Ru</p>
-            </div>
-            <div class="flex flex-col items-center gap-3">
-              <img class="message-icon" src="/static/img/main/inst_icon.svg" alt="youtube_icon">
-              <p class="start__language font-formula1 text-xs">Eng</p>
-            </div>
-          </div>
-
-          <div class="start__event event flex flex-col max-w-2xl w-full start-event">
+        <div class="wrapper flex flex-col">
+          <div class="start__event event flex flex-col max-w-2xl w-full">
             <div class="event__info flex w-full pr-6 py-1">
               <div class="flex flex-col ml-auto ">
 

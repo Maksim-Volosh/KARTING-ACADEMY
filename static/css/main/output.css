@@ -20,6 +20,7 @@
 
 body {
   font-family: 'Pro Racing Slant', sans-serif;
+  background-color: black;
 }
 
 :root {
@@ -28,7 +29,6 @@ body {
   font-family: 'Pro Racing Slant', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-  color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -600,8 +600,8 @@ video {
   position: static;
 }
 
-.relative {
-  position: relative;
+.absolute {
+  position: absolute;
 }
 
 .z-10 {
@@ -641,20 +641,12 @@ video {
   margin-top: 2.5rem;
 }
 
-.mt-72 {
-  margin-top: 18rem;
-}
-
-.mt-\[12px\] {
-  margin-top: 12px;
-}
-
 .mt-24 {
   margin-top: 6rem;
 }
 
-.mt-60 {
-  margin-top: 15rem;
+.mt-\[12px\] {
+  margin-top: 12px;
 }
 
 .block {
@@ -689,10 +681,6 @@ video {
   height: 4.2rem;
 }
 
-.h-\[750px\] {
-  height: 750px;
-}
-
 .h-\[82\%\] {
   height: 82%;
 }
@@ -703,10 +691,6 @@ video {
 
 .h-full {
   height: 100%;
-}
-
-.h-3 {
-  height: 0.75rem;
 }
 
 .w-\[126px\] {
@@ -731,10 +715,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-3 {
-  width: 0.75rem;
 }
 
 .max-w-2xl {
@@ -826,10 +806,6 @@ video {
   border-radius: 0.5rem;
 }
 
-.rounded-full {
-  border-radius: 9999px;
-}
-
 .bg-\[\#0D3242\] {
   --tw-bg-opacity: 1;
   background-color: rgb(13 50 66 / var(--tw-bg-opacity));
@@ -852,11 +828,6 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
-}
-
-.bg-yellow-500 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(234 179 8 / var(--tw-bg-opacity));
 }
 
 .p-4 {
@@ -1013,6 +984,11 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+}
+
+.header {
+  right: 0;
+  left: 0;
 }
 
 h1 {
