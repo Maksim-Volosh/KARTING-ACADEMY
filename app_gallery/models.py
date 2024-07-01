@@ -6,6 +6,7 @@ class Gallery(models.Model):
         max_length=355, verbose_name="Description", blank=True, null=True
     )
     image = models.ImageField(upload_to="images/gallery", verbose_name="Logo")
+    created_at = models.DateTimeField(auto_now_add=True, verbose_name="Created at")
 
     class Meta:
         verbose_name = "Gallery"

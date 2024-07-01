@@ -5,10 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Karting</title>
-  <!-- Tailwind CSS -->
-  <link href="{% static "css/main/main.css" %}" rel="stylesheet">
-  <link href="{% static "css/main/output.css" %}" rel="stylesheet">
   <link href="{% static 'img/main/simple-logo.jpg' %}" rel="icon" type="image/x-icon">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <!-- Tailwind CSS -->
+  <link href="{% static 'css/main/main.css' %}" rel="stylesheet">
+  <link href="{% static 'css/main/output.css' %}" rel="stylesheet">
 </head>
 <body class="black">
 <main class="main-page m-auto">
@@ -51,9 +52,10 @@
             </div>
           </div>
 
-          <div class="start__event event flex flex-col max-w-2xl w-full mt-72">
+          <div class="start__event event flex flex-col max-w-2xl w-full start-event">
             <div class="event__info flex w-full pr-6 py-1">
               <div class="flex flex-col ml-auto ">
+
                 <p class="font-formula1 uppercase text-xs">next event</p>
                 {% if next_event %}
                   <p class="link underline text-xl"><a href="#">{{ next_event.title }}</a></p>
@@ -65,7 +67,7 @@
             <input type="hidden" id="next_event_time" value="{{ next_event_time }}">
             <div class="event__countdown countdown w-[97%] py-3" id="countdown">
               <div class="flex justify-center items-center gap-2 font-formula1">
-                <div class="event__frame pic mr-4" style="background-image: url('{{ next_event.logo.url }}')"></div>
+                <div class="event__frame pic mr-4" style="background-image: url('{{ next_event.logo.url }}')">        <a href="event-page.html" ></a></div>
                 <div class="countdown__item">
                   <span id="countdown__days">0</span>
                   <small>DAYS</small>
@@ -250,15 +252,22 @@
           <h2 class="news__head head head2 head_left-line text-3xl mb-12 pl-24">
             gallery
           </h2>
-          <div class="gallery__photos flex flex-col">
-            <div class="photo" style=" background: url('/static/img/main/depositphotos.jpg') no-repeat center center"></div>
-            <div class="flex gap-3 mx-auto mt-24">
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
-              <div class="circle"></div>
-            </div>
+          <div class="gallery__photos flex flex-col js-flickity"   data-flickity-options='{ "freeScroll": true, "wrapAround": true }'>
+            <!-- Photos -->
+            {% for pic in gallery %}
+            <div class="gallery-cell" > <img class="gallery-cell" src="{{ pic.image.url}}" alt="photo"> </div>
+
+
+<!--            <div class="gallery-cell" style="background: url('{{ pic.image.url }}') no-repeat center center"></div>-->
+            {% endfor %}
+
+<!--            <div class="flex gap-3 mx-auto mt-24">-->
+<!--              &lt;!&ndash; Circles &ndash;&gt;-->
+<!--              &lt;!&ndash; Circles &ndash;&gt;-->
+<!--              {% for pic in gallery %}-->
+<!--              <div class="circle"></div>-->
+<!--              {% endfor %}-->
+<!--            </div>-->
           </div>
         </div>
       </section>
@@ -299,6 +308,8 @@
 
     </div>
 </main>
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 <script src="{% static 'js/main/event-countdown.js' %}"></script>
 </body>
 </html>

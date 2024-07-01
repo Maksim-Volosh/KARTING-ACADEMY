@@ -1,6 +1,8 @@
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 
+from app_gallery.models import Gallery
+from app_gallery.services import get_last_ten_photos
 from app_news.models import News
 from app_news.services import get_last_three_news
 from app_partners.models import Partner
@@ -23,7 +25,10 @@ def index(request):
     
     if next_event:
         next_event_time = timezone.localtime(next_event.date_of_start).strftime("%Y-%m-%d %H:%M:%S")
-    else: next_event_time = 0       
+    else: next_event_time = 0   
+    
+    gallery = get_last_ten_photos(Gallery) 
+    print(gallery)   
     
     context = {
         'event': event,
@@ -32,6 +37,7 @@ def index(request):
         'news': news,
         'next_event': next_event,
         'next_event_time': next_event_time,
+        'gallery': gallery,
     }
     return render(request, 'main/index.html', context=context)
 

@@ -653,6 +653,10 @@ video {
   margin-top: 6rem;
 }
 
+.mt-60 {
+  margin-top: 15rem;
+}
+
 .block {
   display: block;
 }
