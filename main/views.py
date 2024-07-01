@@ -5,8 +5,6 @@ from app_gallery.models import Gallery
 from app_gallery.services import get_last_ten_photos
 from app_news.models import News
 from app_news.services import get_last_three_news
-from app_partners.models import Partner
-from app_partners.services import get_partners
 from main.models import Category, Event, Player, Statistics
 from main.services import *
 from services.services import *
@@ -19,8 +17,7 @@ def index(request):
         statistic = junior_stats(Statistics, event)
     else:
         statistic = all_stats(Statistics, event)
-    
-    partners = get_partners(Partner)   
+  
     news = get_last_three_news(News)
     next_event = get_next_event(Event)
     
@@ -33,11 +30,11 @@ def index(request):
     context = {
         'event': event,
         'statistic': statistic,
-        'partners': partners,
         'news': news,
         'next_event': next_event,
         'next_event_time': next_event_time,
         'gallery': gallery,
+        'is_homepage': True
     }
     return render(request, 'main/index.html', context=context)
 

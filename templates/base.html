@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock title %}</title>
+  <link href="{% static 'img/main/simple-logo.jpg' %}" rel="icon" type="image/x-icon">
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <!-- Tailwind CSS -->
+  <link href="{% static 'css/main/main.css' %}" rel="stylesheet">
+  <link href="{% static 'css/main/output.css' %}" rel="stylesheet">
+</head>
+<body class="black custom-gradient">
+
+<header class="header absolute z-10">
+  <div class="wrapper flex flex-col">
+    <div class="header__content flex justify-between py-8 px-4">
+      <div class="for-blur"></div>
+      <div class="header__logo flex justify-center items-center gap-4">
+        <div class="karting-head pic"></div>
+        <h2 class="news__head head head2 text-2xl uppercase">
+          <a href="{% url "index" %}">
+            Karting speed
+          </a>
+        </h2>
+      </div>
+      <div class="navbar flex font-formula1 px-16 py-1.2 items-center gap-x-10 text-xl">
+        <p class="navbar__link">corporate</p>
+        <p class="navbar__link">services</p>
+        <p class="navbar__link">our team</p>
+        <p class="navbar__link">about us</p>
+      </div>
+    </div>
+    <div class="start__info flex gap-9 self-end pr-10">
+      <div class="flex flex-col items-center gap-3">
+        <img class="message-icon" src="/static/img/main/youtube_icon.svg" alt="youtube_icon">
+        <p class="start__language font-formula1 text-xs">Tur</p>
+      </div>
+      <div class="flex flex-col items-center gap-3">
+        <img class="message-icon" src="/static/img/main/facebook_icon.svg" alt="youtube_icon">
+        <p class="start__language font-formula1 text-xs">Ru</p>
+      </div>
+      <div class="flex flex-col items-center gap-3">
+        <img class="message-icon" src="/static/img/main/inst_icon.svg" alt="youtube_icon">
+        <p class="start__language font-formula1 text-xs">Eng</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+{% block main %}
+
+{% endblock main %}
+
+{% if not is_homepage %}
+<section class="partners px-9 pt-16">
+    <div class="wrapper">
+      <h2 class="partners__head text-center mb-12 head head_bottom-line text-4xl" id="partners"> Partners </h2>
+      <div class="partners__content flex justify-evenly flex-wrap">
+        {% if partners %} <!-- If partners > 0: show partners. else: show the partner stub -->
+        {% for partner in partners %}
+        <div class="partners__frame">
+          <!-- If partner site url == True: show url and open url on the blank page. else: show partner block on the current page -->
+          <a
+              {% if partner.url %}
+              target="_blank" rel="noopener noreferrer" href="{{ partner.url }}"
+              {% else %}
+              href="#partners"
+              {% endif %}>
+            <img src="{{ partner.logo.url }}" alt="{{ partner.name }}"></a>
+        </div>
+        {% endfor %}
+        {% else %}
+        <div class="partners__frame">
+          <img src="/static/img/main/partner1.png" alt="Image">
+        </div>
+        {% endif %}
+      </div>
+    </div>
+</section>
+<br>
+<br>
+<br>
+{% endif %}
+
+<footer class="footer">
+  <div class="wrapper">
+    <div class="top-line"></div>
+    <div class="footer__content pt-12 pb-8 px-24">
+      <div class="flex justify-between items-center">
+        <div class="flex gap-12">
+          <a href="https://instagram.com" target="_blank"> <img class="message-icon"
+                                                                src="/static/img/main/inst_icon.svg"
+                                                                alt="inst_icon"></a>
+          <a href="https://facebook.com" target="_blank"><img class="message-icon"
+                                                              src="/static/img/main/facebook_icon.svg"
+                                                              alt=facebook"></a>
+          <a href="https://youtube.com" target="_blank"><img class="message-icon"
+                                                             src="/static/img/main/youtube_icon_1.svg"
+                                                             alt="youtube_icon"></a>
+        </div>
+        <div class="flex flex-col font-formula1 text-xl gap-4">
+          <div class="flex gap-1"><img class="message-icon" src="/static/img/main/phone.svg" alt="phone">
+            <p class="text-right"> </a> <a href="tel:+905338876280" class="text-white">+905338876280</a></p>
+          </div>
+          <div class="flex gap-2"><img class="message-icon" src="/static/img/main/envelope.png" alt="envelope">
+            <p class="text-right"><a href="mailto:kartingspeedacademy@gmail.com" class="text-white">kartingspeedacademy@gmail.com</a>
+            </p>
+          </div>
+        </div>
+
+      </div>
+      <p class="text-white text-2xl text-center mt-10">&copy; 2024 KARTING SPEED</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+<script src="{% static 'js/main/event-countdown.js' %}"></script>
+</body>
+</html>

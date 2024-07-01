@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+
 from config import PASS, SECRET_KEY
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -68,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'app_partners.context_processors.partners',
             ],
         },
     },
