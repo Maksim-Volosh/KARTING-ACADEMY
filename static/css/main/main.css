@@ -63,7 +63,7 @@
 }
 
 .gallery-cell {
-  width: 70%;
+  width: 85%;
   height: 750px;
   /* flex-box, center image in cell */
   display: -webkit-box;

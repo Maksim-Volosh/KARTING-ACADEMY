@@ -27,8 +27,7 @@ def index(request):
         next_event_time = timezone.localtime(next_event.date_of_start).strftime("%Y-%m-%d %H:%M:%S")
     else: next_event_time = 0   
     
-    gallery = get_last_ten_photos(Gallery) 
-    print(gallery)   
+    gallery = get_last_ten_photos(Gallery, 1080)  
     
     context = {
         'event': event,
