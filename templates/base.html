@@ -13,7 +13,7 @@
 </head>
 <body class="black custom-gradient">
 
-<header class="header absolute z-10">
+<header class="header z-10">
   <div class="wrapper flex flex-col">
     <div class="header__content flex justify-between py-8 px-4">
       <div class="for-blur"></div>
@@ -27,7 +27,7 @@
       </div>
       <div class="navbar flex font-formula1 px-16 py-1.2 items-center gap-x-10 text-xl">
         <p class="navbar__link">corporate</p>
-        <p class="navbar__link">services</p>
+        <p class="navbar__link"><a href="{% url 'event-list' %}">events</a></p>
         <p class="navbar__link">our team</p>
         <p class="navbar__link">about us</p>
       </div>
@@ -116,7 +116,5 @@
   </div>
 </footer>
 
-<script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
-<script src="{% static 'js/main/event-countdown.js' %}"></script>
 </body>
 </html>
