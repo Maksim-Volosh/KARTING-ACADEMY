@@ -34,12 +34,12 @@
   padding-top: 20%;
 }
 
-.navbar, .event__info, .event__countdown {
+.navbar, .event__content, .event__countdown {
   position: relative;
   z-index: 2;
 }
 
-.navbar:before, .event__countdown:before, .event__info:before {
+.navbar:before, .event__countdown:before, .event__content:before {
   content: '';
   position: absolute;
   top: 0;
@@ -145,7 +145,7 @@
   height: 60px;
 }
 
-.event__info:before {
+.event__content:before {
   background: linear-gradient(to right, rgba(0, 26, 48, 0.04) 20%, rgba(0, 26, 48, 0.82) 50%);
   filter: blur(0.8px);
 }

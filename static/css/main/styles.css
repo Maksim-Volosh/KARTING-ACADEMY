@@ -96,6 +96,7 @@ h1 {
   padding: 5px 20px;
   color: #003062;
   touch-action: manipulation;
+  letter-spacing: normal;
 }
 
 .button:hover {

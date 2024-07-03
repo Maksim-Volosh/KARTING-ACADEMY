@@ -6,14 +6,29 @@
 
 
 {% block main %}
-    <main class="main-section font-formula1">
-        {% for event in events %}
-            <p><img src="{{ event.logo.url }}" alt="" width="60" height="60"></p>
-            <p>{{ event.date_of_start }} - {{ event.date_of_end }}</p>
-            <p>{{ event.country }}</p>
-            <p>{{ event.title }}</p>
-            <button><a href="{% url 'event_detail' event.id %}">Explore event</a></button>
-            <br><br>
-        {% endfor %}
-    </main>
+<main class="event-list z-2">
+  <div class="wrapper">
+    <div class="event__container flex flex-col px-10 py-12 gap-2">
+      {% for event in events %}
+      <div class="event__item-wrap">
+        <div class="event__item flex justify-between items-center p-2">
+          <div class="event__start flex gap-2 items-center justify-center">
+            <img src="{{ event.logo.url }}" alt="" width="60" height="60">
+            <div class="event__time flex flex-col text-nowrap">
+              <p>{{ event.date_of_start }} - </p>
+              <p>{{ event.date_of_end }}</p>
+            </div>
+          </div>
+          <div class="event__info flex flex-col w-[45%]">
+            <p class="event__country text-xl">{{ event.country }}</p>
+            <p class="event__title font-formula1 text-sm">{{ event.title }}</p>
+          </div>
+          <button class="button event__button font-extralight text-base"><a href="{% url 'event_detail' event.id %}">Explore
+            event</a></button>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</main>
 {% endblock main %}
