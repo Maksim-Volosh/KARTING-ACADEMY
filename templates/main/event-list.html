@@ -15,7 +15,7 @@
   <div class="wrapper">
 
     <div class="event__wrapper flex flex-col px-10 py-12 gap-2">
-    <form class="pb-14" action="{% url 'event-list' %}" method="get">
+    <form class="pb-1" action="{% url 'event-list' %}" method="get">
       <select class="event__years" name="y" onchange="this.form.submit()">
         <option value="all" {% if selected_year == "all" or not selected_year %}selected{% endif %}>All</option>
         {% for year in years %}
@@ -27,7 +27,7 @@
     <div class="events__container flex flex-col">
       {% for event in events %}
         {% ifchanged event.date_of_start|date:"Y" %}
-          <p class="">{{ event.date_of_start|date:"Y" }}</p>
+          <p class="mt-4 mb-1 ml-2">{{ event.date_of_start|date:"Y" }}</p>
         {% endifchanged %}
         <div class="event__item-wrap">
           <div class="event__item flex-align-center justify-between p-2">
