@@ -484,6 +484,10 @@ video {
   display: none;
 }
 
+.font-pro-racing {
+  font-family: 'Pro Racing Slant', sans-serif;
+}
+
 .font-formula1 {
   font-family: 'Formula1', sans-serif;
 }
@@ -746,6 +750,10 @@ video {
 
 .items-center {
   align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .justify-between {

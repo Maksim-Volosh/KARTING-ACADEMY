@@ -36,6 +36,10 @@
   line-height: 1;
 }
 
+.event__info {
+  width: 45%;
+}
+
 @media (max-width: 1370px) {
 
   .event__country {
@@ -51,7 +55,7 @@
 
 @media (max-width: 870px) {
 
-  .event__container {
+  .events__container {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;

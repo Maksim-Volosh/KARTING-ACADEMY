@@ -24,14 +24,14 @@
       </select>
     </form>
 
-    <div class="event__container flex flex-col">
+    <div class="events__container flex flex-col">
       {% for event in events %}
         {% ifchanged event.date_of_start|date:"Y" %}
           <p class="absolute top-24">{{ event.date_of_start|date:"Y" }}</p>
         {% endifchanged %}
         <div class="event__item-wrap">
           <div class="event__item flex-align-center justify-between p-2">
-            <div class="event__start flex-center w-[25%]">
+            <div class="event__start flex-align-center">
               <div class="event__icon pic" style=" background-image: url('{{ event.logo.url }}')"></div>
               <div class="event__times flex-align-center ">
                 <div class="event__time flex-center flex-col">

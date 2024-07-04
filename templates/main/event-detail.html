@@ -2,65 +2,68 @@
 {% load static %}
 
 {% block links %}
-  <!-- event-detail CSS -->
+<!-- event-detail CSS -->
 {% endblock links %}
 
 {% block title %}Karting speed | Event{% endblock title %}
 
 
 {% block main %}
-<main>
-  <section class="main-section font-formula1">
-    <h2>Event Details</h2>
-    <p>Event: {{ event.title }}</p>
-    <p>Country of Event: {{ event.country }}</p>
-    <p>Event date of start: {{ event.date_of_start }}</p>
-    <p>Event date of end: {{ event.date_of_end }}</p>
-    <p>Description: {{ event.description }}</p>
-    {% if event.documents %}
-      <p>Documents: <a href="{{ event.documents.url }}" download>{{ event.documents }}</a></p>
-    {% endif %}
-    <img src="{{ event.logo.url }}" alt="{{ event.title }} - image">
-    {% if event.image_of_track %}
-      <img src="{{ event.image_of_track.url }}" alt="{{ event.title }} - image">
-    {% endif %}
-    <p>Count of players: {{ event.player_count }}</p>
-    <br>
-    <br>
-    <h3>Players and their Statistics</h3>
-    <div>
-      <button><a href="{% url 'event_detail' event.id %}?cat=mini">MINI</a></button> |
-      <button><a href="{% url 'event_detail' event.id %}?cat=junior">JUNIOR</a></button> |
-      <button><a href="{% url 'event_detail' event.id %}?cat=senior">SENIOR</a></button> |
-      <button><a href="{% url 'event_detail' event.id %}?cat=master">MASTER</a></button> |
-      <button><a href="?all">ALL</a></button> |
-    </div>
-    <br><br>
+<main class="event-detail z-2">
+  <div class="wrapper">
+    <section class="event__container font-formula1 px-10 py-12 flex justify-center flex-col">
+      <h2 class="head head2 head_bottom-line font-pro-racing pb-8">Event Details</h2>
+      <h3 class="text-2xl">{{ event.title }}</h3>
+      <p class="text-lg">Country of Event: {{ event.country }}</p>
+      <p>Event date of start: {{ event.date_of_start }}</p>
+      <p>Event date of end: {{ event.date_of_end }}</p>
 
-    <table>
-      <thead>
+      <p>Description: {{ event.description }}</p>
+      {% if event.documents %}
+      <p>Documents: <a href="{{ event.documents.url }}" download>{{ event.documents }}</a></p>
+      {% endif %}
+      <img src="{{ event.logo.url }}" alt="{{ event.title }} - image">
+      {% if event.image_of_track %}
+      <img src="{{ event.image_of_track.url }}" alt="{{ event.title }} - image">
+      {% endif %}
+      <p>Count of players: {{ event.player_count }}</p>
+      <br>
+      <br>
+      <h3>Players and their Statistics</h3>
+      <div>
+        <button><a href="{% url 'event_detail' event.id %}?cat=mini">MINI</a></button> |
+        <button><a href="{% url 'event_detail' event.id %}?cat=junior">JUNIOR</a></button> |
+        <button><a href="{% url 'event_detail' event.id %}?cat=senior">SENIOR</a></button> |
+        <button><a href="{% url 'event_detail' event.id %}?cat=master">MASTER</a></button> |
+        <button><a href="?all">ALL</a></button> |
+      </div>
+      <br><br>
+
+      <table>
+        <thead>
         <tr>
           <th>Player</th>
           <th>Category</th>
           <th>Points</th>
           <th>Lap Time</th>
         </tr>
-      </thead>
-      <tbody>
+        </thead>
+        <tbody>
         {% for player, stats in player_stats.items %}
-          {% for stat in stats %}
-          <tr>
-            {% if forloop.first %}
-            <td rowspan="{{ stats|length }}"><a href="{% url 'player_detail' player.id %}">{{ player.full_name }}</a></td>
-            {% endif %}
-            <td>{{ stat.category.name }}</td>
-            <td>{{ stat.points }}</td>
-            <td>{{ stat.lap_time }}</td>
-          </tr>
-          {% endfor %}
+        {% for stat in stats %}
+        <tr>
+          {% if forloop.first %}
+          <td rowspan="{{ stats|length }}"><a href="{% url 'player_detail' player.id %}">{{ player.full_name }}</a></td>
+          {% endif %}
+          <td>{{ stat.category.name }}</td>
+          <td>{{ stat.points }}</td>
+          <td>{{ stat.lap_time }}</td>
+        </tr>
         {% endfor %}
-      </tbody>
-    </table>
-  </section>
+        {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </div>
 </main>
 {% endblock main %}
