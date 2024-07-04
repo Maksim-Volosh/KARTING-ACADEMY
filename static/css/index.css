@@ -121,3 +121,8 @@
 
   border-image-slice: 1;
 }
+
+.header__icon {
+  width: 20px;
+  height: 20px;
+}
