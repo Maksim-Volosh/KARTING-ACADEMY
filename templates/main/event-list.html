@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block links %}
+  <!-- event-list CSS -->
+  <link href="{% static 'css/event-list.css' %}" rel="stylesheet">
+{% endblock links %}
+
 
 {% block title %}Karting speed | Events{% endblock title %}
 

@@ -10,10 +10,8 @@
   <!-- Tailwind CSS -->
   <!-- all CSS -->
   <link href="{% static 'css/main/output.css' %}" rel="stylesheet">
-  <!-- main CSS -->
-  <link href="{% static 'css/index.css' %}" rel="stylesheet">
-  <!-- events CSS -->
-  <link href="{% static 'css/event-list.css' %}" rel="stylesheet">
+  {% block links %}
+  {% endblock links %}
 </head>
 <body class="black custom-gradient">
 

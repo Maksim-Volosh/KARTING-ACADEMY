@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block links %}
+  <!-- index CSS -->
+  <link href="{% static 'css/index.css' %}" rel="stylesheet">
+{% endblock links %}
+
 
 {% block title %}Karting speed{% endblock title %}
 
