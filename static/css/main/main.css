@@ -126,7 +126,7 @@
 
 .navbar:before {
   border-radius: 9999px;
-  border: 4px solid rgba(154, 168, 218, 0.21);
+  border: 3px solid rgba(154, 168, 218, 0.21);
   background: rgba(0, 38, 173, 0.22);
 }
 
@@ -201,11 +201,6 @@
 .karting-head {
   height: 50px;
   width: 0px;
-}
-
-.message-icon {
-  width: 20px;
-  height: 20px;
 }
 
 .youtube-icon {

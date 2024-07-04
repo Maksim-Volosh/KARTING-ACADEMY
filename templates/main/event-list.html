@@ -11,8 +11,8 @@
     <div class="event__container flex flex-col px-10 py-12 gap-2">
       {% for event in events %}
       <div class="event__item-wrap">
-        <div class="event__item flex justify-between items-center p-2">
-          <div class="event__start flex gap-2 items-center justify-center">
+        <div class="event__item flex-align-center justify-between p-2">
+          <div class="event__start flex-center gap-2 w-[30%]">
             <img src="{{ event.logo.url }}" alt="" width="60" height="60">
             <div class="event__time flex flex-col text-nowrap">
               <p>{{ event.date_of_start }} - </p>

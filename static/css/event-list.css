@@ -34,10 +34,9 @@
     align-items: normal;
   }
 
-  /*.event__start {*/
-  /*  flex-direction: column;*/
-  /*  align-items: normal;*/
-  /*}*/
+  .event__start {
+    width: auto;
+  }
 
   .event__item {
     gap: 12px;
