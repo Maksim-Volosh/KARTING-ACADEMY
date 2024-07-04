@@ -400,6 +400,10 @@ table tbody tr:nth-child(even) {
   border-image-slice: 1;
 }
 
+.absolute {
+  position: absolute;
+}
+
 @media (max-width: 900px) {
 
   .rating__content {
