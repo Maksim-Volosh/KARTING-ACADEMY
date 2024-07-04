@@ -126,3 +126,7 @@
   width: 20px;
   height: 20px;
 }
+
+.absolute {
+  position: absolute;
+}
