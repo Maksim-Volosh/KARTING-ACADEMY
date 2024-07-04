@@ -73,8 +73,21 @@ def player_detail(request, pk):
     return render(request, 'main/player-detail.html', context=context)
 
 def event_list(request):
-    events = obj_all(Event)
+    year = request.GET.get('y')
+    
+    if year:
+        if year == 'all':
+            events = get_events_list(Event)
+        else:
+            events = get_events_by_year(Event, year)
+    else:
+        events = get_events_list(Event)
+        
+    years = get_years_of_events(Event)
+
     context = {
-        'events': events
+        'events': events,
+        'years': years,
+        'selected_year': year
     }
     return render(request, 'main/event-list.html', context=context)
