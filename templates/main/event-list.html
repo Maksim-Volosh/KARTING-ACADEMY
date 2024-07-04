@@ -9,30 +9,38 @@
 <main class="event-list z-2">
   <div class="wrapper">
 
-    <form action="{% url 'event-list' %}" method="get">
-      <select name="y" onchange="this.form.submit()">
-        <option style="color: black;" value="all" {% if selected_year == "all" or not selected_year %}selected{% endif %}>All</option>
+    <div class="event__wrapper relative flex flex-col px-10 py-12 gap-2">
+    <form class="pb-14" action="{% url 'event-list' %}" method="get">
+      <select class="event__years" name="y" onchange="this.form.submit()">
+        <option value="all" {% if selected_year == "all" or not selected_year %}selected{% endif %}>All</option>
         {% for year in years %}
-          <option style="color: black;" value="{{ year }}" {% if year|stringformat:"s" == selected_year %}selected{% endif %}>{{ year }}</option>
+          <option value="{{ year }}" {% if year|stringformat:"s" == selected_year %}selected{% endif %}>{{ year }}</option>
         {% endfor %}
       </select>
-    </form>       
-    
-    <div class="event__container flex flex-col px-10 py-12 gap-2">
+    </form>
+
+    <div class="event__container flex flex-col">
       {% for event in events %}
         {% ifchanged event.date_of_start|date:"Y" %}
-          <p>{{ event.date_of_start|date:"Y" }}</p>
+          <p class="absolute top-24">{{ event.date_of_start|date:"Y" }}</p>
         {% endifchanged %}
         <div class="event__item-wrap">
           <div class="event__item flex-align-center justify-between p-2">
-            <div class="event__start flex-align-center gap-2 w-[30%]">
-              <img src="{{ event.logo.url }}" alt="" width="60" height="60">
-              <div class="event__time flex flex-col text-nowrap">
-                <p>&nbsp;{{ event.date_of_start|date:"d" }} &nbsp;-&nbsp; {{ event.date_of_end|date:"d" }}</p>
-                <p>{{ event.date_of_start|date:"M" }} {{ event.date_of_end|date:"M" }}</p>
+            <div class="event__start flex-center w-[25%]">
+              <div class="event__icon pic" style=" background-image: url('{{ event.logo.url }}')"></div>
+              <div class="event__times flex-align-center ">
+                <div class="event__time flex-center flex-col">
+                  <p class="event__date">&nbsp;{{ event.date_of_start|date:"d" }}</p>
+                  <p class="event__month">{{ event.date_of_start|date:"M" }}</p>
+                </div>
+                <p>&nbsp;-&nbsp;</p>
+                <div class="event__time flex-center flex-col gap-1">
+                  <p class="event__date">{{ event.date_of_end|date:"d" }}</p>
+                  <p class="event__month">{{ event.date_of_end|date:"M" }}</p>
+                </div>
               </div>
             </div>
-            <div class="event__info flex flex-col w-[45%]">
+            <div class="event__info flex flex-col">
               <p class="event__country text-xl">{{ event.country }}</p>
               <p class="event__title font-formula1 text-sm">{{ event.title }}</p>
             </div>
@@ -42,8 +50,9 @@
           </div>
         </div>
       {% endfor %}
-       
+
     </div>
+  </div>
   </div>
 </main>
 {% endblock main %}
