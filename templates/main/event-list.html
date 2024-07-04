@@ -24,7 +24,7 @@
       </select>
     </form>
 
-    <div class="events__container relative flex flex-col">
+    <div class="events__container flex flex-col">
       {% for event in events %}
         {% ifchanged event.date_of_start|date:"Y" %}
           <p class="">{{ event.date_of_start|date:"Y" }}</p>
@@ -55,7 +55,7 @@
           </div>
         </div>
       {% endfor %}
-
+      </div>
     </div>
   </div>
   </div>

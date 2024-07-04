@@ -55,12 +55,6 @@
 
 @media (max-width: 870px) {
 
-  .events__container {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
   .event__item {
     flex-direction: column;
     align-items: normal;
