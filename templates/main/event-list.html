@@ -24,8 +24,8 @@
           <p>{{ event.date_of_start|date:"Y" }}</p>
         {% endifchanged %}
         <div class="event__item-wrap">
-          <div class="event__item flex justify-between items-center p-2">
-            <div class="event__start flex gap-2 items-center justify-center">
+          <div class="event__item flex-align-center justify-between p-2">
+            <div class="event__start flex-align-center gap-2 w-[30%]">
               <img src="{{ event.logo.url }}" alt="" width="60" height="60">
               <div class="event__time flex flex-col text-nowrap">
                 <p>&nbsp;{{ event.date_of_start|date:"d" }} &nbsp;-&nbsp; {{ event.date_of_end|date:"d" }}</p>
