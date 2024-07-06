@@ -19,9 +19,9 @@
         <p>Event date of start: {{ event.date_of_start }}</p>
         <p>Event date of end: {{ event.date_of_end }}</p>
         <p>Description: {{ event.description }}</p>
-      </div>
       {% if event.documents %}
       <p  class="text-xs">Documents: <a href="{{ event.documents.url }}" download>{{ event.documents }}</a></p>
+      </div>
       {% endif %}
       <img src="{{ event.logo.url }}"  width="250" alt="{{ event.title }} - image">
       {% if event.image_of_track %}
