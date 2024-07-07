@@ -3,6 +3,7 @@
 
 {% block links %}
 <!-- event-detail CSS -->
+<link href="{% static 'css/event-detail.css' %}" rel="stylesheet">
 {% endblock links %}
 
 {% block title %}Karting speed | Event{% endblock title %}
@@ -13,40 +14,45 @@
   <div class="wrapper">
     <section class="event__container font-formula1 px-10 py-12 flex justify-center flex-col">
       <h2 class="head head2 head_bottom-line font-pro-racing mb-8">Event Details</h2>
-      <h3 class="text-3xl text-[#00e293] font-semibold mb-6">{{ event.title }}</h3>
-      <p class="text-lg mb-4">Country of Event: {{ event.country }}</p>
-      <div class="flex flex-col gap-2">
-        <p>Event date of start: {{ event.date_of_start }}</p>
-        <p>Event date of end: {{ event.date_of_end }}</p>
-        <p>Description: {{ event.description }}</p>
-      {% if event.documents %}
-      <p  class="text-xs">Documents: <a href="{{ event.documents.url }}" download>{{ event.documents }}</a></p>
+      <div class="event__title flex flex-align-center gap-3">
+        <h3 class="event__title_text text-3xl text-[#00e293] font-semibold mb-6">{{ event.title }}</h3>
+        <img class="event__title_img" src="{{ event.logo.url }}" alt="{{ event.title }} - image">
       </div>
+      <p class="text-lg">Country of Event: {{ event.country }}</p>
+
+      <div class="flex flex-align-center gap-3">
+        <p>{{ event.date_of_start }}</p>
+        <p class="text-3xl"> - </p>
+        <p>{{ event.date_of_end }}</p>
+      </div>
+      <p class="text-sm mt-6">Description: {{ event.description }}</p>
+      {% if event.documents %}
+      <p class="text-xs my-6">Documents: <a href="{{ event.documents.url }}" download>{{ event.documents }}</a></p>
+
       {% endif %}
-      <img src="{{ event.logo.url }}"  width="250" alt="{{ event.title }} - image">
       {% if event.image_of_track %}
-      <img src="{{ event.image_of_track.url }}" class="w-full" alt="{{ event.title }} - image">
+      <img src="{{ event.image_of_track.url }}" class="w-6/12" alt="{{ event.title }} - image">
       {% endif %}
       <p class="mt-10">Count of players: {{ event.player_count }}</p>
       <br>
       <h3>Players and their Statistics</h3>
-      <div>
-        <button><a href="{% url 'event_detail' event.id %}?cat=mini">MINI</a></button>
+      <div class="flex gap-3 flex-wrap flex-center">
+        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=mini">MINI</a></button>
         |
-        <button><a href="{% url 'event_detail' event.id %}?cat=junior">JUNIOR</a></button>
+        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=junior">JUNIOR</a></button>
         |
-        <button><a href="{% url 'event_detail' event.id %}?cat=senior">SENIOR</a></button>
+        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=senior">SENIOR</a></button>
         |
-        <button><a href="{% url 'event_detail' event.id %}?cat=master">MASTER</a></button>
+        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=master">MASTER</a></button>
         |
-        <button><a href="?all">ALL</a></button>
-        |
+        <button class="category-btn text-violet-400"><a href="?all">ALL</a></button>
       </div>
       <br><br>
 
       <table>
         <thead>
         <tr>
+          <th></th>
           <th>Player</th>
           <th>Category</th>
           <th>Points</th>
@@ -57,12 +63,14 @@
         {% for player, stats in player_stats.items %}
         {% for stat in stats %}
         <tr>
+          <td class="text-center relative"><div class="label green-label"> <span class="uppercase">Best Lap</span></div> 1</td>
+<!--          <td class="text-center">1</td>-->
           {% if forloop.first %}
           <td class="text-center" rowspan="{{ stats|length }}"><a href="{% url 'player_detail' player.id %}">{{ player.full_name }}</a></td>
           {% endif %}
           <td class="text-center">{{ stat.category.name }}</td>
           <td class="text-center">{{ stat.points }}</td>
-          <td class="text-center" >{{ stat.lap_time }}</td>
+          <td class="text-center">{{ stat.lap_time }}</td>
         </tr>
         {% endfor %}
         {% endfor %}
