@@ -1,6 +1,7 @@
 
 table {
-  width: 100%;
+  margin: auto;
+  width: 80%;
   border: none;
 }
 
@@ -14,7 +15,7 @@ table thead th, table tr td {
 }
 
 .event__title_img {
-  width: 250px;
+  width: 70px;
 }
 
 .category-btn:hover {
@@ -47,8 +48,12 @@ table thead th, table tr td {
 }
 
 
-@media (max-width: 60px ) {
-  .event__title_img {
-   width: 100px;
+@media (max-width: 550px ) {
+  table {
+    line-height: 1rem;
+  }
+
+  td, th {
+    padding: 5px;
   }
 }
