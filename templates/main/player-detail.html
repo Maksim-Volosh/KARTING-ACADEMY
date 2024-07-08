@@ -2,18 +2,33 @@
 {% load static %}
 
 {% block links %}
-  <!-- player-detail CSS -->
+<!-- player-detail CSS -->
+<link href="{% static 'css/event-list.css' %}" rel="stylesheet">
+<link href="{% static 'css/player-detail.css' %}" rel="stylesheet">
+
 {% endblock links %}
 
 {% block title %}Karting speed | Player{% endblock title %}
 
 
 {% block main %}
-  <main class="main-section font-formula1">
-    <p>{{ player.name }} {{ player.surname }} | {{ player.nationality }}:</p><br><br>
-    <p>Events:</p><br>
-    {% for event in events %}
-      <p><a href="{% url 'event_detail' event.id %}">{{ event }}</a> | {{ event.date_of_start }} - {{ event.date_of_end }}</p><br>
-    {% endfor %}
-  </main>
+<main class="player-detail">
+  <div class="wrapper">
+    <section class="player__container px-10 py-6 flex justify-center flex-col font-formula1">
+      <div class="flex flex-col mb-6 gap-3">
+        <h3 class="player__name text-2xl head_bottom-line">{{ player.name }} {{ player.surname }}</h3>
+        <p class="player__nationality">{{ player.nationality }} </p>
+      </div>
+      <div class="flex flex-col w-[80%]">
+        <h4 class="player__name">Events:</h4>
+        {% for event in events %}
+        <div class="event__item flex-align-center flex-wrap justify-between p-2 ">
+          <a class="event__name w-[45%]" href="{% url 'event_detail' event.id %}">{{ event }}</a>
+          <p class="event__dates text-nowrap">{{ event.date_of_start }} - {{ event.date_of_end }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+</main>
 {% endblock main %}
