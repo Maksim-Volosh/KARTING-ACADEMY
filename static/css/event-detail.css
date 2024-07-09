@@ -1,7 +1,6 @@
-
 table {
   margin: auto;
-  width: 80%;
+  width: 100%;
   border: none;
 }
 
@@ -48,12 +47,33 @@ table thead th, table tr td {
 }
 
 
-@media (max-width: 550px ) {
+@media (max-width: 650px ) {
   table {
     line-height: 1rem;
   }
 
   td, th {
-    padding: 5px;
+    padding: 10px 5px;
+  }
+}
+
+@media (max-width: 650px ) {
+  table {
+    line-height: 1rem;
+  }
+
+  td, th {
+    padding: 10px 5px;
+  }
+}
+
+@media (max-width: 650px ) {
+  table {
+    font-size: 0.6rem;
+    line-height: 1rem;
+  }
+
+  .label {
+    font-size: 0.3rem;
   }
 }
