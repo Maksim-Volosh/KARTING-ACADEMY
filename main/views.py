@@ -91,3 +91,9 @@ def event_list(request):
         'selected_year': year
     }
     return render(request, 'main/event-list.html', context=context)
+
+def about_us(request):
+    return render(request, 'info/about-us.html')
+
+def karting_rules(request):
+    return render(request, 'info/karting-rules.html')

@@ -93,10 +93,3 @@ class Statistics(models.Model):
 
     def __str__(self):
         return f"{self.player} in {self.event}"
-    
-class Track(models.Model):
-    track = models.CharField(max_length=55, verbose_name="Track")
-    image = models.ImageField(upload_to="images/tracks", verbose_name="Image")
-
-    def __str__(self):
-        return self.track

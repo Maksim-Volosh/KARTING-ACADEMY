@@ -11,5 +11,15 @@
 {% block main %}
   <main class="main-section font-formula1">
     <p>Gallery</p>
+    {% for image in gallery %}
+      <div class="photo">
+        <a href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.title }}"></a>
+        <p>{{ image.title }}</p>
+        <p>{{ image.created_at }}</p>
+      </div>
+      <br>
+      <br>
+      <br>
+    {% endfor %}
   </main>
 {% endblock main %}

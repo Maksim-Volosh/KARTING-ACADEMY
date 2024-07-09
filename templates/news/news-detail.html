@@ -5,11 +5,24 @@
   <!-- News CSS -->
 {% endblock links %}
 
-{% block title %}Karting speed | News id{% endblock title %}
+{% block title %}Karting speed | News {{ news.id }}{% endblock title %}
 
 
 {% block main %}
   <main class="main-section font-formula1">
-    <p>News id</p>
+    <p>News</p>
+    <p>{{ news.title }}</p>
+    <p>{{ news.content }}</p>
+    <p><img src="{{ news.image.url }}" alt="{{ news.title }}" style="width: 40% ; height: 30%;"></p>
+
+    {% if news.documents %}
+      <p><a href="{{ news.documents.url }}" download>{{ news.documents }}</a></p>
+    {% endif %}
+
+    {% if news.updated_at != news.created_at %}
+      <p>Update: {{ news.updated_at }}</p>
+    {% else %}
+      <p>Create: {{ news.created_at }}</p>
+    {% endif %}
   </main>
 {% endblock main %}

@@ -1,3 +1,12 @@
 from django.shortcuts import render
 
-# Create your views here.
+from app_gallery.services import get_all_photos
+
+from .models import Gallery
+from services.services import obj_all
+
+def gallery_list(request):
+    context = {
+        'gallery': get_all_photos(Gallery),
+    }
+    return render(request, 'gallery/gallery-list.html', context=context)

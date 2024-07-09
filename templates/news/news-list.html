@@ -11,5 +11,25 @@
 {% block main %}
   <main class="main-section font-formula1">
     <p>News</p>
+    {% for news in news %}
+    <div class="news">
+      <a href="{% url 'news-detail' news.id %}">
+        <p>{{ news.title }}</p>
+        <p><img src="{{ news.image.url }}" alt="{{ news.title }}" style="width: 40% ; height: 30%;"></p>
+
+        {% if news.documents %}
+          <p>{{ news.documents }}</p>
+        {% endif %}
+
+        {% if news.updated_at != news.created_at %}
+          <p>Update: {{ news.updated_at }}</p>
+        {% else %}
+          <p>Create: {{ news.created_at }}</p>
+        {% endif %}
+      </a>
+    </div>
+    <br>
+    <br>
+    {% endfor %}
   </main>
 {% endblock main %}

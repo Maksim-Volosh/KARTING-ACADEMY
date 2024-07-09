@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'app_gallery.apps.AppGalleryConfig',
     'app_partners.apps.AppPartnersConfig',
     'app_news.apps.AppNewsConfig',
+    'app_track.apps.AppTrackConfig',
     
     # Utils
     'debug_toolbar',

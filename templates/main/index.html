@@ -206,7 +206,7 @@
               <div class="news__item flex flex-col text-center">
                 <div class="news__frame bg-white h-[82%] w-full pic"
                     style=" background-image: url('{{ news.image.url }}')"></div>
-                <button class="news__explore-btn uppercase button">Explore</button>
+                <a href="{% url 'news-detail' news.id %}" class="news__explore-btn uppercase button"><button>Explore</button></a>
               </div>
               {% endfor %}
             </div>

@@ -14,7 +14,7 @@ class GalleryManager(models.Manager):
                         galleries.append(gallery)
             except FileNotFoundError:
                 continue
-        return galleries[:10]
+        return galleries
 
 class Gallery(models.Model):
     title = models.CharField(max_length=55, verbose_name="Title", db_index=True)
