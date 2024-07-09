@@ -1,5 +1,5 @@
-
 table {
+  margin: auto;
   width: 100%;
   border: none;
 }
@@ -14,7 +14,7 @@ table thead th, table tr td {
 }
 
 .event__title_img {
-  width: 250px;
+  width: 70px;
 }
 
 .category-btn:hover {
@@ -47,8 +47,33 @@ table thead th, table tr td {
 }
 
 
-@media (max-width: 60px ) {
-  .event__title_img {
-   width: 100px;
+@media (max-width: 650px ) {
+  table {
+    line-height: 1rem;
+  }
+
+  td, th {
+    padding: 10px 5px;
+  }
+}
+
+@media (max-width: 650px ) {
+  table {
+    line-height: 1rem;
+  }
+
+  td, th {
+    padding: 10px 5px;
+  }
+}
+
+@media (max-width: 650px ) {
+  table {
+    font-size: 0.6rem;
+    line-height: 1rem;
+  }
+
+  .label {
+    font-size: 0.3rem;
   }
 }

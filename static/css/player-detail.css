@@ -1,0 +1,9 @@
+@media (max-width: 880px ) {
+  .event__name {
+    width: auto;
+  }
+
+  .event__dates {
+    width: auto;
+  }
+}
