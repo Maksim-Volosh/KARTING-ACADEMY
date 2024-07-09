@@ -73,3 +73,13 @@ def get_events_by_year(model, year):
         filter={'date_of_start__year': year},
         order_by=('-date_of_start',),
     )
+    
+def get_best_lap_player_stats(stats, event, cat_name):
+    print(cat_name)
+    return obj_all(
+        model=stats,
+        filter={'event': event, 'category__name__iexact': cat_name},
+        order_by=('lap_time',),
+        first=True
+        )
+    

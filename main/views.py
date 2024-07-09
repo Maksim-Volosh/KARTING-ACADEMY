@@ -48,6 +48,7 @@ def event_detail(request, pk):
         statistics = category_event_detail_stats(Statistics, event, cat_name)
     else:
         statistics = event_detail_stats(Statistics, event)
+        cat_name = "junior"
     
     player_stats = {}
     for stat in statistics:
@@ -55,10 +56,18 @@ def event_detail(request, pk):
         if player not in player_stats:
             player_stats[player] = []
         player_stats[player].append(stat)
+        
+    best_lap_player_stats = get_best_lap_player_stats(Statistics, event, cat_name)
+    if best_lap_player_stats:
+        best_lap_player = str(best_lap_player_stats.player)
+    else:
+        best_lap_player = ''
 
     context = {
         'event': event,
         'player_stats': player_stats,
+        'best_lap_player': best_lap_player
+        
     }
     
     return render(request, 'main/event-detail.html', context=context)

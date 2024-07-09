@@ -54,7 +54,8 @@
       <table class="players">
         <thead>
         <tr>
-          <th></th>
+          <th>№</th>
+          <th>No.</th>
           <th>Player</th>
           <th>Category</th>
           <th>Points</th>
@@ -63,10 +64,15 @@
         </thead>
         <tbody>
         {% for player, stats in player_stats.items %}
+        {% with loop=forloop.counter %}
         {% for stat in stats %}
         <tr>
-          <td class="text-center relative"><div class="label green-label"> <span class="uppercase">Best Lap</span></div> 1</td>
-<!--          <td class="text-center">1</td>-->
+          <td class="text-center relative">
+            {% if player.full_name == best_lap_player %}
+              <div class="label green-label"><span class="uppercase">Best Lap</span></div>
+            {% endif %}
+            {{loop}}</td>
+          <td class="text-center">{{ player.id }}</td>
           {% if forloop.first %}
           <td class="text-center" rowspan="{{ stats|length }}"><a href="{% url 'player_detail' player.id %}">{{ player.full_name }}</a></td>
           {% endif %}
@@ -75,6 +81,7 @@
           <td class="text-center">{{ stat.lap_time }}</td>
         </tr>
         {% endfor %}
+        {% endwith %}
         {% endfor %}
         </tbody>
       </table>
