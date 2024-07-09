@@ -1,3 +1,5 @@
+from re import S
+import statistics
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 
@@ -56,12 +58,16 @@ def event_detail(request, pk):
         if player not in player_stats:
             player_stats[player] = []
         player_stats[player].append(stat)
-    print(player_stats)
         
     player_gap = [0]
+    best_lap_time = 0
     prev_time = 0
     for player, stats in player_stats.items():
         for stat in stats:
+            if best_lap_time == 0:
+                best_lap_time = float(stat.lap_time)
+            if float(stat.lap_time) < best_lap_time:
+                best_lap_time = float(stat.lap_time)
             gap = float(stat.lap_time) - float(prev_time)
             prev_time = float(stat.lap_time)
             player_gap.append(gap)
@@ -73,17 +79,11 @@ def event_detail(request, pk):
             gap = float(stat.lap_time) - float(prev_time)
             prev_time = float(stat.lap_time)
             player_gap.append(gap)
-        
-    best_lap_player_stats = get_best_lap_player_stats(Statistics, event, cat_name)
-    if best_lap_player_stats:
-        best_lap_player = str(best_lap_player_stats.player)
-    else:
-        best_lap_player = ''
 
     context = {
         'event': event,
         'player_stats': player_stats,
-        'best_lap_player': best_lap_player,
+        'best_lap_time': best_lap_time,
         'gaps': player_gap,
     }
     
@@ -91,10 +91,20 @@ def event_detail(request, pk):
 
 def player_detail(request, pk):
     player = get_object_or_404(Player, pk=pk)
-    events = player_events_all(player)
+    
+    
+    statistics = all_stats_for_player_with_event(Statistics, player)
+    
+    # Создаем словарь, чтобы сгруппировать статистики по событиям
+    events_with_categories = {}
+    for stat in statistics:
+        if stat.event not in events_with_categories:
+            events_with_categories[stat.event] = []
+        events_with_categories[stat.event].append(stat.category)
+    
     context = {
         'player': player,
-        'events': events
+        'events_with_categories': events_with_categories
     }
     return render(request, 'main/player-detail.html', context=context)
 
