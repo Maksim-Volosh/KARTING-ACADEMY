@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load custom_filter %}
 
 {% block links %}
 <!-- event-detail CSS -->
@@ -18,40 +19,36 @@
         <h3 class="event__title_text text-3xl text-[#00e293] font-semibold">{{ event.title }}</h3>
         <img class="event__title_img" src="{{ event.logo.url }}" alt="{{ event.title }} - image">
       </div>
-      <p class="text-lg">Country of Event: {{ event.country }}</p>
+      <p class="text-lg">Country - {{ event.country }}</p>
 
       <div class="flex flex-align-center gap-3">
-        <p>{{ event.date_of_start }}</p>
+        <p>{{ event.date_of_start|date:"F d, Y" }}</p>
         <p class="text-3xl"> - </p>
         <p>{{ event.date_of_end }}</p>
       </div>
-      <p class="text-sm mt-6 max-w-5xl">Description: {{ event.description }}</p>
+      <p class="text-sm mt-6 max-w-5xl">{{ event.description }}</p>
       {% if event.documents %}
-      <p class="text-xs my-6">Documents: <a href="{{ event.documents.url }}" download>{{ event.documents }}</a></p>
+      <p class="text-xs my-6">Documents: <a href="{{ event.documents.url }}" download>{{ event.documents|filename }}</a></p>
 
       {% endif %}
       {% if event.image_of_track %}
       <img src="{{ event.image_of_track.url }}" class="w-6/12" alt="{{ event.title }} - image">
       {% endif %}
-      <p class="mt-10">Count of players: {{ event.player_count }}</p>
       <br>
-      <div class="flex-align-center gap-3 flex-wrap">
-      <h3>Players and their Statistics:</h3>
-      <div class="flex-align-center gap-3 flex-wrap ">
-        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=mini">MINI</a></button>
+      <div class="flex-center gap-3 flex-wrap " id="buttons">
+        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=mini#buttons">MINI</a></button>
         |
-        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=junior">JUNIOR</a></button>
+        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=junior#buttons">JUNIOR</a></button>
         |
-        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=senior">SENIOR</a></button>
+        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=senior#buttons">SENIOR</a></button>
         |
-        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=master">MASTER</a></button>
+        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=master#buttons">MASTER</a></button>
         |
-        <button class="category-btn text-violet-400"><a href="?all">ALL</a></button>
-      </div>
+        <button class="category-btn text-violet-400"><a href="?all#buttons">ALL</a></button>
       </div>
       <br><br>
 
-      <table class="players">
+      <table class="players" >
         <thead>
         <tr>
           <th>№</th>
@@ -59,28 +56,30 @@
           <th>Player</th>
           <th>Category</th>
           <th>Points</th>
+          <th>Gap</th>
           <th>Lap Time</th>
         </tr>
         </thead>
         <tbody>
         {% for player, stats in player_stats.items %}
         {% with loop=forloop.counter %}
-        {% for stat in stats %}
-        <tr>
-          <td class="text-center relative">
-            {% if player.full_name == best_lap_player %}
-              <div class="label green-label"><span class="uppercase">Best Lap</span></div>
-            {% endif %}
-            {{loop}}</td>
-          <td class="text-center">{{ player.id }}</td>
-          {% if forloop.first %}
-          <td class="text-center" rowspan="{{ stats|length }}"><a href="{% url 'player_detail' player.id %}">{{ player.full_name }}</a></td>
-          {% endif %}
-          <td class="text-center">{{ stat.category.name }}</td>
-          <td class="text-center">{{ stat.points }}</td>
-          <td class="text-center">{{ stat.lap_time }}</td>
-        </tr>
-        {% endfor %}
+          {% for stat in stats %}
+            <tr>
+              <td class="text-center relative">
+                {% if player.full_name == best_lap_player %}
+                  <div class="label green-label"><span class="uppercase">Best Lap</span></div>
+                {% endif %}
+                {{loop}}</td>
+              <td class="text-center">{{ player.id }}</td>
+              {% if forloop.first %}
+              <td class="text-center" rowspan="{{ stats|length }}"><a href="{% url 'player_detail' player.id %}">{{ player.full_name }}</a></td>
+              {% endif %}
+              <td class="text-center">{{ stat.category.name }}</td>
+              <td class="text-center">{{ stat.points }}</td>
+              <td class="text-center">{% if loop != 1 %}{{ gaps|index:loop }}s{% else %}---{% endif %}</td>
+              <td class="text-center">{{ stat.lap_time }}s</td>
+            </tr>
+          {% endfor %}
         {% endwith %}
         {% endfor %}
         </tbody>
