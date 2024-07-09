@@ -56,6 +56,15 @@ def event_detail(request, pk):
         if player not in player_stats:
             player_stats[player] = []
         player_stats[player].append(stat)
+    print(player_stats)
+        
+    player_gap = [0]
+    prev_time = 0
+    for player, stats in player_stats.items():
+        for stat in stats:
+            gap = float(stat.lap_time) - float(prev_time)
+            prev_time = float(stat.lap_time)
+            player_gap.append(gap)
         
     player_gap = [0]
     prev_time = 0
