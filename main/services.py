@@ -75,7 +75,6 @@ def get_events_by_year(model, year):
     )
     
 def get_best_lap_player_stats(stats, event, cat_name):
-    print(cat_name)
     return obj_all(
         model=stats,
         filter={'event': event, 'category__name__iexact': cat_name},

@@ -57,6 +57,14 @@ def event_detail(request, pk):
             player_stats[player] = []
         player_stats[player].append(stat)
         
+    player_gap = [0]
+    prev_time = 0
+    for player, stats in player_stats.items():
+        for stat in stats:
+            gap = float(stat.lap_time) - float(prev_time)
+            prev_time = float(stat.lap_time)
+            player_gap.append(gap)
+        
     best_lap_player_stats = get_best_lap_player_stats(Statistics, event, cat_name)
     if best_lap_player_stats:
         best_lap_player = str(best_lap_player_stats.player)
@@ -66,8 +74,8 @@ def event_detail(request, pk):
     context = {
         'event': event,
         'player_stats': player_stats,
-        'best_lap_player': best_lap_player
-        
+        'best_lap_player': best_lap_player,
+        'gaps': player_gap,
     }
     
     return render(request, 'main/event-detail.html', context=context)
