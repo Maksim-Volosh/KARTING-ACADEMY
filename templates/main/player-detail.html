@@ -19,8 +19,8 @@
         <h3 class="player__name text-2xl head_bottom-line">{{ player.name }} {{ player.surname }}</h3>
         <p class="player__nationality">{{ player.nationality }} </p>
       </div>
-      <div class="flex flex-col w-[80%]">
-        <h4 class="player__name">Events:</h4>
+      <div class="flex flex-col w-[100%]">
+        <h4 class="player__name">Events where {{ player.name }} participated:</h4>
         {% for event in events %}
         <div class="event__item flex-align-center flex-wrap justify-between p-2 ">
           <a class="event__name w-[45%]" href="{% url 'event_detail' event.id %}">{{ event }}</a>

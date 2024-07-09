@@ -49,9 +49,9 @@
               <p class="event__country text-xl">{{ event.country }}</p>
               <p class="event__title font-formula1 text-sm">{{ event.title }}</p>
             </div>
-            <button class="button event__button font-extralight text-base">
-              <a href="{% url 'event_detail' event.id %}">Explore event</a>
-            </button>
+            <a href="{% url 'event_detail' event.id %}" class="button event__button font-extralight text-base">
+                Explore event
+            </a>
           </div>
         </div>
       {% endfor %}
