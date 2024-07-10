@@ -15,6 +15,7 @@
     <div class="gallery__wrapper flex flex-col px-10 py-12 gap-2">
       <h2 class="gallery__head text-center mb-12 head head_bottom-line text-4xl" id="partners"> Gallery</h2>
 
+      <div class="flex-center flex-col">
       {% for image in gallery %}
       <figure class="gallery__item">
         <div class="photo relative">
@@ -26,6 +27,7 @@
         </div>
       </figure>
       {% endfor %}
+      </div>
     </div>
   </div>
 </main>
