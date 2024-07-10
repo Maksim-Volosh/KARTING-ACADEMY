@@ -20,16 +20,21 @@
       </video>
       <div class="wrapper">
         <div class="start__event event flex flex-col max-w-2xl w-full">
-          <div class="event__content flex w-full pr-6 py-1">
-            <div class="flex flex-col ml-auto ">
+          <div class="event__content font-formula1 flex pr-6 py-1">
+            <div class="flex-align-center ml-auto gap-3">
+            <div class="flex flex-col">
 
-              <p class="font-formula1 uppercase text-xs">next event</p>
+              <p class="uppercase text-xs">next event</p>
               {% if next_event %}
               <p class="link underline text-xl"><a href="{% url "event_detail" next_event.id %}">{{ next_event.title }}</a></p>
+
               {% else %}
-              <p class="font-formula1 text-lg">There are no new events :(</p>
+              <p class="text-lg">There are no new events :(</p>
               {% endif %}
             </div>
+              <div class="h-full w-0.5 bg-white mx-2"></div>
+            <button class="btn-events"><a class="text-nowrap" href="{% url 'event-list' %}">Events &rarr;</a></button>
+          </div>
           </div>
           <input type="hidden" id="next_event_time" value="{{ next_event_time }}">
           <div class="event__countdown countdown w-[97%] py-3" id="countdown">
@@ -102,7 +107,7 @@
                 </tr>
                 {% else %}
                 <!-- If we have an event - we init an statistic -->
-                <p><span class="underline"><a href="{% url 'event_detail' event.id %}">{{ event.title }}</a></span>
+                <p class="mb-8"><a class="underline" href="{% url 'event_detail' event.id %}">{{ event.title }}</a>
                 </p>
                 {% for stat in statistic %}
                 <tr class="h-[9rem]">
