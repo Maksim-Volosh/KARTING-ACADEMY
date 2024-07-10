@@ -3,6 +3,7 @@
 
 {% block links %}
 <!-- Gallery-list CSS -->
+<link href="{% static 'css/gallery-list.css' %}" rel="stylesheet">
 {% endblock links %}
 
 {% block title %}Karting speed | Gallery{% endblock title %}
@@ -12,13 +13,18 @@
 <main class="gallery-list font-formula1">
   <div class="wrapper">
     <div class="gallery__wrapper flex flex-col px-10 py-12 gap-2">
-      <p>Gallery</p>
+      <h2 class="gallery__head text-center mb-12 head head_bottom-line text-4xl" id="partners"> Gallery</h2>
+
       {% for image in gallery %}
-      <div class="photo">
-        <a href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.title }}"></a>
-        <p>{{ image.title }}</p>
-        <p>{{ image.created_at }}</p>
-      </div>
+      <figure class="gallery__item">
+        <div class="photo relative">
+          <a href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.title }}"></a>
+          <figcaption class="title-overlay">
+            <p class="photo__title">{{ image.title }}</p>
+            <p class="photo__date"><strong>{{ image.created_at }}</strong></p>
+          </figcaption>
+        </div>
+      </figure>
       {% endfor %}
     </div>
   </div>
