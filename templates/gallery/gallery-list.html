@@ -2,24 +2,25 @@
 {% load static %}
 
 {% block links %}
-  <!-- Gallery-list CSS -->
+<!-- Gallery-list CSS -->
 {% endblock links %}
 
 {% block title %}Karting speed | Gallery{% endblock title %}
 
 
 {% block main %}
-  <main class="main-section font-formula1">
-    <p>Gallery</p>
-    {% for image in gallery %}
+<main class="gallery-list font-formula1">
+  <div class="wrapper">
+    <div class="gallery__wrapper flex flex-col px-10 py-12 gap-2">
+      <p>Gallery</p>
+      {% for image in gallery %}
       <div class="photo">
         <a href="{{ image.image.url }}"><img src="{{ image.image.url }}" alt="{{ image.title }}"></a>
         <p>{{ image.title }}</p>
         <p>{{ image.created_at }}</p>
       </div>
-      <br>
-      <br>
-      <br>
-    {% endfor %}
-  </main>
+      {% endfor %}
+    </div>
+  </div>
+</main>
 {% endblock main %}
