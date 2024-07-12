@@ -149,9 +149,9 @@ h1 {
 }
 
 .news-detail__date {
-  -webkit-text-stroke: 1px #46CE87C4;
+  -webkit-text-stroke: 1px rgb(69, 241, 151);
   text-transform: uppercase;
-  color: #46CE87C4;
+  color: #45F197FF;
   font-size: 0.65rem;
 }
 

@@ -662,6 +662,10 @@ video {
   margin-right: 1rem;
 }
 
+.mr-auto {
+  margin-right: auto;
+}
+
 .mt-10 {
   margin-top: 2.5rem;
 }
@@ -678,8 +682,8 @@ video {
   margin-top: 12px;
 }
 
-.mr-auto {
-  margin-right: auto;
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 
 .block {
@@ -758,6 +762,10 @@ video {
   width: 180px;
 }
 
+.w-\[320px\] {
+  width: 320px;
+}
+
 .w-\[45\%\] {
   width: 45%;
 }
@@ -772,10 +780,6 @@ video {
 
 .w-full {
   width: 100%;
-}
-
-.w-\[320px\] {
-  width: 320px;
 }
 
 .max-w-2xl {
@@ -848,10 +852,6 @@ video {
 
 .gap-9 {
   gap: 2.25rem;
-}
-
-.gap-6 {
-  gap: 1.5rem;
 }
 
 .self-start {
@@ -1011,10 +1011,6 @@ video {
   padding-top: 4rem;
 }
 
-.pr-1 {
-  padding-right: 0.25rem;
-}
-
 .text-center {
   text-align: center;
 }
@@ -1089,6 +1085,10 @@ video {
   color: rgb(0 226 147 / var(--tw-text-opacity));
 }
 
+.text-\[\#46CE87C4\] {
+  color: #46CE87C4;
+}
+
 .text-gray-600 {
   --tw-text-opacity: 1;
   color: rgb(75 85 99 / var(--tw-text-opacity));
@@ -1102,6 +1102,10 @@ video {
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.text-\[\#45F197FF\] {
+  color: #45F197FF;
 }
 
 .underline {
@@ -1212,9 +1216,9 @@ h1 {
 }
 
 .news-detail__date {
-  -webkit-text-stroke: 1px #46CE87C4;
+  -webkit-text-stroke: 1px rgb(69, 241, 151);
   text-transform: uppercase;
-  color: #46CE87C4;
+  color: #45F197FF;
   font-size: 0.65rem;
 }
 
