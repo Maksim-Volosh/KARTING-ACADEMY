@@ -135,6 +135,28 @@ h1 {
   text-underline-offset: 0.4em;
 }
 
+.link:hover {
+  color: rgba(255, 255, 255, 0.62);
+  text-decoration: underline solid 0.2rem rgba(252, 215, 0, 0.74);
+  text-underline-offset: 0.3em;
+}
+
+.news__date {
+  -webkit-text-stroke: 1px #003062CC;
+  text-transform: uppercase;
+  color: #003062CC;
+  font-size: 0.65rem;
+}
+
+.news-detail__date {
+  -webkit-text-stroke: 1px #46CE87C4;
+  text-transform: uppercase;
+  color: #46CE87C4;
+  font-size: 0.65rem;
+}
+
+
+
 @media (max-width: 1250px) {
 
   .news__head {

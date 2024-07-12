@@ -2,27 +2,29 @@
 {% load static %}
 
 {% block links %}
-  <!-- News CSS -->
+<!-- News CSS -->
 {% endblock links %}
 
 {% block title %}Karting speed | News {{ news.id }}{% endblock title %}
 
 
 {% block main %}
-  <main class="main-section font-formula1">
-    <p>News</p>
-    <p>{{ news.title }}</p>
-    <p>{{ news.content }}</p>
-    <p><img src="{{ news.image.url }}" alt="{{ news.title }}" style="width: 40% ; height: 30%;"></p>
-
-    {% if news.documents %}
+<main class="mews-detail font-formula1">
+  <div class="wrapper">
+    <div class="news-detail__wrapper flex flex-col px-10 py-12 gap-2">
+      <h1 class="color-[#46CE87C4]">{{ news.title }}</h1>
+      <img src="{{ news.image.url }}" alt="{{ news.title }}">
+      <p>{{ news.content }}</p>
+      {% if news.documents %}
       <p><a href="{{ news.documents.url }}" download>{{ news.documents }}</a></p>
-    {% endif %}
+      {% endif %}
 
-    {% if news.updated_at != news.created_at %}
+      {% if news.updated_at != news.created_at %}
       <p>Update: {{ news.updated_at }}</p>
-    {% else %}
-      <p>Create: {{ news.created_at }}</p>
-    {% endif %}
-  </main>
+      {% else %}
+      <p class="news-detail__date">Create: {{ news.created_at }}</p>
+      {% endif %}
+    </div>
+  </div>
+</main>
 {% endblock main %}

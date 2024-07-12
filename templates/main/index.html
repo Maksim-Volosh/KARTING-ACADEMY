@@ -26,14 +26,14 @@
 
               <p class="uppercase text-xs">next event</p>
               {% if next_event %}
-              <p class="link underline text-xl"><a href="{% url "event_detail" next_event.id %}">{{ next_event.title }}</a></p>
+              <p class="underline text-xl"><a href="{% url "event_detail" next_event.id %}">{{ next_event.title }}</a></p>
 
               {% else %}
               <p class="text-lg">There are no new events :(</p>
               {% endif %}
             </div>
               <div class="h-full w-0.5 bg-white mx-2"></div>
-            <button class="btn-events"><a class="text-nowrap" href="{% url 'event-list' %}">Events &rarr;</a></button>
+              <button class="btn-events"><a class="text-nowrap" href="{% url 'event-list' %}"><span class="link">Events</span> &rarr;</a></button>
           </div>
           </div>
           <input type="hidden" id="next_event_time" value="{{ next_event_time }}">

@@ -2,34 +2,41 @@
 {% load static %}
 
 {% block links %}
-  <!-- News CSS -->
+<!-- News CSS -->
 {% endblock links %}
 
 {% block title %}Karting speed | News{% endblock title %}
 
 
 {% block main %}
-  <main class="main-section font-formula1">
-    <p>News</p>
-    {% for news in news %}
-    <div class="news">
-      <a href="{% url 'news-detail' news.id %}">
-        <p>{{ news.title }}</p>
-        <p><img src="{{ news.image.url }}" alt="{{ news.title }}" style="width: 40% ; height: 30%;"></p>
+<main class="news font-formula1">
+  <div class="wrapper">
+    <div class="news__wrapper flex flex-col px-10 py-12 gap-2">
+      <h2 class="news__head text-center mb-12 head head_bottom-line text-4xl" id="partners">News</h2>
+      <div class="news-container flex-center flex-col justify-between">
+        {% for news in news %}
+        <div class="news__item bg-white flex-center h-[250px] w-[600px]">
+          <a href="{% url 'news-detail' news.id %}">
+            <div class="flex justify-between gap-5 mr-auto">
+              <div class="news__img self-start"><img class="h-[250px] w-[320px]" src="{{ news.image.url }}" alt="{{ news.title }}"></div>
+              <div class="news__desc flex flex-col text-gray-600 text-sm py-5 pr-2">
+                <p class="news__title text-base mb-3 tracking-normal">{{ news.title }}</p>
+                {% if news.documents %}
+                <p  class="mb-1">{{ news.documents }}</p>
+                {% endif %}
 
-        {% if news.documents %}
-          <p>{{ news.documents }}</p>
-        {% endif %}
-
-        {% if news.updated_at != news.created_at %}
-          <p>Update: {{ news.updated_at }}</p>
-        {% else %}
-          <p>Create: {{ news.created_at }}</p>
-        {% endif %}
-      </a>
+                {% if news.updated_at != news.created_at %}
+                <p class="news__date mb-1">Update: {{ news.updated_at }}</p>
+                {% else %}
+                <p class="news__date">Create: {{ news.created_at }}</p>
+                {% endif %}
+              </div>
+            </div>
+          </a>
+        </div>
+        {% endfor %}
+      </div>
     </div>
-    <br>
-    <br>
-    {% endfor %}
-  </main>
+  </div>
+</main>
 {% endblock main %}
