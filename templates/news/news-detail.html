@@ -14,15 +14,15 @@
     <div class="news-detail__wrapper flex flex-col px-10 py-12 gap-2">
       <h1 class="text-[#45F197FF] mb-5">{{ news.title }}</h1>
       <img src="{{ news.image.url }}" alt="{{ news.title }}">
-      <p>{{ news.content }}</p>
+      <p class="mt-3">{{ news.content }}</p>
       {% if news.documents %}
-      <p><a href="{{ news.documents.url }}" download>{{ news.documents }}</a></p>
+      <p class="mt-1"><a href="{{ news.documents.url }}" download>{{ news.documents }}</a></p>
       {% endif %}
 
       {% if news.updated_at != news.created_at %}
-      <p>Update: {{ news.updated_at }}</p>
+      <p class="mt-2"> Update: {{ news.updated_at }}</p>
       {% else %}
-      <p class="news-detail__date">Create: {{ news.created_at }}</p>
+      <p class="news-detail__date mt-1">Create: {{ news.created_at }}</p>
       {% endif %}
     </div>
   </div>

@@ -12,7 +12,7 @@
 <main class="tracks font-formula1">
   <div class="wrapper">
     <div class="tracks__wrapper flex flex-col px-10 py-12 gap-2">
-      <p>Season Tracks</p>
+      <h1>Season Tracks</h1>
       {% for track in tracks %}
       <p>{{ track.track }}</p>
       <img src="{{ track.image.url }}" alt="{{ track.track }}">
