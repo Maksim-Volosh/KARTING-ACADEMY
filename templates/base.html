@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,28 +32,39 @@
           </h2>
         </div>
         <div class="navbar flex-center font-formula1 px-16 py-1.5 gap-10 text-xl text-nowrap">
-          <p class="navbar__link"><a href="{% url 'tracks' %}">tracks</a></p>
-          <p class="navbar__link"><a href="{% url 'news-list' %}">news</a></p>
-          <p class="navbar__link"><a href="{% url 'gallery-list' %}">gallery</a></p>
-          <p class="navbar__link">our team</p>
+          <p class="navbar__link"><a href="{% url 'event-list' %}">{% trans "Events" %}</a></p>
+          <p class="navbar__link"><a href="{% url 'tracks' %}">{% trans "tracks" %}</a></p>
+          <p class="navbar__link"><a href="{% url 'news-list' %}">{% trans "news" %}</a></p>
+          <p class="navbar__link"><a href="{% url 'gallery-list' %}">{% trans "gallery" %}</a></p>
+          <p class="navbar__link">{% trans "our team" %}</p>
         </div>
       </div>
-      <div class="header__info flex gap-9 self-end font-formula1 text-xs">
-        <div class="flex-center flex-col gap-3">
-          <img class="header__icon" src="/static/img/main/youtube_icon.svg" alt="youtube_icon">
-          <p class="header__language">Tur</p>
+        <div class="header__info flex gap-9 self-end font-formula1 text-xs">
+          <div class="flex-center flex-col gap-3">
+            <img class="header__icon" src="/static/img/main/youtube_icon.svg" alt="youtube_icon">
+            <p class="header__language">
+              <a onclick="changeLanguage('tr')">
+                Tur
+              </a>
+            </p>
+          </div>
+          <div class="flex-center flex-col gap-3">
+            <img class="header__icon" src="/static/img/main/inst_icon.svg" alt="youtube_icon">
+            <p class="header__language">
+              <a onclick="changeLanguage('en')">
+                Eng
+              </a>
+            </p>
+          </div>
         </div>
-        <div class="flex-center flex-col gap-3">
-          <img class="header__icon" src="/static/img/main/facebook_icon.svg" alt="youtube_icon">
-          <p class="header__language">Ru</p>
-        </div>
-        <div class="flex-center flex-col gap-3">
-          <img class="header__icon" src="/static/img/main/inst_icon.svg" alt="youtube_icon">
-          <p class="header__language">Eng</p>
-        </div>
-      </div>
     </div>
   </div>
+  <script>
+      function changeLanguage(lang) {
+          var newUrl = window.location.pathname.replace(/^\/[a-z]{2}\//, '/' + lang + '/');
+          window.location.href = newUrl;
+      }
+  </script>
 </header>
 
 {% block main %}
@@ -62,7 +74,7 @@
 {% if not is_homepage %}
 <section class="partners px-9 pt-16">
     <div class="wrapper">
-      <h2 class="partners__head text-center mb-12 head head_bottom-line text-4xl" id="partners"> Partners </h2>
+      <h2 class="partners__head text-center mb-12 head head_bottom-line text-4xl" id="partners"> {% trans "Partners" %} </h2>
       <div class="partners__content flex justify-evenly flex-wrap">
         {% if partners %} <!-- If partners > 0: show partners. else: show the partner stub -->
         {% for partner in partners %}

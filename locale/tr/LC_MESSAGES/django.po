@@ -1,0 +1,201 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-07-12 12:48+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: .\KARTING_ACADEMY\settings.py:66
+msgid "Turkish"
+msgstr ""
+
+#: .\KARTING_ACADEMY\settings.py:67
+msgid "English"
+msgstr ""
+
+#: .\templates\base.html:35 .\templates\main\index.html:37
+msgid "Events"
+msgstr "Etkinlikler"
+
+#: .\templates\base.html:36
+msgid "tracks"
+msgstr "izleme"
+
+#: .\templates\base.html:37
+msgid "news"
+msgstr "Haberler"
+
+#: .\templates\base.html:38 .\templates\main\index.html:227
+msgid "gallery"
+msgstr "Galeri"
+
+#: .\templates\base.html:39
+msgid "our team"
+msgstr "ekibimiz"
+
+#: .\templates\base.html:77 .\templates\main\index.html:180
+msgid "Partners"
+msgstr "Ortaklar"
+
+#: .\templates\gallery\gallery-list.html:17
+msgid "Gallery"
+msgstr "Galeri"
+
+#: .\templates\main\event-detail.html:18
+msgid "Event Details"
+msgstr "Etkinlik Detayları"
+
+#: .\templates\main\event-detail.html:23
+msgid "Country"
+msgstr "Ülke"
+
+#: .\templates\main\event-detail.html:32
+msgid "Documents"
+msgstr "Belgeler"
+
+#: .\templates\main\event-detail.html:40
+msgid "MINI"
+msgstr "MINI"
+
+#: .\templates\main\event-detail.html:42
+msgid "JUNIOR"
+msgstr "JUNIOR"
+
+#: .\templates\main\event-detail.html:44
+msgid "SENIOR"
+msgstr "SENIOR"
+
+#: .\templates\main\event-detail.html:46
+msgid "MASTER"
+msgstr "MASTER"
+
+#: .\templates\main\event-detail.html:48
+msgid "ALL"
+msgstr "tüm"
+
+#: .\templates\main\event-detail.html:57
+msgid "Player"
+msgstr "Oyuncu"
+
+#: .\templates\main\event-detail.html:58
+msgid "Category"
+msgstr "Kategori"
+
+#: .\templates\main\event-detail.html:59
+msgid "Points"
+msgstr "Puanlar"
+
+#: .\templates\main\event-detail.html:60
+msgid "Gap"
+msgstr "Boşluk"
+
+#: .\templates\main\event-detail.html:61
+msgid "Lap Time"
+msgstr "Tur Zamanı"
+
+#: .\templates\main\event-detail.html:71
+msgid "Best Lap"
+msgstr "En iyi Tur"
+
+#: .\templates\main\event-list.html:21
+msgid "All"
+msgstr "Tüm"
+
+#: .\templates\main\event-list.html:54
+msgid "Explore event"
+msgstr "Etkinlik keşfet"
+
+#: .\templates\main\index.html:20 .\templates\main\index.html:170
+msgid "Your browser does not support the video tag."
+msgstr "Tarayıcınız video etiketini desteklemiyor."
+
+#: .\templates\main\index.html:28
+msgid "next event"
+msgstr "sonraki etkinlik"
+
+#: .\templates\main\index.html:33
+msgid "There are no new events :("
+msgstr "Yeni etkinlik yok :("
+
+#: .\templates\main\index.html:47
+msgid "DAYS"
+msgstr "günler"
+
+#: .\templates\main\index.html:51
+msgid "HOURS"
+msgstr "saatler"
+
+#: .\templates\main\index.html:55
+msgid "MINS"
+msgstr "DAKİKA"
+
+#: .\templates\main\index.html:59
+msgid "SECS"
+msgstr "SANİYE"
+
+#: .\templates\main\index.html:70
+msgid "Rating"
+msgstr "Rating"
+
+#: .\templates\main\index.html:79
+msgid "NAME"
+msgstr "isim"
+
+#: .\templates\main\index.html:80
+msgid "COUNTRY"
+msgstr "ülke"
+
+#: .\templates\main\index.html:81
+msgid "LAP TIME"
+msgstr "TUR ZAMANI"
+
+#: .\templates\main\index.html:82
+msgid "SCORE"
+msgstr "puan"
+
+#: .\templates\main\index.html:125 .\templates\main\index.html:215
+msgid "Explore"
+msgstr "Keşfetmek"
+
+#: .\templates\main\index.html:134
+msgid "Contact Us"
+msgstr "Bizimle <br>iletişime geçin"
+
+#: .\templates\main\index.html:150
+msgid "Your email"
+msgstr "E-postanız"
+
+#: .\templates\main\index.html:152
+msgid "Enter your email"
+msgstr "E-postanızı girin"
+
+#: .\templates\main\index.html:155
+msgid "Your text"
+msgstr "Mesajınız"
+
+#: .\templates\main\index.html:157
+msgid "Enter your message"
+msgstr "Mesajınızı girin"
+
+#: .\templates\main\index.html:160
+msgid "Send message"
+msgstr "Mesaj gönder"
+
+#: .\templates\main\index.html:207
+msgid "Last News"
+msgstr "Son Haberler"
+
+#~ msgid "2024 KARTING SPEED"
+#~ msgstr "2024 KARTİNG hızı"

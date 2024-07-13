@@ -1,6 +1,8 @@
 import os
 from pathlib import Path
 
+from django.utils.translation import gettext_lazy as _
+
 from config import PASS, SECRET_KEY
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -55,6 +57,20 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',   
     'debug_toolbar.middleware.DebugToolbarMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+]
+
+LANGUAGE_CODE = 'en'
+
+LANGUAGES = [
+    ('tr', _('Turkish')),
+    ('en', _('English')),
+]   
+
+
+# Set the path to locale files
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
 ]
 
 ROOT_URLCONF = 'KARTING_ACADEMY.urls'
@@ -108,11 +124,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-USE_TZ = True
 TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
 
 
