@@ -27,7 +27,7 @@
 
               <p class="uppercase text-xs">{% trans "next event" %}</p>
               {% if next_event %}
-              <p class="link underline text-xl"><a href="{% url "event_detail" next_event.id %}">{{ next_event.title }}</a></p>
+              <p class="underline text-xl"><a href="{% url "event_detail" next_event.id %}">{{ next_event.title }}</a></p>
 
               {% else %}
               <p class="text-lg">{% trans "There are no new events :(" %}</p>
