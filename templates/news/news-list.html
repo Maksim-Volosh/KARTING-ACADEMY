@@ -13,17 +13,14 @@
   <div class="wrapper">
     <div class="news__wrapper flex flex-col px-10 py-12 gap-2">
       <h2 class="news__head text-center mb-12 head head_bottom-line text-4xl" id="partners">News</h2>
-      <div class="news-container flex-center flex-col justify-between gap-5">
+      <div class="news-container flex-center flex-col justify-between gap-6">
         {% for news in news %}
-        <div class="news__item bg-white flex h-[250px] max-w-[600px] w-full">
-          <a href="{% url 'news-detail' news.id %}">
-            <div class="flex justify-between gap-5">
-              <div class="news__img self-start"><img class="h-[250px] max-w-[320px] w-full" src="{{ news.image.url }}" alt="{{ news.title }}"></div>
+        <div class="news__item bg-white flex h-[200px] max-w-[600px] w-full">
+          <a  class="w-full" href="{% url 'news-detail' news.id %}">
+            <div class="flex gap-5 w-full">
+              <div class="news__img"><img class="h-[200px] w-[280px]" src="{{ news.image.url }}" alt="{{ news.title }}"></div>
               <div class="news__desc flex flex-col text-gray-600 text-sm py-5 pr-2">
                 <p class="news__title text-base mb-3 tracking-normal">{{ news.title }}</p>
-                {% if news.documents %}
-                <p  class="mb-1">{{ news.documents }}</p>
-                {% endif %}
 
                 {% if news.updated_at != news.created_at %}
                 <p class="news__date mb-1">Update: {{ news.updated_at }}</p>

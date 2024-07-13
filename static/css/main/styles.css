@@ -155,6 +155,11 @@ h1 {
   font-size: 0.65rem;
 }
 
+.news__item:hover .news__title {
+  -webkit-text-decoration: underline solid 0.1rem rgba(0, 252, 59, 0.74);
+  text-decoration: underline solid 0.1rem rgba(0, 252, 59, 0.74);
+  text-underline-offset: 0.2em;
+}
 
 
 @media (max-width: 1250px) {

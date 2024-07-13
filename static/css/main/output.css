@@ -666,12 +666,20 @@ video {
   margin-right: 1rem;
 }
 
-.mr-auto {
-  margin-right: auto;
+.mt-1 {
+  margin-top: 0.25rem;
 }
 
 .mt-10 {
   margin-top: 2.5rem;
+}
+
+.mt-2 {
+  margin-top: 0.5rem;
+}
+
+.mt-3 {
+  margin-top: 0.75rem;
 }
 
 .mt-4 {
@@ -684,18 +692,6 @@ video {
 
 .mt-\[12px\] {
   margin-top: 12px;
-}
-
-.mt-3 {
-  margin-top: 0.75rem;
-}
-
-.mt-1 {
-  margin-top: 0.25rem;
-}
-
-.mt-2 {
-  margin-top: 0.5rem;
 }
 
 .block {
@@ -724,10 +720,6 @@ video {
 
 .h-\[200px\] {
   height: 200px;
-}
-
-.h-\[250px\] {
-  height: 250px;
 }
 
 .h-\[4\.2rem\] {
@@ -774,16 +766,12 @@ video {
   width: 180px;
 }
 
-.w-\[320px\] {
-  width: 320px;
+.w-\[280px\] {
+  width: 280px;
 }
 
 .w-\[45\%\] {
   width: 45%;
-}
-
-.w-\[600px\] {
-  width: 600px;
 }
 
 .w-\[97\%\] {
@@ -802,16 +790,12 @@ video {
   max-width: 64rem;
 }
 
-.max-w-xs {
-  max-width: 20rem;
-}
-
-.max-w-\[320px\] {
-  max-width: 320px;
-}
-
 .max-w-\[600px\] {
   max-width: 600px;
+}
+
+.max-w-xs {
+  max-width: 20rem;
 }
 
 .flex-1 {
@@ -870,12 +854,12 @@ video {
   gap: 1.25rem;
 }
 
-.gap-9 {
-  gap: 2.25rem;
+.gap-6 {
+  gap: 1.5rem;
 }
 
-.self-start {
-  align-self: flex-start;
+.gap-9 {
+  gap: 2.25rem;
 }
 
 .self-end {
@@ -884,10 +868,6 @@ video {
 
 .justify-self-center {
   justify-self: center;
-}
-
-.text-wrap {
-  text-wrap: wrap;
 }
 
 .text-nowrap {
@@ -1240,6 +1220,12 @@ h1 {
   text-transform: uppercase;
   color: #45F197FF;
   font-size: 0.65rem;
+}
+
+.news__item:hover .news__title {
+  -webkit-text-decoration: underline solid 0.1rem rgba(0, 252, 59, 0.74);
+  text-decoration: underline solid 0.1rem rgba(0, 252, 59, 0.74);
+  text-underline-offset: 0.2em;
 }
 
 @media (max-width: 1250px) {
