@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block links %}
   <!-- index CSS -->
@@ -16,20 +17,25 @@
       <div class="overlay"></div>
       <video autoplay muted loop class="video-bg">
         <source src="{% static 'video/main/video.mp4' %}" type="video/mp4">
-        Your browser does not support the video tag.
+        {% trans "Your browser does not support the video tag." %}
       </video>
       <div class="wrapper">
         <div class="start__event event flex flex-col max-w-2xl w-full">
-          <div class="event__content flex w-full pr-6 py-1">
-            <div class="flex flex-col ml-auto ">
+          <div class="event__content font-formula1 flex pr-6 py-1">
+            <div class="flex-align-center ml-auto gap-3">
+            <div class="flex flex-col">
 
-              <p class="font-formula1 uppercase text-xs">next event</p>
+              <p class="uppercase text-xs">{% trans "next event" %}</p>
               {% if next_event %}
-              <p class="link underline text-xl"><a href="{% url "event_detail" next_event.id %}">{{ next_event.title }}</a></p>
+              <p class="underline text-xl"><a href="{% url "event_detail" next_event.id %}">{{ next_event.title }}</a></p>
+
               {% else %}
-              <p class="font-formula1 text-lg">There are no new events :(</p>
+              <p class="text-lg">{% trans "There are no new events :(" %}</p>
               {% endif %}
             </div>
+              <div class="h-full w-0.5 bg-white mx-2"></div>
+            <button class="btn-events"><a class="text-nowrap" href="{% url 'event-list' %}">{% trans "Events" %} &rarr;</a></button>
+          </div>
           </div>
           <input type="hidden" id="next_event_time" value="{{ next_event_time }}">
           <div class="event__countdown countdown w-[97%] py-3" id="countdown">
@@ -38,19 +44,19 @@
                   href="event-page.html"></a></div>
               <div class="countdown__item">
                 <span id="countdown__days">0</span>
-                <small>DAYS</small>
+                <small>{% trans "DAYS"|upper %}</small>
               </div>
               <div class="countdown__item">
                 <span id="countdown__hours">0</span>
-                <small>HOURS</small>
+                <small>{% trans "HOURS"|upper %}</small>
               </div>
               <div class="countdown__item">
                 <span id="countdown__mins">0</span>
-                <small>MINS</small>
+                <small>{% trans "MINS"|upper %}</small>
               </div>
               <div class="countdown__item">
                 <span id="countdown__secs">0</span>
-                <small>SECS</small>
+                <small>{% trans "SECS"|upper %}</small>
               </div>
             </div>
           </div>
@@ -61,7 +67,7 @@
 
     <section class="rating pl-20 pr-24 pt-16">
         <div class="wrapper">
-          <h2 class="head head_left-line text-6xl mb-[2rem]" id="message">Rating</h2>
+          <h2 class="head head_left-line text-6xl mb-[2rem]" id="message">{% trans "Rating" %}</h2>
 
           <div class="rating__content flex justify-between">
 
@@ -70,10 +76,10 @@
                 <thead class="thead-light h-[4.2rem]">
                 <tr>
                   <th scope="col m-auto" class="w-[15%]"></th>
-                  <th scope="col" class="text-center">NAME</th>
-                  <th scope="col" class="text-center">COUNTRY</th>
-                  <th scope="col" class="text-center">LAP TIME</th>
-                  <th scope="col" class="text-center">SCORE</th>
+                  <th scope="col" class="text-center">{% trans "NAME"|upper %}</th>
+                  <th scope="col" class="text-center">{% trans "COUNTRY"|upper %}</th>
+                  <th scope="col" class="text-center">{% trans "LAP TIME"|upper %}</th>
+                  <th scope="col" class="text-center">{% trans "SCORE"|upper %}</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -102,7 +108,7 @@
                 </tr>
                 {% else %}
                 <!-- If we have an event - we init an statistic -->
-                <p><span class="underline"><a href="{% url 'event_detail' event.id %}">{{ event.title }}</a></span>
+                <p class="mb-8"><a class="underline" href="{% url 'event_detail' event.id %}">{{ event.title }}</a>
                 </p>
                 {% for stat in statistic %}
                 <tr class="h-[9rem]">
@@ -116,7 +122,7 @@
                 {% endif %}
                 </tbody>
               </table>
-              <button class="uppercase button explore-btn justify-self-center" onClick={explore}>Explore</button>
+              <button class="uppercase button explore-btn justify-self-center" onClick={explore}>{% trans "Explore" %}</button>
             </div>
 
             <div class="lane bg-[#FCD700]"></div>
@@ -125,7 +131,7 @@
               <div class="contact-us">
                 <div class="contact-us__content">
                   <h2 class="head head2 head_left-line text-3xl mb-6">
-                    Contact Us
+                    {% trans "Contact Us" %}
                   </h2>
 
                   <!-- Notification about successful sent email -->
@@ -141,17 +147,17 @@
                     <form class="flex flex-col gap-2" method="post" action="{% url 'send_email' %}#message">
                       {% csrf_token %}
                       <div class="form-group">
-                        <label for="email">Your email</label>
+                        <label for="email">{% trans "Your email" %}</label>
                         <input type="email" class="form__control bg-inherit" id="email" name="email"
-                              placeholder="Enter your email" required/>
+                              placeholder="{% trans "Enter your email" %}" required/>
                       </div>
                       <div class="form-group">
-                        <label for="message">Your text</label>
+                        <label for="message">{% trans "Your text" %}</label>
                         <textarea class="form__control h-[200px] bg-inherit text-white" id="message" name="message"
-                                  rows="3" placeholder="Enter your message" required></textarea>
+                                  rows="3" placeholder="{% trans "Enter your message" %}" required></textarea>
                       </div>
-                      <button type="submit" class="button rounded-lg mt-[12px] text-xl" onClick={sendMessage}>Send
-                        message
+                      <button type="submit" class="button rounded-lg mt-[12px] text-xl" onClick={sendMessage}>
+                        {% trans "Send message" %}
                       </button>
                     </form>
                   </div>
@@ -161,7 +167,7 @@
               <div class="video-frame">
                 <video class="" width="320" height="220" controls autoplay muted loop>
                   <source src='{% static "video/main/video.mp4" %}' type="video/mp4">
-                  Your browser does not support the video tag.
+                  {% trans "Your browser does not support the video tag." %}
                 </video>
               </div>
             </div>
@@ -171,7 +177,7 @@
 
     <section class="partners px-9 pt-16">
         <div class="wrapper">
-          <h2 class="partners__head text-center mb-12 head head_bottom-line text-4xl" id="partners"> Partners </h2>
+          <h2 class="partners__head text-center mb-12 head head_bottom-line text-4xl" id="partners"> {% trans "Partners" %} </h2>
           <div class="partners__content flex justify-evenly flex-wrap">
             {% if partners %} <!-- If partners > 0: show partners. else: show the partner stub -->
             {% for partner in partners %}
@@ -198,7 +204,7 @@
     <section class="news py-20">
         <div class="wrapper">
           <h2 class="news__head head head2 head_left-line text-3xl mb-12 pl-24">
-            Last News
+            {% trans "Last News" %}
           </h2>
           <div class="news__wrapper h-60 flex ">
             <div class="news__content bg-[#EADF20] pl-24 py-1.5 pr-2 flex h-full gap-5 ">
@@ -206,7 +212,7 @@
               <div class="news__item flex flex-col text-center">
                 <div class="news__frame bg-white h-[82%] w-full pic"
                     style=" background-image: url('{{ news.image.url }}')"></div>
-                <a href="{% url 'news-detail' news.id %}" class="news__explore-btn uppercase button"><button>Explore</button></a>
+                <a href="{% url 'news-detail' news.id %}" class="news__explore-btn uppercase button"><button>{% trans "Explore" %}</button></a>
               </div>
               {% endfor %}
             </div>
@@ -218,7 +224,7 @@
     <section class="gallery py-20">
         <div class="wrapper">
           <h2 class="news__head head head2 head_left-line text-3xl mb-12 pl-24">
-            gallery
+            {% trans "gallery" %}
           </h2>
           <div class="gallery__photos flex flex-col js-flickity"
               data-flickity-options='{ "freeScroll": true, "wrapAround": true }'>

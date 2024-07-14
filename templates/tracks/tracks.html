@@ -2,18 +2,22 @@
 {% load static %}
 
 {% block links %}
-  <!-- Tracks CSS -->
+<!-- Tracks CSS -->
 {% endblock links %}
 
 {% block title %}Karting speed | Tracks{% endblock title %}
 
 
 {% block main %}
-  <main class="main-section font-formula1">
-    <p>Season Tracks</p>
-    {% for track in tracks %}
+<main class="tracks font-formula1">
+  <div class="wrapper">
+    <div class="tracks__wrapper flex flex-col px-10 py-12 gap-2">
+      <p>Season Tracks</p>
+      {% for track in tracks %}
       <p>{{ track.track }}</p>
       <img src="{{ track.image.url }}" alt="{{ track.track }}">
-    {% endfor %}
-  </main>
+      {% endfor %}
+    </div>
+  </div>
+</main>
 {% endblock main %}

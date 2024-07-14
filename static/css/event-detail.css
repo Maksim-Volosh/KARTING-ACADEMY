@@ -46,17 +46,6 @@ table thead th, table tr td {
   }
 }
 
-
-@media (max-width: 650px ) {
-  table {
-    line-height: 1rem;
-  }
-
-  td, th {
-    padding: 10px 5px;
-  }
-}
-
 @media (max-width: 650px ) {
   table {
     line-height: 1rem;

@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 {% load custom_filter %}
 
 {% block links %}
@@ -14,12 +15,12 @@
 <main class="event-detail z-2">
   <div class="wrapper">
     <section class="event__container font-formula1 px-10 py-12 flex justify-center flex-col">
-      <h2 class="head head2 head_bottom-line font-pro-racing mb-8">Event Details</h2>
+      <h2 class="head head2 head_bottom-line font-pro-racing mb-8">{% trans "Event Details" %}</h2>
       <div class="event__title flex flex-align-center gap-3 mb-6">
         <h3 class="event__title_text text-3xl text-[#00e293] font-semibold">{{ event.title }}</h3>
         <img class="event__title_img" src="{{ event.logo.url }}" alt="{{ event.title }} - image">
       </div>
-      <p class="text-lg">Country - {{ event.country }}</p>
+      <p class="text-lg">{% trans "Country" %} - {{ event.country }}</p>
 
       <div class="flex flex-align-center gap-3">
         <p>{{ event.date_of_start|date:"F d, Y" }}</p>
@@ -28,7 +29,7 @@
       </div>
       <p class="text-sm mt-6 max-w-5xl">{{ event.description }}</p>
       {% if event.documents %}
-      <p class="text-xs my-6">Documents: <a href="{{ event.documents.url }}" download>{{ event.documents|filename }}</a></p>
+      <p class="text-xs my-6">{% trans "Documents" %}: <a href="{{ event.documents.url }}" download>{{ event.documents|filename }}</a></p>
 
       {% endif %}
       {% if event.image_of_track %}
@@ -36,15 +37,15 @@
       {% endif %}
       <br>
       <div class="flex-center gap-3 flex-wrap " id="buttons">
-        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=mini#buttons">MINI</a></button>
+        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=mini#buttons">{% trans "MINI"|upper %}</a></button>
         |
-        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=junior#buttons">JUNIOR</a></button>
+        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=junior#buttons">{% trans "JUNIOR"|upper %}</a></button>
         |
-        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=senior#buttons">SENIOR</a></button>
+        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=senior#buttons">{% trans "SENIOR"|upper %}</a></button>
         |
-        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=master#buttons">MASTER</a></button>
+        <button class="category-btn text-violet-400"><a href="{% url 'event_detail' event.id %}?cat=master#buttons">{% trans "MASTER"|upper %}</a></button>
         |
-        <button class="category-btn text-violet-400"><a href="?all#buttons">ALL</a></button>
+        <button class="category-btn text-violet-400"><a href="?all#buttons">{% trans "ALL"|upper %}</a></button>
       </div>
       <br><br>
 
@@ -53,11 +54,11 @@
         <tr>
           <th>№</th>
           <th>No.</th>
-          <th>Player</th>
-          <th>Category</th>
-          <th>Points</th>
-          <th>Gap</th>
-          <th>Lap Time</th>
+          <th>{% trans "Player" %}</th>
+          <th>{% trans "Category" %}</th>
+          <th>{% trans "Points" %}</th>
+          <th>{% trans "Gap" %}</th>
+          <th>{% trans "Lap Time" %}</th>
         </tr>
         </thead>
         <tbody>
@@ -67,7 +68,7 @@
             <tr>
               <td class="text-center relative">
                 {% if stat.lap_time == best_lap_time %}
-                  <div class="label green-label"><span class="uppercase">Best Lap</span></div>
+                  <div class="label green-label"><span class="uppercase">{% trans "Best Lap" %}</span></div>
                 {% endif %}
                 {{loop}}</td>
               <td class="text-center">{{ player.id }}</td>

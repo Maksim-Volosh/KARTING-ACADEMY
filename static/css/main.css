@@ -104,10 +104,12 @@
   background: transparent;
   opacity: 1;
 }
+
 /* arrow color */
 .flickity-prev-next-button .arrow {
   fill: white;
 }
+
 .flickity-prev-next-button.no-svg {
   color: white;
 }
@@ -377,20 +379,9 @@ table tbody tr:nth-child(even) {
   width: 100%;
   border-top: 5px solid transparent;
   border-image: linear-gradient(to right,
-  #ffc600,       /* 0%  */
-  #ffc600 70%,   /* 70% */
-  transparent 70%, /* прозрачный от 70% до 72% */
-  transparent 72%, /* 72% */
-  #ffc600 72%,   /* желтый от 72% до 80% */
-  #ffc600 80%,   /* 80% */
-  transparent 80%, /* прозрачный от 80% до 82% */
-  transparent 82%, /* 82% */
-  #ffc600 82%,
+  #ffc600, /* 0%  */ #ffc600 70%, /* 70% */ transparent 70%, /* прозрачный от 70% до 72% */ transparent 72%, /* 72% */ #ffc600 72%, /* желтый от 72% до 80% */ #ffc600 80%, /* 80% */ transparent 80%, /* прозрачный от 80% до 82% */ transparent 82%, /* 82% */ #ffc600 82%,
   #ffc600 90%,
-  transparent 90%, /* прозрачный от 90% до 92% */
-  transparent 92%, /* 92% */
-  #ffc600 92%,   /* желтый от 92% до 100% */
-  #ffc600 );
+  transparent 90%, /* прозрачный от 90% до 92% */ transparent 92%, /* 92% */ #ffc600 92%, /* желтый от 92% до 100% */ #ffc600);
 
   border-image-slice: 1;
 }
@@ -399,11 +390,25 @@ table tbody tr:nth-child(even) {
   position: absolute;
 }
 
-@media (max-width: 900px) {
+.btn-events {
+  font-size: 0.75rem;
+  line-height: normal;
+}
+
+@media (max-width: 1230px) {
+  .rating__table {
+    width: auto;
+    gap: 2rem;
+  }
 
   .rating__content {
     flex-direction: column;
     gap: 50px;
+  }
+
+  td, th {
+    width: auto !important;
+    padding: 10px 5px;
   }
 
   .lane {
@@ -413,3 +418,26 @@ table tbody tr:nth-child(even) {
   }
 }
 
+@media (max-width: 580px) {
+  tr {
+    height: 5rem !important;
+  }
+
+  table {
+    line-height: 1rem;
+  }
+
+  .rating__table {
+    gap: 0.5rem;
+  }
+
+  .explore-btn {
+    font-size: 16px;
+    height: 35px;
+  }
+
+  .explore-btn:after {
+    height: 35px;
+  }
+
+}
