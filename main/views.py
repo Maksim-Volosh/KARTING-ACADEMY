@@ -1,5 +1,4 @@
-from re import S
-import statistics
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 
@@ -120,9 +119,19 @@ def event_list(request):
         events = get_events_list(Event)
         
     years = get_years_of_events(Event)
+    
+    paginator = Paginator(events, 1)
+    page = request.GET.get('page')
+    
+    try:
+        events_paginated = paginator.page(page)
+    except PageNotAnInteger:
+        events_paginated = paginator.page(1)
+    except EmptyPage:
+        events_paginated = paginator.page(paginator.num_pages)
 
     context = {
-        'events': events,
+        'events': events_paginated,
         'years': years,
         'selected_year': year
     }

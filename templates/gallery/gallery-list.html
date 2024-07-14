@@ -15,7 +15,6 @@
   <div class="wrapper">
     <div class="gallery__wrapper flex flex-col px-10 py-12 gap-2">
       <h2 class="gallery__head text-center mb-12 head head_bottom-line text-4xl" id="partners"> {% trans "Gallery" %}</h2>
-
       <div class="flex-center flex-col">
       {% for image in gallery %}
       <figure class="gallery__item">
@@ -30,6 +29,28 @@
       {% endfor %}
       </div>
     </div>
+
+    <nav aria-label="Page navigation">
+      <ul class="pagination">
+        {% if gallery.has_previous %}
+        <li class="page-item disabled">
+          <a class="page-link" href="?page={{ gallery.previous_page_number }}{% if selected_year %}&y={{ selected_year }}{% endif %}" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="?page={{ gallery.previous_page_number }}{% if selected_year %}&y={{ selected_year }}{% endif %}">{{ gallery.previous_page_number }}</a></li>
+        {% endif %}
+
+        <li class="page-item active" aria-current="page">
+          <a class="page-link">{{ gallery.number }}</a>
+        </li>
+
+        {% if gallery.has_next %}
+        <li class="page-item"><a class="page-link" href="?page={{ gallery.next_page_number }}{% if selected_year %}&y={{ selected_year }}{% endif %}">{{ gallery.next_page_number }}</a></li>
+        <li class="page-item">
+          <a class="page-link" href="?page={{ gallery.next_page_number }}{% if selected_year %}&y={{ selected_year }}{% endif %}">Next</a>
+        </li>
+        {% endif %}
+      </ul>
+    </nav>
   </div>
 </main>
 {% endblock main %}
