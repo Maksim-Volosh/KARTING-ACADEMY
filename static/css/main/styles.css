@@ -148,7 +148,7 @@ h1 {
   font-size: 0.5rem;
 }
 
-.news-detail__date {
+.detail_date {
   -webkit-text-stroke: 1px rgb(69, 241, 151);
   text-transform: uppercase;
   color: #45F197FF;
