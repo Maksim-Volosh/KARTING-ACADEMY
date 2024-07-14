@@ -88,7 +88,7 @@
 <section class="partners px-9 pt-16">
     <div class="wrapper">
       <h2 class="partners__head text-center mb-12 head head_bottom-line text-4xl" id="partners"> {% trans "Partners" %} </h2>
-      <div class="partners__content flex justify-evenly flex-wrap">
+      <div class="partners__content flex justify-evenly flex-wrap gap-3">
         {% if partners %} <!-- If partners > 0: show partners. else: show the partner stub -->
         {% for partner in partners %}
         <div class="partners__frame">

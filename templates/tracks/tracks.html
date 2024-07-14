@@ -3,6 +3,7 @@
 
 {% block links %}
 <!-- Tracks CSS -->
+<link href="{% static 'css/tracks.css' %}" rel="stylesheet">
 {% endblock links %}
 
 {% block title %}Karting speed | Tracks{% endblock title %}
@@ -16,9 +17,9 @@
 
       <div class="tracks-list flex flex-col gap-6">
         {% for track in tracks %}
-        <div class="tracs__item flex ">
+        <div class="tracks__item flex-col">
+          <p class="text-center">{{ track.track }}</p>
           <img src="{{ track.image.url }}" alt="{{ track.track }}">
-          <p>{{ track.track }}</p>
         </div>
         {% endfor %}
       </div>
