@@ -16,16 +16,13 @@
         <h1 class="text-[#45F197FF] mb-5">{{ news.title }}</h1>
         <img src="{{ news.image.url }}" alt="{{ news.title }}">
         <p class="mt-3">{{ news.content }}</p>
-
+        {% if news.documents %}
+        <p class="mt-2"><a href="{{ news.documents.url }}" download>{{ news.documents }}</a></p>
+        {% endif %}
         {% if news.updated_at != news.created_at %}
-        <p class="detail_date mt-2"> Update: {{ news.updated_at }}</p>
+        <p class="detail_date mt-3"> Update: {{ news.updated_at }}</p>
         {% else %}
         <p class="detail_date mt-1">Create: {{ news.created_at }}</p>
-        {% endif %}
-      </div>
-      <div class="news-detail__documents flex flex-col">
-        {% if news.documents %}
-        <p class="mt-1"><a href="{{ news.documents.url }}" download>{{ news.documents }}</a></p>
         {% endif %}
       </div>
     </div>

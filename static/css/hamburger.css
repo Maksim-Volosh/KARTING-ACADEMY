@@ -41,7 +41,7 @@
   }
 
   .navbar__items {
-    background: rgba(0, 38, 173, 0.87);
+    background: rgb(14 52 184 / 42%);
     display: none;
     flex-direction: column;
     position: absolute !important;
