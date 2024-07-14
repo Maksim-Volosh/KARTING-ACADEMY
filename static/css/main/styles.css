@@ -169,7 +169,7 @@ h1 {
     line-height: 1.5rem; /* 24px */
   }
 
-  .navbar {
+  .navbar__items {
     gap: 1.25rem;
     font-size: 0.875rem; /* 14px */
     line-height: 1.25rem; /* 20px */
@@ -187,9 +187,6 @@ h1 {
 }
 
 @media (max-width: 690px) {
-  .navbar {
-    display: none;
-  }
 
   .footer__info {
     font-size: 0.8rem;

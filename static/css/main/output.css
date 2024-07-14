@@ -1236,7 +1236,7 @@ h1 {
     /* 24px */
   }
 
-  .navbar {
+  .navbar__items {
     gap: 1.25rem;
     font-size: 0.875rem;
     /* 14px */
@@ -1257,10 +1257,6 @@ h1 {
 }
 
 @media (max-width: 690px) {
-  .navbar {
-    display: none;
-  }
-
   .footer__info {
     font-size: 0.8rem;
   }

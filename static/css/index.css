@@ -1,9 +1,9 @@
-.navbar, .event__content, .event__countdown {
+.navbar__items, .event__content, .event__countdown {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
-.navbar:before, .event__countdown:before, .event__content:before {
+.navbar__items:before, .event__countdown:before, .event__content:before {
   content: '';
   position: absolute;
   top: 0;
@@ -27,7 +27,7 @@
   z-index: -1;
 }
 
-.navbar:before {
+.navbar__items:before {
   border-radius: 9999px;
   border: 3px solid rgba(154, 168, 218, 0.21);
   background: rgba(0, 38, 173, 0.22);
@@ -77,7 +77,6 @@
 .custom-gradient {
   background: linear-gradient(to bottom, rgba(0, 15, 52, 1) 0%, rgb(8, 66, 126) 100%);
 }
-
 
 .pic {
   background-repeat: no-repeat;
