@@ -21,9 +21,11 @@
       </div>
       <div class="flex flex-col w-[100%]">
         <h4 class="player__name">Events where {{ player.name }} participated:</h4>
-        {% for event in events %}
+        {% for event, categories in events_with_categories.items %}
         <div class="event__item flex-align-center flex-wrap justify-between p-2 ">
-          <a class="event__name w-[45%]" href="{% url 'event_detail' event.id %}">{{ event }}</a>
+          {% for cat in categories %}
+            <a class="event__name w-[45%]" href="{% url 'event_detail' event.id %}?cat={{ cat }}#player-{{ player.id }}">{{ event }}</a>
+          {% endfor %}
           <p class="event__dates text-nowrap">{{ event.date_of_start }} - {{ event.date_of_end }}</p>
         </div>
         {% endfor %}

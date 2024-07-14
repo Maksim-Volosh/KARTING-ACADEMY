@@ -74,11 +74,9 @@ def get_events_by_year(model, year):
         order_by=('-date_of_start',),
     )
     
-def get_best_lap_player_stats(stats, event, cat_name):
+def all_stats_for_player_with_event(statistics, player):
     return obj_all(
-        model=stats,
-        filter={'event': event, 'category__name__iexact': cat_name},
-        order_by=('lap_time',),
-        first=True
-        )
-    
+                model=statistics,
+                filter={'player': player},
+                select_related=('event', 'category')
+            )
