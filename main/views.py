@@ -87,7 +87,7 @@ def event_detail(request, pk):
         'gaps': player_gap,
     }
     
-    return render(request, 'main/event-detail.html', context=context)
+    return render(request, 'event/event-detail.html', context=context)
 
 def player_detail(request, pk):
     player = get_object_or_404(Player, pk=pk)
@@ -106,7 +106,7 @@ def player_detail(request, pk):
         'player': player,
         'events_with_categories': events_with_categories
     }
-    return render(request, 'main/player-detail.html', context=context)
+    return render(request, 'player/player-detail.html', context=context)
 
 def event_list(request):
     year = request.GET.get('y')
@@ -126,7 +126,7 @@ def event_list(request):
         'years': years,
         'selected_year': year
     }
-    return render(request, 'main/event-list.html', context=context)
+    return render(request, 'event/event-list.html', context=context)
 
 def about_us(request):
     return render(request, 'info/about-us.html')
