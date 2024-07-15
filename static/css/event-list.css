@@ -40,6 +40,27 @@
   width: 45%;
 }
 
+.label {
+  text-align: center;
+  position: absolute;
+  padding-right: 0.1rem;
+  transform: rotate(180deg);
+  transform-origin: left;
+  -webkit-writing-mode: vertical-rl;
+  -ms-writing-mode: tb-rl;
+  writing-mode: vertical-rl;
+  font-size: 0.6rem;
+  height: 98%;
+  letter-spacing: 1px;
+  top: 0.05rem;
+  left: -.1rem;
+  text-transform: uppercase;
+}
+
+.green-label {
+  background-color: #0ad386;
+}
+
 @media (max-width: 1370px) {
 
   .event__country {

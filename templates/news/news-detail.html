@@ -12,9 +12,9 @@
 <main class="mews-detail font-formula1">
   <div class="wrapper">
     <div class="news-detail__wrapper flex px-10 py-12 gap-2">
-      <div class="news-detail__content flex flex-col">
-        <h1 class="text-[#45F197FF] mb-5">{{ news.title }}</h1>
-        <img src="{{ news.image.url }}" alt="{{ news.title }}">
+      <div class="news-detail__content flex flex-col m-auto">
+        <h1 class="text-[#45F197FF] mb-7">{{ news.title }}</h1>
+        <img class="max-h-[500px]" src="{{ news.image.url }}" alt="{{ news.title }}">
         <p class="mt-3">{{ news.content }}</p>
         {% if news.documents %}
         <p class="mt-2"><a href="{{ news.documents.url }}" download>{{ news.documents }}</a></p>

@@ -17,9 +17,9 @@
 
       <div class="tracks-list flex flex-col gap-6">
         {% for track in tracks %}
-        <div class="tracks__item flex-col">
-          <p class="text-center">{{ track.track }}</p>
-          <img src="{{ track.image.url }}" alt="{{ track.track }}">
+        <div class="tracks__item flex-col flex-align-center">
+          <p class="tracks__name text-center">{{ track.track }}</p>
+          <img class="tracks__img max-w-[580px] w-full" src="{{ track.image.url }}" alt="{{ track.track }}">
         </div>
         {% endfor %}
       </div>
