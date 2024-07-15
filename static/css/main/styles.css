@@ -161,6 +161,11 @@ h1 {
   text-underline-offset: 0.2em;
 }
 
+.news__img {
+  height: 150px;
+  max-width: none;
+  width: 200px;
+}
 
 @media (max-width: 1250px) {
 
