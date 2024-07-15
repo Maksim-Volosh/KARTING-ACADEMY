@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block links %}
+  <!-- event-list CSS -->
+  <link href="{% static 'css/event-list.css' %}" rel="stylesheet">
+{% endblock links %}
+
+
+{% block title %}Karting speed | Events{% endblock title %}
+
+
+{% block main %}
+<main class="event-list z-2">
+  <div class="wrapper">
+
+    <div class="event__wrapper flex flex-col px-10 py-12 gap-2">
+    <form class="pb-1" action="{% url 'event-list' %}" method="get">
+      <select class="event__years" name="y" onchange="this.form.submit()">
+        <option value="all" {% if selected_year == "all" or not selected_year %}selected{% endif %}>{% trans "All" %}</option>
+        {% for year in years %}
+          <option value="{{ year }}" {% if year|stringformat:"s" == selected_year %}selected{% endif %}>{{ year }}</option>
+        {% endfor %}
+      </select>
+    </form>
+
+    <div class="events__container flex flex-col">
+      {% for event in events %}
+        {% ifchanged event.date_of_start|date:"Y" %}
+          <p class="mt-4 mb-1 ml-2">{{ event.date_of_start|date:"Y" }}</p>
+        {% endifchanged %}
+        <div class="event__item-wrap">
+          <div class="event__item flex-align-center justify-between p-2 height-190">
+            <div class="event__start flex-align-center">
+              <div class="event__icon pic" style=" background-image: url('{{ event.logo.url }}')"></div>
+              <div class="event__times flex-align-center">
+                <div class="event__time flex-center flex-col">
+                  <p class="event__date">&nbsp;{{ event.date_of_start|date:"d" }}</p>
+                  <p class="event__month font-formula1">{{ event.date_of_start|date:"M" }}</p>
+                </div>
+                <p>&nbsp;-&nbsp;</p>
+                <div class="event__time flex-center flex-col gap-1">
+                  <p class="event__date">{{ event.date_of_end|date:"d" }}</p>
+                  <p class="event__month font-formula1">{{ event.date_of_end|date:"M" }}</p>
+                </div>
+              </div>
+            </div>
+            <div class="event__info flex flex-col">
+              <p class="event__country text-xl">{{ event.country }}</p>
+              <p class="event__title font-formula1 text-sm">{{ event.title }}</p>
+            </div>
+            <a href="{% url 'event_detail' event.id %}" class="button event__button font-extralight text-base">
+                {% trans "Explore event" %}
+            </a>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+    </div>
+  </div>
+  </div>
+</main>
+{% endblock main %}
