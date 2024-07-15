@@ -15,7 +15,7 @@
 <main class="event-list z-2">
   <div class="wrapper">
 
-    <div class="event__wrapper flex flex-col px-10 py-12 gap-2">
+    <div class="events__wrapper flex flex-col px-10 py-12 gap-2">
     <form class="pb-1" action="{% url 'event-list' %}" method="get">
       <select class="event__years" name="y" onchange="this.form.submit()">
         <option value="all" {% if selected_year == "all" or not selected_year %}selected{% endif %}>{% trans "All" %}</option>

@@ -612,6 +612,14 @@ video {
   z-index: 10;
 }
 
+.z-\[4\] {
+  z-index: 4;
+}
+
+.z-\[3\] {
+  z-index: 3;
+}
+
 .m-auto {
   margin: auto;
 }

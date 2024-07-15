@@ -13,14 +13,14 @@
   <link href="{% static 'css/main/output.css' %}" rel="stylesheet">
   <link href="{% static 'css/main/styles.css' %}" rel="stylesheet">
   <link href="{% static 'css/index.css' %}" rel="stylesheet">
-  <link href="{% static 'css/hamburger.css' %}" rel="stylesheet">
+  <link href="{% static 'css/main/hamburger.css' %}" rel="stylesheet">
   {% block links %}
   {% endblock links %}
 </head>
 <body class="black custom-gradient">
 <div class="blackout"> </div>
 
-<header class="header z-10">
+<header class="header z-[4]">
   <div class="wrapper flex flex-col">
     <div class="header__container flex flex-col py-8 px-4 gap-4">
       <div class="header__content flex justify-between relative">
@@ -41,6 +41,7 @@
               <span class="line line1"></span>
               <span class="line line2"></span>
               <span class="line line3"></span>
+              <span class="line line4"></span>
             </div>
            <div class="navbar__items flex-center font-formula1 px-16 py-3 gap-10 text-xl text-nowrap">
              <p class="navbar__link link"><a href="{% url 'event-list' %}">{% trans "Events" %}</a></p>

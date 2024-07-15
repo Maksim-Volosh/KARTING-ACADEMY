@@ -55,6 +55,10 @@
 
 @media (max-width: 870px) {
 
+  .events__container {
+    align-items: center;
+  }
+
   .event__item {
     flex-direction: column;
     align-items: normal;
