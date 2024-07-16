@@ -74,10 +74,11 @@
     </div>
   </div>
   <script>
-      function changeLanguage(lang) {
-          var newUrl = window.location.pathname.replace(/^\/[a-z]{2}\//, '/' + lang + '/');
-          window.location.href = newUrl;
-      }
+    function changeLanguage(lang) {
+      var newUrl = window.location.pathname.replace(/^\/[a-z]{2}\//, '/' + lang + '/');
+      var searchParams = window.location.search;
+      window.location.href = newUrl + searchParams;
+  }
   </script>
 </header>
 

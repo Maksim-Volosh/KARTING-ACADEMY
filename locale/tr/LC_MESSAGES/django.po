@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-12 12:48+0300\n"
+"POT-Creation-Date: 2024-07-16 17:39+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,97 +25,101 @@ msgstr ""
 msgid "English"
 msgstr ""
 
-#: .\templates\base.html:35 .\templates\main\index.html:37
+#: .\templates\base.html:47 .\templates\main\index.html:37
 msgid "Events"
 msgstr "Etkinlikler"
 
-#: .\templates\base.html:36
+#: .\templates\base.html:48
 msgid "tracks"
 msgstr "izleme"
 
-#: .\templates\base.html:37
+#: .\templates\base.html:49
 msgid "news"
 msgstr "Haberler"
 
-#: .\templates\base.html:38 .\templates\main\index.html:227
+#: .\templates\base.html:50 .\templates\main\index.html:227
 msgid "gallery"
 msgstr "Galeri"
 
-#: .\templates\base.html:39
+#: .\templates\base.html:51
 msgid "our team"
 msgstr "ekibimiz"
 
-#: .\templates\base.html:77 .\templates\main\index.html:180
+#: .\templates\base.html:92 .\templates\main\index.html:180
 msgid "Partners"
 msgstr "Ortaklar"
+
+#: .\templates\event\event-detail.html:18
+msgid "Event Details"
+msgstr "Etkinlik Detayları"
+
+#: .\templates\event\event-detail.html:23
+msgid "Country"
+msgstr "Ülke"
+
+#: .\templates\event\event-detail.html:32
+msgid "Documents"
+msgstr "Belgeler"
+
+#: .\templates\event\event-detail.html:40
+msgid "MINI"
+msgstr "MINI"
+
+#: .\templates\event\event-detail.html:42
+msgid "JUNIOR"
+msgstr "JUNIOR"
+
+#: .\templates\event\event-detail.html:44
+msgid "SENIOR"
+msgstr "SENIOR"
+
+#: .\templates\event\event-detail.html:46
+msgid "MASTER"
+msgstr "MASTER"
+
+#: .\templates\event\event-detail.html:48
+msgid "ALL"
+msgstr "tüm"
+
+#: .\templates\event\event-detail.html:57
+msgid "Player"
+msgstr "Oyuncu"
+
+#: .\templates\event\event-detail.html:58
+msgid "Category"
+msgstr "Kategori"
+
+#: .\templates\event\event-detail.html:59
+msgid "Points"
+msgstr "Puanlar"
+
+#: .\templates\event\event-detail.html:60
+msgid "Gap"
+msgstr "Boşluk"
+
+#: .\templates\event\event-detail.html:61
+msgid "Lap Time"
+msgstr "Tur Zamanı"
+
+#: .\templates\event\event-detail.html:71
+msgid "Best Lap"
+msgstr "En iyi Tur"
+
+#: .\templates\event\event-detail.html:88
+msgid "Click on the player name to see more stats about this event"
+msgstr "Bu etkinlikle ilgili daha fazla istatistik görmek için oyuncu adına tıklayın"
+
+#: .\templates\event\event-list.html:21
+msgid "All"
+msgstr "Tüm"
+
+#: .\templates\event\event-list.html:55
+msgid "Explore event"
+msgstr "Etkinlik keşfet"
 
 #: .\templates\gallery\gallery-list.html:17
 msgid "Gallery"
 msgstr "Galeri"
-
-#: .\templates\main\event-detail.html:18
-msgid "Event Details"
-msgstr "Etkinlik Detayları"
-
-#: .\templates\main\event-detail.html:23
-msgid "Country"
-msgstr "Ülke"
-
-#: .\templates\main\event-detail.html:32
-msgid "Documents"
-msgstr "Belgeler"
-
-#: .\templates\main\event-detail.html:40
-msgid "MINI"
-msgstr "MINI"
-
-#: .\templates\main\event-detail.html:42
-msgid "JUNIOR"
-msgstr "JUNIOR"
-
-#: .\templates\main\event-detail.html:44
-msgid "SENIOR"
-msgstr "SENIOR"
-
-#: .\templates\main\event-detail.html:46
-msgid "MASTER"
-msgstr "MASTER"
-
-#: .\templates\main\event-detail.html:48
-msgid "ALL"
-msgstr "tüm"
-
-#: .\templates\main\event-detail.html:57
-msgid "Player"
-msgstr "Oyuncu"
-
-#: .\templates\main\event-detail.html:58
-msgid "Category"
-msgstr "Kategori"
-
-#: .\templates\main\event-detail.html:59
-msgid "Points"
-msgstr "Puanlar"
-
-#: .\templates\main\event-detail.html:60
-msgid "Gap"
-msgstr "Boşluk"
-
-#: .\templates\main\event-detail.html:61
-msgid "Lap Time"
-msgstr "Tur Zamanı"
-
-#: .\templates\main\event-detail.html:71
-msgid "Best Lap"
-msgstr "En iyi Tur"
-
-#: .\templates\main\event-list.html:21
-msgid "All"
-msgstr "Tüm"
-
-#: .\templates\main\event-list.html:54
-msgid "Explore event"
-msgstr "Etkinlik keşfet"
 
 #: .\templates\main\index.html:20 .\templates\main\index.html:170
 msgid "Your browser does not support the video tag."
@@ -196,6 +200,46 @@ msgstr "Mesaj gönder"
 #: .\templates\main\index.html:207
 msgid "Last News"
 msgstr "Son Haberler"
+
+#: .\templates\player\player-detail.html:27
+msgid "Advanced stats for"
+msgstr "İçin gelişmiş istatistikler"
+
+#: .\templates\player\player-detail.html:27
+msgid "in"
+msgstr "içinde"
+
+#: .\templates\player\player-detail.html:32
+msgid "Lap number"
+msgstr "Tur numarası"
+
+#: .\templates\player\player-detail.html:33
+msgid "Lap time"
+msgstr "Tur Zamanı"
+
+#: .\templates\player\player-detail.html:34
+msgid "Sector 1 time"
+msgstr "Sektör 1 zamanı"
+
+#: .\templates\player\player-detail.html:35
+msgid "Sector 2 time"
+msgstr "Sektör 2 zamanı"
+
+#: .\templates\player\player-detail.html:36
+msgid "Sector 3 time"
+msgstr "Sektör 3 zamanı"
+
+#: .\templates\player\player-detail.html:37
+msgid "Sector 4 time"
+msgstr "Sektör 4 zamanı"
+
+#: .\templates\player\player-detail.html:63
+msgid "Events where"
+msgstr "Olaylar nerede"
+
+#: .\templates\player\player-detail.html:63
+msgid "participated"
+msgstr "katıldı"
 
 #~ msgid "2024 KARTING SPEED"
 #~ msgstr "2024 KARTİNG hızı"

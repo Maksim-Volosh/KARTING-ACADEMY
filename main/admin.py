@@ -1,10 +1,21 @@
 from django.contrib import admin
-from django.db.models import Count
-from .models import Category, Event, Player, Statistics
+from .models import Category, Event, Player, Statistics, PlayerStatistic
+
+class PlayerStatisticInline(admin.TabularInline):
+    model = PlayerStatistic
+    extra = 1
+    fields = ['lap_number', 'event', 'lap_time', 'sector1_time', 'sector2_time', 'sector3_time', 'sector4_time']
 
 class StatisticsInline(admin.TabularInline):
     model = Statistics
     extra = 1
+    fields = ['event', 'category', 'points', 'lap_time']
+
+class PlayerAdmin(admin.ModelAdmin):
+    list_display = ('full_name', 'event_list', 'nationality')
+    readonly_fields = ('event_list',)
+    inlines = [StatisticsInline, PlayerStatisticInline]
+    list_filter = ('nationality',)
 
 class EventAdmin(admin.ModelAdmin):
     list_display = ('title', 'country', 'date_of_start', 'player_count')
@@ -17,12 +28,6 @@ class EventAdmin(admin.ModelAdmin):
         if obj and 'player_count' not in readonly_fields:  # if we are editing an existing object
             return readonly_fields + ('player_count',)
         return readonly_fields
-
-class PlayerAdmin(admin.ModelAdmin):
-    list_display = ('full_name', 'event_list', 'nationality')
-    readonly_fields = ('event_list',)
-    inlines = [StatisticsInline]
-    list_filter = ('nationality',)
 
 admin.site.register(Event, EventAdmin)
 admin.site.register(Player, PlayerAdmin)

@@ -1,7 +1,4 @@
-from datetime import date, datetime
-from unicodedata import category
 from django.db import models
-from django.utils import timezone
 
 class Category(models.Model):
     name = models.CharField(max_length=10, unique=True, verbose_name="Category")
@@ -93,3 +90,21 @@ class Statistics(models.Model):
 
     def __str__(self):
         return f"{self.player} in {self.event}"
+
+class PlayerStatistic(models.Model):
+    player = models.ForeignKey(Player, on_delete=models.CASCADE, related_name='player_statistics')
+    event = models.ForeignKey(Event, on_delete=models.CASCADE, related_name='event_statistics')
+    lap_number = models.IntegerField(verbose_name="Lap Number")
+    lap_time = models.DecimalField(verbose_name="Lap Time", max_digits=5, decimal_places=2)
+    sector1_time = models.DecimalField(verbose_name="Sector 1 Time", max_digits=5, decimal_places=2)
+    sector2_time = models.DecimalField(verbose_name="Sector 2 Time", max_digits=5, decimal_places=2)
+    sector3_time = models.DecimalField(verbose_name="Sector 3 Time", max_digits=5, decimal_places=2)
+    sector4_time = models.DecimalField(verbose_name="Sector 4 Time", max_digits=5, decimal_places=2, null=True, blank=True)
+
+    class Meta:
+        verbose_name = "Player Statistic"
+        verbose_name_plural = "Player Statistics"
+        unique_together = ("player", "event", "lap_number")
+    
+    def __str__(self):
+        return f"{self.player} - {self.event} - Lap {self.lap_number}"
