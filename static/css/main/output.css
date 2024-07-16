@@ -690,6 +690,10 @@ video {
   margin-top: 12px;
 }
 
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .block {
   display: block;
 }
@@ -874,12 +878,20 @@ video {
   gap: 2.25rem;
 }
 
+.gap-2\.5 {
+  gap: 0.625rem;
+}
+
 .self-end {
   align-self: flex-end;
 }
 
 .justify-self-center {
   justify-self: center;
+}
+
+.overflow-hidden {
+  overflow: hidden;
 }
 
 .text-nowrap {
@@ -993,6 +1005,11 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
 }
 
 .pb-1 {

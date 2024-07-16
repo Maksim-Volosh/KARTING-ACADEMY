@@ -224,6 +224,7 @@ table thead th {
   border: none;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
+  -webkit-text-stroke: 1px white;
 }
 
 table tbody td {
@@ -453,14 +454,36 @@ table tbody tr:nth-child(even) {
     height: 500px;
   }
 
-  /*.countdown__item {*/
-  /*  width: 44px;*/
-  /*  height: 44px;*/
-  /*}*/
+  .event__content {
+    padding-right: 0.75rem;
+  }
 
-  /*.countdown__item span {*/
-  /*  font-size: 1rem; !* 16px *!*/
-  /*  line-height: 1.5rem; !* 24px *!*/
-  /*}*/
+  .event__img, .countdown__item {
+    width: 44px;
+    height: 44px;
+  }
+
+  .countdown__item span {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+  }
+
+  .countdown__item small {
+    font-size: 0.3rem;
+    line-height: 0.5rem;
+  }
+
+  .event__wrap {
+    gap: 0.375rem;
+  }
+
+  table thead tr th {
+    height: 2.63rem;
+  }
+
+  table tbody tr {
+    height: 3.13rem;
+  }
+
 
 }

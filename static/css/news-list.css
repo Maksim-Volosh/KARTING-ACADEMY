@@ -1,0 +1,12 @@
+@media (max-width: 500px) {
+
+  .news__item {
+    gap: 0.5rem;
+  }
+
+  .news__desc {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+  }
+
+}
