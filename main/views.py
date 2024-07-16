@@ -133,7 +133,8 @@ def event_list(request):
     context = {
         'events': events_paginated,
         'years': years,
-        'selected_year': year
+        'selected_year': year,
+        'now': timezone.now()
     }
     return render(request, 'event/event-list.html', context=context)
 
