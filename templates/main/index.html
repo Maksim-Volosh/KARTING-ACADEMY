@@ -23,11 +23,11 @@
         <div class="start__event event flex flex-col max-w-2xl w-full">
           <div class="event__content font-formula1 flex pr-6 py-1">
             <div class="flex-align-center ml-auto gap-3">
-            <div class="flex flex-col">
+            <div class="flex flex-col py-2">
 
               <p class="uppercase text-xs">{% trans "next event" %}</p>
               {% if next_event %}
-              <p class="underline text-xl"><a href="{% url "event_detail" next_event.id %}">{{ next_event.title }}</a></p>
+              <p class="next-event-id underline text-xl"><a href="{% url "event_detail" next_event.id %}">{{ next_event.title }}</a></p>
 
               {% else %}
               <p class="text-lg">{% trans "There are no new events :(" %}</p>
@@ -39,24 +39,26 @@
           </div>
           <input type="hidden" id="next_event_time" value="{{ next_event_time }}">
           <div class="event__countdown countdown w-[97%] py-3" id="countdown">
-            <div class="flex-center gap-2 font-formula1">
-              <div class="event__frame pic mr-4" style="background-image: url('{{ next_event.logo.url }}')"><a
+            <div class="event__frame flex-center">
+              <div class="event__img pic mr-4" style="background-image: url('{{ next_event.logo.url }}')"><a
                   href="event-page.html"></a></div>
-              <div class="countdown__item">
-                <span id="countdown__days">0</span>
-                <small>{% trans "DAYS"|upper %}</small>
-              </div>
-              <div class="countdown__item">
-                <span id="countdown__hours">0</span>
-                <small>{% trans "HOURS"|upper %}</small>
-              </div>
-              <div class="countdown__item">
-                <span id="countdown__mins">0</span>
-                <small>{% trans "MINS"|upper %}</small>
-              </div>
-              <div class="countdown__item">
-                <span id="countdown__secs">0</span>
-                <small>{% trans "SECS"|upper %}</small>
+              <div class="flex-center gap-2 font-formula1">
+                <div class="countdown__item">
+                  <span id="countdown__days">0</span>
+                  <small>{% trans "DAYS"|upper %}</small>
+                </div>
+                <div class="countdown__item">
+                  <span id="countdown__hours">0</span>
+                  <small>{% trans "HOURS"|upper %}</small>
+                </div>
+                <div class="countdown__item">
+                  <span id="countdown__mins">0</span>
+                  <small>{% trans "MINS"|upper %}</small>
+                </div>
+                <div class="countdown__item">
+                  <span id="countdown__secs">0</span>
+                  <small>{% trans "SECS"|upper %}</small>
+                </div>
               </div>
             </div>
           </div>
@@ -67,11 +69,12 @@
 
     <section class="rating pl-20 pr-24 pt-16">
         <div class="wrapper">
-          <h2 class="head head_left-line text-6xl mb-[2rem]" id="message">{% trans "Rating" %}</h2>
+          <h2 class="rating__head head head_left-line text-6xl mb-[2rem]" id="message">{% trans "Rating" %}</h2>
 
           <div class="rating__content flex justify-between">
 
             <div class="rating__table w-[45%] font-formula1 grid flex-col items-center">
+              <div class="table">
               <table class="bg-inherit table-auto w-full">
                 <thead class="thead-light h-[4.2rem]">
                 <tr>
@@ -108,7 +111,7 @@
                 </tr>
                 {% else %}
                 <!-- If we have an event - we init an statistic -->
-                <p class="mb-8"><a class="underline" href="{% url 'event_detail' event.id %}">{{ event.title }}</a>
+                <p class="event_detail mb-8"><a class="underline" href="{% url 'event_detail' event.id %}">{{ event.title }}</a>
                 </p>
                 {% for stat in statistic %}
                 <tr class="h-[9rem]">
@@ -122,6 +125,7 @@
                 {% endif %}
                 </tbody>
               </table>
+              </div>
               <button class="uppercase button explore-btn justify-self-center" onClick={explore}>{% trans "Explore" %}</button>
             </div>
 
@@ -207,7 +211,7 @@
             {% trans "Last News" %}
           </h2>
           <div class="news__wrapper h-60 flex">
-            <div class="news__content bg-[#EADF20] pl-24 py-1.5 pr-2 flex flex-wrap h-full gap-5 ">
+            <div class="news__content pl-24 py-1.5 pr-2 flex h-full gap-5">
               {% for news in news %}
               <div class="news__item flex flex-col text-center">
                 <div class="news__frame bg-white h-[82%] w-full pic"
