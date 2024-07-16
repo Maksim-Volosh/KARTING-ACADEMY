@@ -3,6 +3,7 @@
 
 {% block links %}
 <!-- News CSS -->
+<link href="{% static 'css/news-list.css' %}" rel="stylesheet">
 {% endblock links %}
 
 {% block title %}Karting speed | News{% endblock title %}
@@ -21,7 +22,7 @@
               <div><img class="news__img" src="{{ news.image.url }}" alt="{{ news.title }}"></div>
               <div class="news__desc flex flex-col text-gray-600 py-5 pr-2">
                 <p class="news__title text-xs mb-3 tracking-normal">{{ news.title }}</p>
-                <p class="news__content text-xs mb-3">{{ news.content|truncatechars:45 }}</p>
+                <p class="news__content text-[0.6rem] mb-3">{{ news.content|truncatechars:45 }}</p>
 
                 {% if news.updated_at != news.created_at %}
                 <p class="news__date mb-1">Update: {{ news.updated_at }}</p>
