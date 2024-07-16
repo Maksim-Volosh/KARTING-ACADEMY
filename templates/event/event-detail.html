@@ -73,7 +73,7 @@
                 {{loop}}</td>
               <td class="text-center">{{ player.id }}</td>
               {% if forloop.first %}
-              <td class="text-center" rowspan="{{ stats|length }}"><a href="{% url 'player_detail' player.id %}" id="player-{{ player.id }}">{{ player.full_name }}</a></td>
+              <td class="text-center" rowspan="{{ stats|length }}"><a href="{% url 'player_detail' player.id %}?ev={{ event.id }}" id="player-{{ player.id }}">{{ player.full_name }}</a></td>
               {% endif %}
               <td class="text-center">{{ stat.category.name }}</td>
               <td class="text-center">{{ stat.points }}</td>
@@ -85,6 +85,7 @@
         {% endfor %}
         </tbody>
       </table>
+      <p>{% trans "Click on the player name to see more stats about this event" %}</p>
     </section>
   </div>
 </main>

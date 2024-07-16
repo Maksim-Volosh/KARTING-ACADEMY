@@ -1,10 +1,12 @@
 {% extends "base.html" %}
 {% load static %}
+{% load i18n %}
 
 {% block links %}
 <!-- player-detail CSS -->
 <link href="{% static 'css/event-list.css' %}" rel="stylesheet">
 <link href="{% static 'css/player-detail.css' %}" rel="stylesheet">
+<link href="{% static 'css/event-detail.css' %}" rel="stylesheet">
 
 {% endblock links %}
 
@@ -19,15 +21,54 @@
         <h3 class="player__name text-2xl head_bottom-line">{{ player.name }} {{ player.surname }}</h3>
         <p class="player__nationality">{{ player.nationality }} </p>
       </div>
+
+      {% if status %}
+        <img src="/media/{{ image_of_track }}" alt="">
+        <h4 class="player__name">{% trans "Advanced stats for" %} <u>{{ player.full_name }}</u> {% trans "in" %} {{ event_name }}:</h4>
+        <br>
+        <table border="1" class="players">
+          <thead>
+              <tr>
+                  <th>{% trans "Lap number" %}</th>
+                  <th>{% trans "Lap time" %}</th>
+                  <th>{% trans "Sector 1 time" %}</th>
+                  <th>{% trans "Sector 2 time" %}</th>
+                  <th>{% trans "Sector 3 time" %}</th>
+                  <th>{% trans "Sector 4 time" %}</th>
+              </tr>
+          </thead>
+          <tbody>
+              {% for stat in player_event_stats %}
+              <tr>
+                  <td class="text-center">{{ stat.lap_number }}</td>
+                  <td class="text-center">{{ stat.lap_time }}s</td>
+                  <td class="text-center">{{ stat.sector1_time }}s</td>
+                  <td class="text-center">{{ stat.sector2_time }}s</td>
+                  <td class="text-center">{{ stat.sector3_time }}s</td>
+                  <td class="text-center">{{ stat.sector4_time }}s</td>
+              </tr>
+              {% empty %}
+              <tr>
+                  <td colspan="6">Нет данных о кругах для этого игрока на данном событии.</td>
+              </tr>
+              {% endfor %}
+          </tbody>
+        </table>
+        <br>
+        <br>
+        <br>
+      {% endif %}
+
       <div class="flex flex-col w-[100%]">
-        <h4 class="player__name">Events where {{ player.name }} participated:</h4>
+        <h4 class="player__name">{% trans "Events where" %} <u>{{ player.full_name }}</u> {% trans "participated" %}:</h4>
+        <br>
         {% for event, categories in events_with_categories.items %}
         <div class="event__item flex-align-center flex-wrap justify-between p-2 ">
           {% for cat in categories %}
             <a class="event__name w-[45%]" href="{% url 'event_detail' event.id %}?cat={{ cat }}#player-{{ player.id }}">{{ event }}</a>
           {% endfor %}
           <p class="event__dates text-nowrap">{{ event.date_of_start }} - {{ event.date_of_end }}</p>
-        </div>
+      </div>
         {% endfor %}
       </div>
     </section>

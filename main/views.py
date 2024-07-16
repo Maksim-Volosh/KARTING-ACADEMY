@@ -1,4 +1,5 @@
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.http import Http404
 from django.shortcuts import get_object_or_404, render
 from django.utils import timezone
 
@@ -6,7 +7,7 @@ from app_gallery.models import Gallery
 from app_gallery.services import get_last_ten_photos
 from app_news.models import News
 from app_news.services import get_last_three_news
-from main.models import Category, Event, Player, Statistics
+from main.models import Category, Event, Player, PlayerStatistic, Statistics
 from main.services import *
 from services.services import *
 
@@ -89,23 +90,41 @@ def event_detail(request, pk):
     return render(request, 'event/event-detail.html', context=context)
 
 def player_detail(request, pk):
+    event_id = request.GET.get('ev')
+    
     player = get_object_or_404(Player, pk=pk)
-    
-    
+         
     statistics = all_stats_for_player_with_event(Statistics, player)
-    
+        
     # Создаем словарь, чтобы сгруппировать статистики по событиям
     events_with_categories = {}
     for stat in statistics:
         if stat.event not in events_with_categories:
             events_with_categories[stat.event] = []
         events_with_categories[stat.event].append(stat.category)
-    
+        
     context = {
         'player': player,
         'events_with_categories': events_with_categories
     }
+    
+    if event_id:
+        player_event_stats = PlayerStatistic.objects.filter(player__pk=pk, event__pk=event_id).select_related('event', 'player').values(
+            'event__id', 'event__image_of_track', 'event__title', 'player__id', 'player__name', 'player__surname', 'player__nationality', 'lap_number', 'lap_time', 'sector1_time', 'sector2_time', 'sector3_time', 'sector4_time')
+        
+        if player_event_stats:
+            image_of_track = player_event_stats[0]['event__image_of_track']
+            event_name = player_event_stats[0]['event__title']
+
+            context.update({
+                'player_event_stats': player_event_stats,
+                'image_of_track': image_of_track,
+                'event_name': event_name,
+                'status': True
+            })
+        
     return render(request, 'player/player-detail.html', context=context)
+
 
 def event_list(request):
     year = request.GET.get('y')
