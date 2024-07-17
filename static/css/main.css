@@ -224,7 +224,7 @@ table thead th {
   border: none;
   border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
-  -webkit-text-stroke: 1px white;
+  -webkit-text-stroke: 0.03rem white;
 }
 
 table tbody td {
@@ -392,6 +392,10 @@ table tbody tr:nth-child(even) {
     width: 230px;
     flex-shrink: 0;
   }
+  .gallery-cell {
+    height: 600px;
+  }
+
 }
 
 @media (max-width: 710px) {
@@ -401,7 +405,7 @@ table tbody tr:nth-child(even) {
   }
 
   table {
-    font-size: 0.7rem;
+    font-size: 0.625rem;
     line-height: 1rem;
   }
 
@@ -446,6 +450,19 @@ table tbody tr:nth-child(even) {
     margin-bottom: 1.25rem;
   }
 
+  .rating__content {
+    gap: 0;
+  }
+
+  .lane {
+    margin-top: 32px;
+    margin-bottom: 60px;
+  }
+
+  .gallery-cell {
+    height: 450px;
+  }
+
 }
 
 @media (max-width: 510px) {
@@ -485,5 +502,60 @@ table tbody tr:nth-child(even) {
     height: 3.13rem;
   }
 
+  .card-body {
+    margin: auto;
+    width: 95%;
+  }
+
+  .form__control {
+    font-size: 0.625rem;
+  }
+
+  .textarea {
+    height: 108px;
+  }
+
+  .send-btn {
+    line-height: normal;
+    font-size: 0.8rem;
+    padding: 7px 14px;
+  }
+
+  .partners {
+    padding-left: unset;
+    padding-right: unset;
+  }
+
+  .news__head, .gallery__head {
+    padding-left: unset;
+  }
+
+  .flickity-prev-next-button {
+    width: 44px;
+    height: 44px;
+  }
+
+  .flickity-prev-next-button.next {
+    right: 0;
+  }
+
+  .flickity-prev-next-button.previous {
+    left: 0;
+  }
+
+  .footer__header {
+    margin-top: 2rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+}
+
+@media (max-width: 450px) {
+
+  .gallery-cell {
+    width: 300px;
+    height: 300px;
+  }
 
 }

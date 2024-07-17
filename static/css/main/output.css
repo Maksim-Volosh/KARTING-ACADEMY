@@ -634,6 +634,14 @@ video {
   margin-bottom: 3rem;
 }
 
+.mb-16 {
+  margin-bottom: 4rem;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+
 .mb-3 {
   margin-bottom: 0.75rem;
 }
@@ -670,14 +678,6 @@ video {
   margin-top: 2.5rem;
 }
 
-.mt-2 {
-  margin-top: 0.5rem;
-}
-
-.mt-3 {
-  margin-top: 0.75rem;
-}
-
 .mt-4 {
   margin-top: 1rem;
 }
@@ -688,10 +688,6 @@ video {
 
 .mt-\[12px\] {
   margin-top: 12px;
-}
-
-.mb-2 {
-  margin-bottom: 0.5rem;
 }
 
 .block {
@@ -858,6 +854,10 @@ video {
   gap: 0.5rem;
 }
 
+.gap-2\.5 {
+  gap: 0.625rem;
+}
+
 .gap-3 {
   gap: 0.75rem;
 }
@@ -876,10 +876,6 @@ video {
 
 .gap-9 {
   gap: 2.25rem;
-}
-
-.gap-2\.5 {
-  gap: 0.625rem;
 }
 
 .self-end {
@@ -947,6 +943,11 @@ video {
   padding-right: 4rem;
 }
 
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
 .px-24 {
   padding-left: 6rem;
   padding-right: 6rem;
@@ -982,11 +983,6 @@ video {
   padding-bottom: 0.5rem;
 }
 
-.py-20 {
-  padding-top: 5rem;
-  padding-bottom: 5rem;
-}
-
 .py-3 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -1005,11 +1001,6 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
-}
-
-.px-2 {
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
 }
 
 .pb-1 {
@@ -1439,14 +1430,11 @@ h1 {
   height: 20px;
 }
 
-@media (max-width: 1250px) {
-  .news__head {
-    font-size: 1rem;
-    /* 16px */
-    line-height: 1.5rem;
-    /* 24px */
-  }
+.footer__info {
+  font-family: 'Heebo', sans-serif;
+}
 
+@media (max-width: 1250px) {
   .navbar__items {
     gap: 1.25rem;
     font-size: 0.875rem;
@@ -1465,17 +1453,38 @@ h1 {
     flex-direction: column;
     gap: 25px
   }
+
+  .navbar__items {
+    gap: 0.75rem;
+    font-size: 0.7rem;
+    line-height: normal;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
 }
 
 @media (max-width: 690px) {
+  .footer__container {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
   .footer__info {
     font-size: 0.8rem;
+    line-height: normal;
+  }
+
+  .head2 {
+    text-align: center;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .partners__head {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+    margin-bottom: 2rem;
   }
 }
 
-@media (max-width: 450px) {
-  .footer__info {
-    font-size: 0.5rem;
-  }
-}
 
