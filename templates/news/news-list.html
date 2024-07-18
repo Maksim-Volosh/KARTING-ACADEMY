@@ -20,7 +20,7 @@
         <div class="news__item_wrap bg-white flex h-[150px] max-w-[550px] w-full">
           <a  class="w-full" href="{% url 'news-detail' news.id %}">
             <div class="news__item flex gap-4 w-full">
-              <div class="overflow-hidden"><img class="news__img overflow-hidden" src="{{ news.image.url }}" alt="{{ news.title }}"></div>
+              <div class="news__img"><img src="{{ news.image.url }}" alt="{{ news.title }}"></div>
               <div class="news__desc flex flex-col text-gray-600 py-5 pr-2">
                 <p class="news__title text-xs mb-3 tracking-normal">{{ news.title }}</p>
                 <p class="news__content text-[0.6rem] mb-3">{{ news.content|truncatechars:45 }}</p>

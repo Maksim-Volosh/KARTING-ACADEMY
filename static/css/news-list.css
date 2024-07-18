@@ -5,15 +5,37 @@
   }
 }
 
-@media (max-width: 500px) {
+.news__img {
+  height: 150px;
+  max-width: none;
+  width: 200px;
+}
+
+@media (max-width: 520px) {
+
+  .news__item_wrap {
+    height: auto;
+    width: auto;
+  }
+
+  .news__item {
+    flex-direction: column;
+  }
 
   .news__item {
     gap: 0.5rem;
+    width: 300px;
   }
 
   .news__desc {
     padding-top: 0.625rem;
     padding-bottom: 0.625rem;
+    padding-left: 0.5rem;
+  }
+
+  .news__img {
+    height: auto;
+    width: 100%;
   }
 
 }

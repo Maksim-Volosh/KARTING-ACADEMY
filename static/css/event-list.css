@@ -7,10 +7,11 @@
   padding: 0.25rem;
   background: rgb(3, 25, 77);
   border: 1px solid rgba(14, 60, 122, 0.75);
+  height: 45px;
 }
 
-.event__years:enabled {
-  border: 1px solid rgba(14, 60, 122, 0.75);
+.event__years option {
+  height: 45px;
 }
 
 .event__item {

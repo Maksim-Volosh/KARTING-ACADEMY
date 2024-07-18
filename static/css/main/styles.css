@@ -161,12 +161,6 @@ h1 {
   text-underline-offset: 0.2em;
 }
 
-.news__img {
-  height: 150px;
-  max-width: none;
-  width: 200px;
-}
-
 .navbar__items, .event__content, .event__countdown {
   position: relative;
   z-index: 2;
@@ -343,7 +337,7 @@ h1 {
 
   .footer__content {
     flex-direction: column;
-    gap: 25px
+    gap: 1.5rem;
   }
 
   .navbar__items {
@@ -363,11 +357,6 @@ h1 {
     padding-right: 1.25rem;
   }
 
-  .footer__info {
-    font-size: 0.8rem;
-    line-height: normal;
-  }
-
   .head2 {
     text-align: center;
     font-size: 1.5rem;
@@ -382,4 +371,26 @@ h1 {
 
 }
 
+@media (max-width: 505px) {
 
+  .footer__content {
+    gap: 1rem;
+  }
+
+  .footer__info {
+    font-size: 0.8rem;
+    line-height: normal;
+    gap: 0.5rem;
+  }
+
+  .footer__header {
+    margin-top: 2rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .footer__icons {
+    gap: 1.25rem;
+  }
+
+}

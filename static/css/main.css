@@ -392,6 +392,7 @@ table tbody tr:nth-child(even) {
     width: 230px;
     flex-shrink: 0;
   }
+
   .gallery-cell {
     height: 600px;
   }
@@ -399,9 +400,14 @@ table tbody tr:nth-child(even) {
 }
 
 @media (max-width: 710px) {
+
+  .next-event {
+    padding-left: 0.5rem;
+  }
+
   .next-event-id {
     font-size: 0.75rem;
-    line-height: 1rem;
+    line-height: 1.2rem;
   }
 
   table {
@@ -556,6 +562,15 @@ table tbody tr:nth-child(even) {
   .gallery-cell {
     width: 300px;
     height: 300px;
+  }
+
+  .header__container {
+    padding: 17px 15px 0 4px;
+  }
+
+  .karting-speed {
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.75rem; /* 28px */
   }
 
 }

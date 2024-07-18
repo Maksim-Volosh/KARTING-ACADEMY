@@ -2,6 +2,8 @@ table {
   margin: auto;
   width: 100%;
   border: none;
+  font-size: 0.75rem; /* 12px */
+  line-height: 1rem; /* 16px */
 }
 
 td, th {
@@ -21,6 +23,12 @@ table thead th, table tr td {
   color: #FFFFFF;
 }
 
+.dash {
+  width: 15px;
+  height: 3px;
+  background-color: #FFFFFF;
+}
+
 .label {
   position: absolute;
   transform: rotate(180deg);
@@ -31,38 +39,81 @@ table thead th, table tr td {
   font-size: 0.6rem;
   height: 100%;
   letter-spacing: 1px;
-  top: -.0526315789rem;
-  left: -.0526315789rem;
+  top: 0;
+  left: -.05rem;
+  padding: 0 1px;
 }
 
 .green-label {
   background-color: #0ad386;
 }
 
-@media (max-width: 920px ) {
-  .event__title_text {
-    font-size: 1.125rem; /* 18px */
-    line-height: 1.75rem; /* 28px */
-  }
-}
+@media (max-width: 750px ) {
 
-@media (max-width: 650px ) {
-  table {
-    line-height: 1rem;
+  .event__title_text {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+
+  .event__country {
+    font-size: 1rem; /* 16px */
+    line-height: 1.5rem; /* 24px */
+  }
+
+  .event__date {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem; /* 20px */
+  }
+
+  .event__desc {
+    margin-top: 0.75rem;
+  }
+
+  .event__desc, .table-desc {
+    font-size: 0.75rem; /* 12px */
+    line-height:1rem; /* 16px */
   }
 
   td, th {
     padding: 10px 5px;
   }
-}
 
-@media (max-width: 650px ) {
   table {
     font-size: 0.6rem;
-    line-height: 1rem;
+    line-height: 0.8rem;
   }
 
   .label {
     font-size: 0.3rem;
+    line-height: normal;
   }
+
+}
+
+@media (max-width: 450px ) {
+
+  table {
+    font-size: 0.5rem;
+  }
+
+  td, th {
+    padding: 3px;
+  }
+
+  .event__desc, .table-desc {
+    font-size: 0.5rem;
+    line-height: 0.7rem;
+  }
+
+  .btn-container {
+    column-gap: 0.5rem;
+    font-size: 0.65rem;
+    line-height: 0.8rem;
+  }
+
+  .event__date {
+    font-size: 0.7rem;
+    line-height: 1rem;
+  }
+
 }
