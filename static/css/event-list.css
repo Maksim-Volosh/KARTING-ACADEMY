@@ -86,6 +86,11 @@
     align-items: normal;
   }
 
+  .event__button {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
   .height-190 {
     height: 190px;
   }

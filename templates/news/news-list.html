@@ -17,7 +17,7 @@
       <h2 class="news__head text-center mb-12 head head_bottom-line text-4xl" id="partners">News</h2>
       <div class="news-container flex-center flex-wrap gap-6">
         {% for news in news %}
-        <div class="news__item_wrap bg-white flex h-[150px] max-w-[550px] w-full">
+        <div class="news__item_wrap bg-white flex max-w-[550px] w-full">
           <a  class="w-full" href="{% url 'news-detail' news.id %}">
             <div class="news__item flex gap-4 w-full">
               <div class="news__img"><img src="{{ news.image.url }}" alt="{{ news.title }}"></div>

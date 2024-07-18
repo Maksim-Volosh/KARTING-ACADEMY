@@ -57,8 +57,7 @@
 @media (max-width: 570px) {
 
   .gallery__wrapper {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding: 3rem 1.5rem 1rem;
   }
 
   .gallery__item, .gallery__item img {
@@ -71,7 +70,7 @@
 
   .photo__date {
     -webkit-text-stroke: 1px #003062CC;
-    font-size: 1rem;
+    font-size: 0.8rem;
   }
 
   .gallery__item .title-overlay {
