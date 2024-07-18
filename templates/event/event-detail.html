@@ -33,7 +33,7 @@
 
       {% endif %}
       {% if event.image_of_track %}
-      <img src="{{ event.image_of_track.url }}" class="w-6/12" alt="{{ event.title }} - image">
+      <img src="{{ event.image_of_track.url }}" class="max-w-[580px] w-full" alt="{{ event.title }} - image">
       {% endif %}
       <br>
       <div class="btn-container flex-center gap-y-1 gap-x-3 flex-wrap " id="buttons">

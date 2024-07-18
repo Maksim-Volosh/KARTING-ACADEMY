@@ -386,6 +386,7 @@ table tbody tr:nth-child(even) {
   .news__content {
     width: 800px;
     overflow: hidden;
+    padding-left: 4rem;
   }
 
   .news__item {
@@ -431,6 +432,7 @@ table tbody tr:nth-child(even) {
 }
 
 @media (max-width: 580px) {
+
   .rating__table {
     gap: 0.5rem;
   }
@@ -553,6 +555,10 @@ table tbody tr:nth-child(even) {
     margin-top: 2rem;
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .news__content {
+    padding-left: 1.5rem;
   }
 
 }

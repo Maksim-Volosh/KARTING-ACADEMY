@@ -3,6 +3,7 @@
 
 {% block links %}
 <!-- News CSS -->
+<link href="{% static 'css/news-detail.css' %}" rel="stylesheet">
 {% endblock links %}
 
 {% block title %}Karting speed | News {{ news.id }}{% endblock title %}
@@ -11,19 +12,21 @@
 {% block main %}
 <main class="mews-detail font-formula1">
   <div class="wrapper">
-    <div class="news-detail__wrapper flex px-10 py-12 gap-2">
-      <div class="news-detail__content flex flex-col max-w-[800px]">
-        <h1 class="text-[#45F197FF] mb-7">{{ news.title }}</h1>
+    <div class="news-detail__wrapper flex px-10 pt-12 gap-2">
+      <div class="news-detail__content flex flex-col">
+        <h1 class="news__title text-[#45F197FF] mb-7">{{ news.title }}</h1>
+        <div class="flex flex-col max-w-[800px]">
         <img class="max-h-[500px] max-w-[800px] w-full" src="{{ news.image.url }}" alt="{{ news.title }}">
-        <p class="mt-6 mb-3">{{ news.content }}</p>
+        <p class="description mt-6 mb-3">{{ news.content }}</p>
         {% if news.documents %}
-        <p class="mb-2"><a href="{{ news.documents.url }}" download>{{ news.documents }}</a></p>
+        <p class="documents mb-2"><a href="{{ news.documents.url }}" download>{{ news.documents }}</a></p>
         {% endif %}
         {% if news.updated_at != news.created_at %}
         <p class="detail_date mb-3"> Update: {{ news.updated_at }}</p>
         {% else %}
         <p class="detail_date">Create: {{ news.created_at }}</p>
         {% endif %}
+        </div>
       </div>
     </div>
   </div>
