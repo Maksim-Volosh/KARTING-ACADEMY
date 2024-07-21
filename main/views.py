@@ -139,7 +139,7 @@ def event_list(request):
         
     years = get_years_of_events(Event)
     
-    paginator = Paginator(events, 1)
+    paginator = Paginator(events, 15)
     page = request.GET.get('page')
     
     try:

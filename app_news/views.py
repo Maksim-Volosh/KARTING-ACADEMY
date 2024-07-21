@@ -7,7 +7,7 @@ from services.services import obj_all
 def news_list(request):
     news_list = obj_all(News)
     
-    paginator = Paginator(news_list, 1)
+    paginator = Paginator(news_list, 15)
     page = request.GET.get('page')
     
     try:

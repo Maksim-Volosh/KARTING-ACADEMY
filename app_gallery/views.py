@@ -9,7 +9,7 @@ from services.services import obj_all
 def gallery_list(request):
     gallery_list = get_all_photos(Gallery)
     
-    paginator = Paginator(gallery_list, 1)
+    paginator = Paginator(gallery_list, 15)
     page = request.GET.get('page')
     
     try:
