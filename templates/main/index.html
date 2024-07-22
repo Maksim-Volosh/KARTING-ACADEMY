@@ -111,8 +111,6 @@
                 </tr>
                 {% else %}
                 <!-- If we have an event - we init an statistic -->
-                <p class="event_detail mb-8"><a class="underline" href="{% url 'event_detail' event.id %}">{{ event.title }}</a>
-                </p>
                 {% for stat in statistic %}
                 <tr class="h-[9rem]">
                   <th scope="row" class="w-[126px]">{{ forloop.counter }}</th>
@@ -126,7 +124,7 @@
                 </tbody>
               </table>
               </div>
-              <button class="uppercase button explore-btn justify-self-center" onClick={explore}>{% trans "Explore" %}</button>
+              <a class="uppercase button explore-btn justify-self-center" onClick={explore} href="{% url 'event_detail' event.id %}">{% trans "Explore" %}</a>
             </div>
 
             <div class="lane bg-[#FCD700]"></div>
