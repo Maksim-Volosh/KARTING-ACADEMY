@@ -36,7 +36,6 @@
   -webkit-text-stroke: 2px #003062CC;
   text-transform: uppercase;
   color: #003062CC;
-  font-weight: 600;
   font-size: 1.2rem;
 }
 
@@ -44,4 +43,38 @@
   max-width: 23.7rem;
   transition: max-height .5s;
   font-size: 1rem;
+}
+
+@media (max-width: 930px) {
+
+  .gallery__item {
+    width: auto;
+    height: auto;
+  }
+
+}
+
+@media (max-width: 570px) {
+
+  .gallery__wrapper {
+    padding: 3rem 1.5rem 1rem;
+  }
+
+  .gallery__item, .gallery__item img {
+    height: 300px;
+  }
+
+  .photo__title {
+    font-size: 0.75rem;
+  }
+
+  .photo__date {
+    -webkit-text-stroke: 1px #003062CC;
+    font-size: 0.8rem;
+  }
+
+  .gallery__item .title-overlay {
+    gap: 0.5rem;
+  }
+
 }

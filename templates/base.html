@@ -11,7 +11,6 @@
   <!-- Tailwind CSS -->
   <!-- all CSS -->
   <link href="{% static 'css/main/output.css' %}" rel="stylesheet">
-  <link href="{% static 'css/main/styles.css' %}" rel="stylesheet">
   <link href="{% static 'css/main/hamburger.css' %}" rel="stylesheet">
   {% block links %}
   {% endblock links %}
@@ -21,12 +20,12 @@
 
 <header class="header z-[4]">
   <div class="wrapper flex flex-col">
-    <div class="header__container flex flex-col py-8 px-4 gap-4">
+    <div class="header__container flex flex-col pt-8 px-4 gap-4">
       <div class="header__content flex justify-between relative">
         <div class="for-blur"></div>
-        <div class="header__logo flex-center gap-4">
+        <div class="header__logo flex-center">
           <div class="karting-head pic"></div>
-          <h2 class="news__head head head2 text-2xl uppercase">
+          <h2 class="karting-speed head head2 text-2xl uppercase">
             <a href="{% url "index" %}">
             Karting speed
             </a>
@@ -121,7 +120,7 @@
     <div class="top-line"></div>
     <div class="footer__container pt-12 pb-8 px-24">
       <div class="footer__content flex-align-center justify-between">
-        <div class="flex gap-9">
+        <div class="footer__icons flex gap-9">
           <a href="https://instagram.com" target="_blank"> <img class="footer__icon"
                                                                 src="/static/img/main/inst_icon.svg"
                                                                 alt="inst_icon"></a>
@@ -133,10 +132,10 @@
                                                              alt="youtube_icon"></a>
         </div>
         <div class="footer__info flex flex-col font-formula1 text-xl gap-4">
-          <div class="flex gap-1"><img class="message-icon" src="/static/img/main/phone.svg" alt="phone">
+          <div class="flex-center gap-1"><img class="message-icon" src="/static/img/main/phone.svg" alt="phone">
             <p class="text-right"> </a> <a href="tel:+905338876280" class="text-white">+905338876280</a></p>
           </div>
-          <div class="flex gap-2"><img class="message-icon" src="/static/img/main/envelope.png" alt="envelope">
+          <div class="flex-center gap-2"><img class="message-icon" src="/static/img/main/envelope.png" alt="envelope">
             <p class="text-right"><a href="mailto:kartingspeedacademy@gmail.com" class="text-white">kartingspeedacademy@gmail.com</a>
             </p>
           </div>

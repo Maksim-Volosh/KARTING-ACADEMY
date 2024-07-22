@@ -1,0 +1,36 @@
+@media (max-width: 900px) {
+
+  .news__title {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
+}
+
+@media (max-width: 610px ) {
+
+  .news-detail__wrapper {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .description {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .documents {
+    font-size: 0.65rem;
+    line-height: 0.8rem;
+  }
+
+}
+
+
+@media (max-width: 410px ) {
+
+  .documents {
+    font-size: 0.5rem;
+  }
+
+}

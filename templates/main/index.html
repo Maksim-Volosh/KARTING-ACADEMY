@@ -22,8 +22,8 @@
       <div class="wrapper">
         <div class="start__event event flex flex-col max-w-2xl w-full">
           <div class="event__content font-formula1 flex pr-6 py-1">
-            <div class="flex-align-center ml-auto gap-3">
-            <div class="flex flex-col py-2">
+            <div class="event__wrap flex-align-center ml-auto gap-3">
+            <div class="next-event flex flex-col gap-2.5 py-2">
 
               <p class="uppercase text-xs">{% trans "next event" %}</p>
               {% if next_event %}
@@ -89,7 +89,7 @@
                 <!-- If we don't have an event -->
                 {% if not statistic %}
                 <tr class="h-[9rem]">
-                  <th scope="row" class="w-[126px]">1</th>
+                  <th scope="row" class="w-[126px] px-2">1</th>
                   <td class="w-[180px]"></td>
                   <td class="w-[180px]"></td>
                   <td class="w-[180px]"></td>
@@ -129,7 +129,7 @@
 
             <div class="lane bg-[#FCD700]"></div>
 
-            <div class="flex flex-col gap-9">
+            <div class="flex-align-center flex-col gap-9">
               <div class="contact-us">
                 <div class="contact-us__content">
                   <h2 class="head head2 head_left-line text-3xl mb-6">
@@ -155,10 +155,10 @@
                       </div>
                       <div class="form-group">
                         <label for="message">{% trans "Your text" %}</label>
-                        <textarea class="form__control h-[200px] bg-inherit text-white" id="message" name="message"
+                        <textarea class="textarea form__control h-[200px] bg-inherit text-white" id="message" name="message"
                                   rows="3" placeholder="{% trans "Enter your message" %}" required></textarea>
                       </div>
-                      <button type="submit" class="button rounded-lg mt-[12px] text-xl" onClick={sendMessage}>
+                      <button type="submit" class="button send-btn rounded-lg mt-[12px] text-xl" onClick={sendMessage}>
                         {% trans "Send message" %}
                       </button>
                     </form>
@@ -180,7 +180,7 @@
     <section class="partners px-9 pt-16">
         <div class="wrapper">
           <h2 class="partners__head text-center mb-12 head head_bottom-line text-4xl" id="partners"> {% trans "Partners" %} </h2>
-          <div class="partners__content flex justify-evenly flex-wrap">
+          <div class="partners__content flex justify-evenly flex-wrap  gap-3">
             {% if partners %} <!-- If partners > 0: show partners. else: show the partner stub -->
             {% for partner in partners %}
             <div class="partners__frame">
@@ -203,7 +203,7 @@
         </div>
     </section>
 
-    <section class="news py-20">
+    <section class="news pt-16">
         <div class="wrapper">
           <h2 class="news__head head head2 head_left-line text-3xl mb-12 pl-24">
             {% trans "Last News" %}
@@ -223,12 +223,12 @@
         </div>
     </section>
 
-    <section class="gallery py-20">
+    <section class="gallery pt-16">
         <div class="wrapper">
-          <h2 class="news__head head head2 head_left-line text-3xl mb-12 pl-24">
+          <h2 class="gallery__head head head2 head_left-line text-3xl pl-24">
             {% trans "gallery" %}
           </h2>
-          <div class="gallery__photos flex flex-col js-flickity"
+          <div class="gallery__photos flex flex-col js-flickity mb-16"
               data-flickity-options='{ "freeScroll": true, "wrapAround": true }'>
             <!-- Photos -->
             {% for pic in gallery %}
