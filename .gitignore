@@ -10,3 +10,4 @@ config.py
 *.bat
 local_settings.py
 prod_settings.py
+staticfiles/

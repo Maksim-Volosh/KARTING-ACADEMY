@@ -124,7 +124,7 @@
                 </tbody>
               </table>
               </div>
-              <a class="uppercase button explore-btn justify-self-center" onClick={explore} href="{% url 'event_detail' event.id %}">{% trans "Explore" %}</a>
+              <a class="uppercase button explore-btn justify-self-center" onClick={explore} href="{% if event.id %}{% url 'event_detail' event.id %}{% endif %}">{% trans "Explore" %}</a>
             </div>
 
             <div class="lane bg-[#FCD700]"></div>
