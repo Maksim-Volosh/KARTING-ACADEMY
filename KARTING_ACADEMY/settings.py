@@ -2,7 +2,11 @@ import os
 from pathlib import Path
 
 from django.utils.translation import gettext_lazy as _
-from config import PASS
+try:
+    from .config import PASS
+except ImportError:
+    raise ImportError(
+        "Please create config.py file with PASS variable in the KARTING_SPEED/ directory")
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,6 +26,7 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 INSTALLED_APPS = [
+    'unfold',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
