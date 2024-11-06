@@ -138,6 +138,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 try:
-    from .local_settings import *
-except ImportError:
     from .prod_settings import *
+except ImportError:
+    try:
+        from .local_settings import *
+    except ImportError:
+        ImportError("Please create prod_settings.py or local_settings.py in the KARTING_SPEED/ directory")
