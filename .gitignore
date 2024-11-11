@@ -8,5 +8,6 @@ config.py
 .venv/
 
 *.bat
+local_settings.py
 prod_settings.py
 staticfiles/
