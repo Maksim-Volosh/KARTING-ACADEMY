@@ -28,10 +28,10 @@
 }
 
 .gallery__item img {
-  width: 100%;
-  height: 576px;
-}
-
+    width: 100%;
+    height: 576px;
+    object-fit: cover;
+} 
 .photo__date {
   -webkit-text-stroke: 2px #003062CC;
   text-transform: uppercase;
@@ -48,9 +48,9 @@
 @media (max-width: 930px) {
 
   .gallery__item {
-    width: auto;
+    width: 100%;
     height: auto;
-  }
+}
 
 }
 
